@@ -13,17 +13,17 @@
 <body>
     <div class="login">
         <div class="login_left">
-            <br><br><br>
-            <img src="../resources/logo.png" alt="" width="210px"> 
-            <br><br><br>
+            <br><br>
+            <img src="../resources/client.svg" alt="" width="210px"> 
+            <br><br>
             <h5><b>Welcome to Fast Response.</b></h5>
-            <h5><b>This is Fast Response manager page.</b></h5>
+            <h5>This is Fast Response manager page.</h5>
         </div>
         <div class="login_right">
             <form>
               <br><br>
-                <h2 style="text-align: center;"><b>SIGN IN</b></h2>
-                <br><br>
+                <h1 style="text-align: center; color:#405064"><b>SIGN IN</b></h1>
+                <br>
                 <div class="login_form">
                     <input class="form-control" name="UserName" type="text" placeholder="아이디">
                     <br>
@@ -32,13 +32,13 @@
                     <div class="login_radio">
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                          <label class="form-check-label" for="gridRadios1">
+                          <label class="form-check-label radio_label" for="gridRadios1">
                             최고 관리자   
                           </label>
                         </div>
                         <div class="form-check">
                           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                          <label class="form-check-label" for="gridRadios2">
+                          <label class="form-check-label radio_label" for="gridRadios2">
                             기업 관리자
                           </label>
                         </div>
@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary signIn-btn">로그인</button>
+                    <button type="submit" class="btn btn-primary signIn_btn">로그인</button>
                 </div>
                 
               </form>

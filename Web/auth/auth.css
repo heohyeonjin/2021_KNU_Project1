@@ -13,7 +13,7 @@
 .login_left {
     width: 400px;
     height: 400px;
-    background-color: #333;
+    background-color: #405064;
     text-align: center;
     color: white;
 
@@ -31,6 +31,11 @@
 .form_check {
     padding-right: 15px;
 }
-.signIn-btn {
+.signIn_btn {
     width: 360px;
+    background-color:#EEB500 ;
+    border-color:#EEB500
+}
+.radio_label {
+    margin-right: 25px;
 }
