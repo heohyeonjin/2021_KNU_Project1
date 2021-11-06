@@ -1,0 +1,36 @@
+.login {
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    border: 1px solid;
+    display: flex;
+   
+}
+.login_left {
+    width: 400px;
+    height: 400px;
+    background-color: #333;
+    text-align: center;
+    color: white;
+
+}
+.login_right {
+    width: 400px;
+    height: 400px;
+}
+.login_form {
+    padding: 20px;
+}
+.login_radio {
+    display: flex;
+}
+.form_check {
+    padding-right: 15px;
+}
+.signIn-btn {
+    width: 360px;
+}
