@@ -17,8 +17,8 @@
 
 
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">FAST RESPONSE</a>
-  <a class="logout nav-link px-4" href="" style="color:white;">Logout</a> <!-- logout 페이지로 변환 -->
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">빠른답변</a>
+  <a class="logout nav-link px-4" href="#" style="color:white;">Logout</a> <!-- logout 페이지로 변환 -->
  
 </header>
 
@@ -26,21 +26,19 @@
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
     <img src="../resources/logo.png" alt="" width="210px">  
-    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-          <span>관리</span>
-          <a class="link-secondary" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-0 text-muted">
+          <span>관리</span>      
         </h6>
     <div class="position-sticky pt-3">
-        <ul class="nav nav-tabs flex-column m-2">
-         <li class="nav-item">
+        <ul class="nav flex-column"> <!--nav-tabs -->
+         <li class="nav-item mb-3">
             <a class="nav-link" aria-current="page" href="#"> <!-- active-->
             <img src="../resources/corporation.svg" alt="" width="25px">  
               기업관리
+            </span>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item mb-3">
             <a class="nav-link" href="#">
             <img src="../resources/counselor.svg" alt="" width="25px">  
               상담원관리
@@ -60,9 +58,8 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">기업관리</h1>
       </div>
-      </div>
+  
     </main>
-  </div>
-</div>
+
   </body>
 </html>
