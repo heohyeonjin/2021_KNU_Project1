@@ -23,5 +23,9 @@
 
 /* corp_list.php */
 .search {
-    display: inline-block;
+    float: right;
+    display: block;
+}
+.new-btn {
+    float: right;
 }

@@ -28,31 +28,32 @@
 
     <body>
         <?php require('../nav/nav.php'); ?>
-        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 ">
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 wrapper">
             <div class="pt-3 pb-2 mb-3 border-bottom">
                 <h3 style="text-align:left;">기업목록</h3>
             </div>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="form-group col-5">
-                        <div class="col-sm-5">
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" id="corp_search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-dark btn-sm" type="submit" id="">검색</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-check col-2">
+                <div class="search">
+                    
+                    <div class="form-check form-check-inline" style="margin-top:5px;">
                         <input class="form-check-input" type="checkbox" id="corp_available" value="option1">
                         <label class="form-check-label" for="corp_available">사용가능</label>
                     </div>
-                    <div class="form-check col-2">
+                    <div class="form-check  form-check-inline" style="margin-top:5px;">
                         <input class="form-check-input" type="checkbox" id="corp_stop" value="option2">
                         <label class="form-check-label" for="corp_stop">정지</label>
                     </div>
+
+                    <div class="form-group" style="float:right;">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-sm" id="corp_search" placeholder="기업명으로 검색">
+                            <div class="input-group-append">
+                                <button class="btn btn-warning btn-sm" type="submit" id="">검색</button>
+                            </div>
+                        </div>
+                    </div>                    
                 </div>
+                
                 <table class="table table-striped">
                     <thead class="thead-dark">
                         <tr>
@@ -171,6 +172,28 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <div class="corp_page">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <button type="submit" class="btn btn-warning btn-sm px-4 new-btn">등록하기</button>
+                </div>
+                
             </div>
         </main>
     </body>
