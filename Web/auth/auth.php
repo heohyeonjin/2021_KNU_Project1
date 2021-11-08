@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="login">
-        <div class="login_left">
+        <div class="login_left" style="background-color: #343a40;">
             <br><br>
             <img src="../resources/client.svg" alt="" width="210px"> 
             <br><br>
@@ -22,7 +22,7 @@
         <div class="login_right">
             <form>
               <br><br>
-                <h1 style="text-align: center; color:#405064"><b>SIGN IN</b></h1>
+                <h1 style="text-align: center; color:#343a40"><b>SIGN IN</b></h1>
                 <br>
                 <div class="login_form">
                     <input class="form-control" name="UserName" type="text" placeholder="아이디">
