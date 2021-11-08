@@ -29,3 +29,17 @@
 .new-btn {
     float: right;
 }
+
+/* corp_info.php */
+.corp_info {
+
+}
+.corp_info_th {
+    width: 150px;
+}
+.corp_info_td {
+    text-align: left;
+}
+.info_descrip {
+    height: 100px;
+}
