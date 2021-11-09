@@ -28,9 +28,9 @@
                 <br>
                 <div class= client-detail style="font-size:30px">
                     <div class="name">이름 :</div>
-                    <div>나이 :</div>
-                    <div>성별 :</div>
-                    <div>특이사항 :</div>
+                    <div class="age">나이 :${}</div>
+                    <div class="gender">성별 :</div>
+                    <div class="detail">특이사항 :</div>
                 </div>
                 <br><br><br>
                 <button class="d-flex justify-content-center mx-5 ml-3 btn btn-primary profile-btn" style="background-color: #EEB500;border:solid  #EEB500;">확인</button>  
