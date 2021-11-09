@@ -8,7 +8,9 @@
   height: 34px;
   vertical-align:middle;
 }
-
+.list-group-item{
+  color: #EEB500;
+}
 /* Hide default HTML checkbox */
 .switch input {display:none;}
 

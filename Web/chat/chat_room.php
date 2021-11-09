@@ -6,7 +6,7 @@
         <title>Counseling Room</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <link rel="stylesheet" href="chat_room.css?after">
+        <link rel="stylesheet" href="chat_room.css?before">
     </head>
     <body>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -46,9 +46,9 @@
            
         </div>
 
-            <form id="chat_form" class="d-flex justify-content-between" > 
-                    <input type="text" id="input_message" placeholder="상담을 시작하세요"></input>
-                    <input class="send_btn" type="submit" value="전송">
+            <form id="chat_form"class="input-group d-flex justify-content-between" > 
+                    <input type="text" class=" form-control" id="input_message"placeholder="상담을 시작하세요"></input>
+                    <button class="send_btn">전송</button>
             </form>
             <div class="file-upload" style="float:right">
                <label for="file-input">
