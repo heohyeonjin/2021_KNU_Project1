@@ -23,7 +23,7 @@
             crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../nav/nav.css">
         <link rel="stylesheet" href="corporation.css">
-        <title>corporation register</title>
+        <title>corporation</title>
     </head>
 
     <body>
