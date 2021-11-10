@@ -10,6 +10,26 @@
     <link rel ="stylesheet" href="auth.css?after">
     <title>login</title>
 </head>
+<script>
+	function form_login_chk(form) {
+    var login_id = form.login_id;
+    var login_pw = form.login_pw;
+
+    // 아이디 입력 유뮤 체크
+		if(!login_id.value) {
+			alert('아이디를 입력하세요.');
+      login_id.focus();
+			return false;
+		}
+
+    // 비밀번호 입력 유무 체크
+    if (!login_pw.value) {
+      alert('비밀번호를 입력하세요');
+      login_pw.focus();
+      return false;
+    }
+	}
+</script>
 <body>
     <div class="login">
         <div class="login_left" >
@@ -20,40 +40,40 @@
             <h5>This is Fast Response manager page.</h5>
         </div>
         <div class="login_right">
-            <form>
-              <br><br>
-                <h1 style="text-align: center; color:#343a40"><b>SIGN IN</b></h1>
+            <br><br>
+            <h1 style="text-align: center; color:#343a40"><b>SIGN IN</b></h1>
+            <br>
+            <div class="login_form">
+              <!-- 로그인 form -->
+              <form name="login_form" method="get" action="./auth_ok.php" onsubmit="return form_login_chk(this);">
+                <input class="form-control" name="login_id" type="text" placeholder="아이디">
                 <br>
-                <div class="login_form">
-                    <input class="form-control" name="UserName" type="text" placeholder="아이디">
-                    <br>
-                    <input class="form-control" name="PassWord" type="password" placeholder="비밀번호">
-                    <br>
-                    <div class="login_radio">
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                          <label class="form-check-label radio_label" for="gridRadios1">
-                            최고 관리자   
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                          <label class="form-check-label radio_label" for="gridRadios2">
-                            기업 관리자
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-                          <label class="form-check-label" for="gridRadios3">
-                            상담원
-                          </label>
-                        </div>
+                <input class="form-control" name="login_pw" type="password" placeholder="비밀번호">
+                <br>
+                <div class="login_radio">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="login_radio" id="login_radio1" value="login_admin" checked>
+                      <label class="form-check-label radio_label" for="login_radio1">
+                        최고 관리자   
+                      </label>
                     </div>
-                    <br>
-                    <button type="submit" class="btn btn-primary signIn_btn">로그인</button>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="login_radio" id="login_radio2" value="login_corp">
+                      <label class="form-check-label radio_label" for="login_radio2">
+                        기업 관리자
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="login_radio" id="login_radio3" value="login_coun">
+                      <label class="form-check-label" for="login_radio3">
+                        상담원
+                      </label>
+                    </div>
                 </div>
-                
+                <br>
+                <button type="submit" class="btn btn-primary signIn_btn">로그인</button>
               </form>
+            </div>
         </div>
     </div>
 </body>
