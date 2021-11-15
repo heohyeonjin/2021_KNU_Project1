@@ -1,5 +1,6 @@
 package chatsolution.web.corporation.model;
 
+import chatsolution.web.corporation.dto.CorpRegDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor
 @Entity
-public class Corporation {
+public class Corporation extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,4 +39,17 @@ public class Corporation {
     private String corp_desc;   // 기업 상세정보
 
     private LocalDateTime corp_regTime; // 기업 등록일
+
+    public Corporation(CorpRegDto corpRegDto) {
+        this.corp_id = corpRegDto.getCorp_id();
+        this.corp_pw = corpRegDto.getCorp_pw();
+        this.corp_name = corpRegDto.getCorp_name();
+        this.corp_admin = corpRegDto.getCorp_admin();
+        this.corp_phone = corpRegDto.getCorp_phone();
+        this.corp_email = corpRegDto.getCorp_email();
+        this.corp_logo = corpRegDto.getCorp_logo();
+        this.corp_desc = corpRegDto.getCorp_descrip();
+
+        this.corp_status = 1;
+    }
 }
