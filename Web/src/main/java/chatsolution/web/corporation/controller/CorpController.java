@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+
 @Slf4j
 @Controller
 @RequestMapping("/corporation")
@@ -29,9 +30,9 @@ public class CorpController {
     private final CorpService corpservice;
 
     @GetMapping
-    public String corporations(Model model){
-        List<CorpListDto> corps =  corpservice.corplist();
-        model.addAttribute("corps",corps);
+    public String corporations(Model model) {
+        List<CorpListDto> corps = corpservice.corplist();
+        model.addAttribute("corps", corps);
         return "corporation/corp_list";
 
     }
@@ -42,16 +43,17 @@ public class CorpController {
     }
 
     @PostMapping("/add")
-    public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto){
+    public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto) {
         log.info(corpRegDto.getCorp_name());
 
         corpservice.saveCorp(corpRegDto);
         return "corporation/corp_info";
     }
-  
+
     @GetMapping("/{corpId}")
-    public String corporation(@PathVariable long corpId, Model model){
+    public String corporation(@PathVariable long corpId, Model model) {
         CorpInfoDto corp = corpservice.corpinfo(corpId);
-        model.addAttribute("corp",corp);
+        model.addAttribute("corp", corp);
         return "corporation/corp_info";
+    }
 }
