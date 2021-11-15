@@ -1,6 +1,7 @@
 package chatsolution.web.corporation.service;
 
 
+import chatsolution.web.corporation.dto.CorpInfoDto;
 import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
@@ -23,5 +24,10 @@ public class CorpService {
                .collect(Collectors.toList());
     }
 
-    public
+    public CorpInfoDto corpinfo(Long corpId){
+        Corporation corp = corpRepository.findById(corpId).orElseThrow(
+                ()->new NullPointerException("접근 오류"));
+        return new CorpInfoDto(corp);
+    }
+
 }
