@@ -21,7 +21,6 @@ public class Corporation {
     @Column(nullable = false)
     private String corp_pw;     // 기업 비밀번호
 
-    @Column(nullable = false)
     private int corp_status;    // 기업 상태
 
     @Column(nullable = false)
