@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter@Setter
 @NoArgsConstructor
 public class CorpListDto {
+    private Long corp_no;
     private String corp_name;
     private String corp_phone;
     private String corp_admin;
@@ -18,6 +19,7 @@ public class CorpListDto {
     private String corp_status;
 
     public CorpListDto(Corporation corporation){
+        this.corp_no = corporation.getCorp_no();
         this.corp_name = corporation.getCorp_name();
         this.corp_phone = corporation.getCorp_phone();
         this.corp_admin = corporation.getCorp_admin();

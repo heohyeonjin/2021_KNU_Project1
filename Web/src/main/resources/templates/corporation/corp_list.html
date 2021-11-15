@@ -57,6 +57,7 @@
         <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
+                <th scope="col">NO.</th>
                 <th scope="col">기업명</th>
                 <th scope="col">연락처</th>
                 <th scope="col">대표자</th>
@@ -65,9 +66,9 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="corp: ${corps}">
-
-               <td><a href="#" th:text="${corp.corp_name}">기업명</a></td>
+                 <tr th:each="corp: ${corps}">
+                 <td th:text="${corp.corp_no}">순서</td>
+                <td><a href="#" th:href="@{/corporation/{corpId}(corpId=${corp.corp_no})}" th:text="${corp.corp_name}">기업명</a></td>
                 <td th:text="${corp.corp_phone}">연락처</a></td>
                 <td th:text="${corp.corp_admin}">대표자</a></td>
                 <td th:text="${corp.corp_regTime}">등록일자</a></td>
