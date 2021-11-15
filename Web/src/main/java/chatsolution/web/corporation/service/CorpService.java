@@ -15,10 +15,13 @@ import java.util.stream.Collectors;
 public class CorpService {
 
     private final CorpRepository corpRepository;
+
     public List<CorpListDto> corplist(){
        List<Corporation> corp = corpRepository.findAll();
        return corp.stream()
                .map(o -> new CorpListDto(o))
                .collect(Collectors.toList());
     }
+
+    public
 }
