@@ -8,9 +8,10 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column"> <!--nav-tabs -->
                     <li class="nav-item mb-3">
-                        <a class="nav-link" aria-current="page" href="#"> <!-- active-->
+                        <a class="nav-link" aria-current="page" href="#" th:onclick="|location.href='@{/corporation}'|"> <!-- active-->
                             <img src="../../static/images/corporation.svg" th:src="@{/images/corporation.svg}" alt="" width="25px">
                             기업관리
+
                         </a>
                     </li>
                     <li class="nav-item mb-3">

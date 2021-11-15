@@ -57,7 +57,6 @@
         <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">No</th>
                 <th scope="col">기업명</th>
                 <th scope="col">연락처</th>
                 <th scope="col">대표자</th>
@@ -66,110 +65,23 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td scope="row">13</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>사용 가능</td>
+            <tr th:each="corp: ${corps}">
+
+               <td><a href="#" th:text="${corp.corp_name}">기업명</a></td>
+                <td th:text="${corp.corp_phone}">연락처</a></td>
+                <td th:text="${corp.corp_admin}">대표자</a></td>
+                <td th:text="${corp.corp_regTime}">등록일자</a></td>
+                <td th:text="${corp.corp_status}">상태</td>
             </tr>
-            <tr>
-                <td>12</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>사용 가능</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>사용 가능</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>사용 가능</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>사용 가능</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>달봉이</td>
-                <td>010-0000-0000</td>
-                <td>홍길동</td>
-                <td>2021-08-01</td>
-                <td>정지</td>
-            </tr>
+<!--            <tr>-->
+<!--                <td>12</td>-->
+<!--                <td>달봉이</td>-->
+<!--                <td>010-0000-0000</td>-->
+<!--                <td>홍길동</td>-->
+<!--                <td>2021-08-01</td>-->
+<!--                <td>사용 가능</td>-->
+<!--            </tr>-->
+
             </tbody>
         </table>
 

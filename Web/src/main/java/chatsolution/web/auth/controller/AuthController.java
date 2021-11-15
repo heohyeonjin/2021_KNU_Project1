@@ -34,7 +34,7 @@ public class AuthController {
         log.info(login_radio);
         log.info(String.valueOf(result));
         if(login_radio.equals("login_admin") && result) {
-            return "corporation/corp_list";
+            return "redirect:/corporation";
         }
         else if(login_radio.equals("login_corp") && result) {
             return "corporation/corp_list";
