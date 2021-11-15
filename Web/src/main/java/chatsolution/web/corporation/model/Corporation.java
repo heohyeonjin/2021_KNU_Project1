@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter @Setter
@@ -15,6 +13,9 @@ import java.time.LocalDateTime;
 public class Corporation {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long corp_no;       // 기업 일련번호
+
     @Column(nullable = false)
     private String corp_id;     // 기업 아이디
 

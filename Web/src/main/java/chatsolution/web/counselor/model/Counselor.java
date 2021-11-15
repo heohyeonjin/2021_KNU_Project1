@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter @Setter
@@ -15,6 +13,9 @@ import java.time.LocalDateTime;
 public class Counselor {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long coun_no;       // 상담원 일련번호
+
     @Column(nullable = false)
     private String coun_id;     // 상담원 아이디
 
