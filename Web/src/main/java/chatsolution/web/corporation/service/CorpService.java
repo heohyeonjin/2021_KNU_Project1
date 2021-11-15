@@ -2,6 +2,7 @@ package chatsolution.web.corporation.service;
 
 
 import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.corporation.dto.CorpRegDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,5 +24,8 @@ public class CorpService {
                .collect(Collectors.toList());
     }
 
-    public
+    public void saveCorp(CorpRegDto corpRegDto) {
+        Corporation newCorp = new Corporation(corpRegDto);
+        corpRepository.save(newCorp);
+    }
 }
