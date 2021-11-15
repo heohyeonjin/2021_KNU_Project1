@@ -1,5 +1,6 @@
 package chatsolution.web.counselor.model;
 
+import chatsolution.web.corporation.model.TimeStamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor
 @Entity
-public class Counselor {
+public class Counselor extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
