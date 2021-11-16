@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:context=".ui.auth.SignInActivity"
+        android:background="@color/main_blue">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sign_in"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/purple_light"
+                android:textSize="40dp" />
+
+            <EditText
+                android:id="@+id/loginEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/bg_border_white"
+                android:cursorVisible="true"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="15dp"
+                android:hint="@string/login_id"
+                android:importantForAutofill="no"
+                android:inputType="textNoSuggestions|textEmailAddress"
+                android:paddingVertical="15dp"
+                android:singleLine="true"
+                android:textColorHint="@color/purple"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                tools:ignore="LabelFor" />
+
+            <EditText
+                android:id="@+id/loginPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_border_white"
+                android:cursorVisible="true"
+                android:drawableLeft="@drawable/ic_lock"
+                android:drawablePadding="15dp"
+                android:hint="@string/login_password"
+
+                android:textSize="15dp"
+                android:importantForAutofill="no"
+                android:inputType="textNoSuggestions|textPassword"
+                android:paddingVertical="15dp"
+                android:singleLine="true"
+                android:textColorHint="@color/purple"
+                android:textColor="@color/white"
+                tools:ignore="LabelFor" />
+
+            <Button
+                android:id="@+id/signInBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/log_in"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:backgroundTint="@color/main_yellow"
+                android:background="@drawable/solid_button" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/findPasswordBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00ff0000"
+                    android:text="@string/ask_find_password"
+                    android:textAllCaps="false"
+                    android:textColor="@color/purple_light"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/signUpBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#00ff0000"
+                    android:text="@string/ask_sign_up"
+                    android:textAllCaps="false"
+                    android:textColor="@color/purple_light"
+                    android:textSize="13dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
