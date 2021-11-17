@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @NoArgsConstructor
 public class CorpInfoDto {
+    private Long corp_no;
     private String corp_status; //상태
     private String corp_name; //기업명
     private String corp_admin; //대표자
@@ -21,14 +22,15 @@ public class CorpInfoDto {
 
 
     public CorpInfoDto(Corporation corporation){
-       int corp = corporation.getCorp_status();
-       this.corp_name = corporation.getCorp_name();
-       this.corp_admin = corporation.getCorp_admin();
-       this.corp_id = corporation.getCorp_id();
-       this.corp_phone = corporation.getCorp_phone();
-       this.corp_email = corporation.getCorp_email();
-       this.corp_desc = corporation.getCorp_desc();
-       this.corp_logo = corporation.getCorp_logo();
+        int corp = corporation.getCorpStatus();
+        this.corp_no = corporation.getCorpNo();
+        this.corp_name = corporation.getCorpName();
+        this.corp_admin = corporation.getCorpAdmin();
+        this.corp_id = corporation.getCorpId();
+        this.corp_phone = corporation.getCorpPhone();
+        this.corp_email = corporation.getCorpEmail();
+        this.corp_desc = corporation.getCorpDesc();
+        this.corp_logo = corporation.getCorpLogo();
         if(corp==1) {
             this.corp_status = "사용 중";
         }

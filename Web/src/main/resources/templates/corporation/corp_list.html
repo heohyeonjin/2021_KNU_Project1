@@ -56,36 +56,27 @@
 
         <table class="table table-striped">
             <thead class="thead-dark">
-            <tr>
-                <th scope="col">NO.</th>
-                <th scope="col">기업명</th>
-                <th scope="col">연락처</th>
-                <th scope="col">대표자</th>
-                <th scope="col">등록일자</th>
-                <th scope="col">상태</th>
-            </tr>
+                <tr>
+                    <th scope="col">NO.</th>
+                    <th scope="col">기업명</th>
+                    <th scope="col">연락처</th>
+                    <th scope="col">대표자</th>
+                    <th scope="col">등록일자</th>
+                    <th scope="col">상태</th>
+                </tr>
             </thead>
             <tbody>
-                 <tr th:each="corp: ${corps}">
-                 <td th:text="${corp.corp_no}">순서</td>
-                <td><a href="#" th:href="@{/corporation/{corpId}(corpId=${corp.corp_no})}" th:text="${corp.corp_name}">기업명</a></td>
-                <td th:text="${corp.corp_phone}">연락처</a></td>
-                <td th:text="${corp.corp_admin}">대표자</a></td>
-                <td th:text="${corp.corp_regTime}">등록일자</a></td>
-                <td th:text="${corp.corp_status}">상태</td>
-            </tr>
-<!--            <tr>-->
-<!--                <td>12</td>-->
-<!--                <td>달봉이</td>-->
-<!--                <td>010-0000-0000</td>-->
-<!--                <td>홍길동</td>-->
-<!--                <td>2021-08-01</td>-->
-<!--                <td>사용 가능</td>-->
-<!--            </tr>-->
-
+                <tr th:each="corp: ${corps}">
+                    <td th:text="${corp.corp_no}">순서</td>
+                    <td><a href="#" th:href="@{/corporation/{corpId}(corpId=${corp.corp_no})}" th:text="${corp.corp_name}">기업명</a>
+                    </td>
+                    <td th:text="${corp.corp_phone}">연락처</a></td>
+                    <td th:text="${corp.corp_admin}">대표자</a></td>
+                    <td th:text="${corp.created_at}">등록일자</a></td>
+                    <td th:text="${corp.corp_status}">상태</td>
+                </tr>
             </tbody>
         </table>
-
         <div class="corp_page">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
@@ -107,7 +98,6 @@
             <button type="submit" class="btn btn-warning btn-sm px-4 new-btn"
                     th:onclick="|location.href='@{/corporation/add}'|">등록하기</button>
         </div>
-
     </div>
 </main>
 </body>

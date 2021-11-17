@@ -7,11 +7,13 @@ import chatsolution.web.corporation.dto.CorpRegDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CorpService {
@@ -31,8 +33,14 @@ public class CorpService {
         return new CorpInfoDto(corp);
     }
 
-    public void saveCorp(CorpRegDto corpRegDto) {
+    public CorpInfoDto saveCorp(CorpRegDto corpRegDto) {
         Corporation newCorp = new Corporation(corpRegDto);
         corpRepository.save(newCorp);
+
+        return new CorpInfoDto(newCorp);
+    }
+
+    public boolean idCheck(String id) {
+        return corpRepository.existsByCorpId(id);
     }
 }

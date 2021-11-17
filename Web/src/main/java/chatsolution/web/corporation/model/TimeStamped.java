@@ -10,18 +10,15 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-public class TimeStamped {
-    @Getter
-    @Setter
-    @MappedSuperclass
-    @EntityListeners(AuditingEntityListener.class)
-    public abstract class Timestamped {
+@Getter @Setter
+@MappedSuperclass
+@EntityListeners(AuditingEntityListener.class)
+public abstract class TimeStamped {
 
-        @CreatedDate    // 최초 생성 시점
-        private LocalDateTime createdAt;
+    @CreatedDate    // 최초 생성 시점
+    private LocalDateTime createdAt;
 
-        @LastModifiedDate   // 마지막 변경 시점
-        private LocalDateTime modifiedAt;
-    }
+    @LastModifiedDate   // 마지막 변경 시점
+    private LocalDateTime modifiedAt;
 
 }

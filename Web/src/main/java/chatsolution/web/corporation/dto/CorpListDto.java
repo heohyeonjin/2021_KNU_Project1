@@ -6,7 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Getter@Setter
 @NoArgsConstructor
@@ -15,16 +18,16 @@ public class CorpListDto {
     private String corp_name;
     private String corp_phone;
     private String corp_admin;
-    private LocalDateTime corp_regTime;
+    private String created_at;
     private String corp_status;
 
     public CorpListDto(Corporation corporation){
-        this.corp_no = corporation.getCorp_no();
-        this.corp_name = corporation.getCorp_name();
-        this.corp_phone = corporation.getCorp_phone();
-        this.corp_admin = corporation.getCorp_admin();
-        this.corp_regTime =corporation.getCorp_regTime();
-        int corp = corporation.getCorp_status();
+        this.corp_no = corporation.getCorpNo();
+        this.corp_name = corporation.getCorpName();
+        this.corp_phone = corporation.getCorpPhone();
+        this.corp_admin = corporation.getCorpAdmin();
+        this.created_at = corporation.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
+        int corp = corporation.getCorpStatus();
         if(corp==1) {
             this.corp_status = "사용 중";
         }
