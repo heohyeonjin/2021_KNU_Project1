@@ -1,6 +1,7 @@
 package chatsolution.web.corporation.controller;
 
 
+import chatsolution.web.corporation.dto.CorpEditDto;
 import chatsolution.web.corporation.dto.CorpInfoDto;
 import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.corporation.dto.CorpRegDto;
@@ -45,7 +46,6 @@ public class CorpController {
     @PostMapping("/add")
     public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto) {
         log.info(corpRegDto.getCorp_name());
-
         corpservice.saveCorp(corpRegDto);
         return "corporation/corp_info";
     }
@@ -55,5 +55,17 @@ public class CorpController {
         CorpInfoDto corp = corpservice.corpinfo(corpId);
         model.addAttribute("corp", corp);
         return "corporation/corp_info";
+    }
+
+    @GetMapping("/{corpId}/edit")
+    public String editForm(@PathVariable Long corpId, Model model){
+        CorpInfoDto corp = corpservice.corpinfo(corpId);
+        model.addAttribute("corp",corp);
+        return "corporation/corp_edit";
+    }
+    @PostMapping("/{corpId}/edit")
+    public String edit(@PathVariable Long corpId, @ModelAttribute("corp") CorpEditDto corpEditDto){
+        corpservice.updateCorp(corpId,corpEditDto);
+        return "redirect:/corporation/{corpId}";
     }
 }

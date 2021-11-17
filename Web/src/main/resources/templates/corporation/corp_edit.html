@@ -32,52 +32,62 @@
 <div th:replace="menu/nav::nav"></div>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 wrapper">
     <div class="pt-3 pb-2 mb-3 border-bottom">
-        <h3 style="text-align:left;">기업상세조회</h3>
+        <h3 style="text-align:left;">기업 수정 폼</h3>
     </div>
 
     <img src="../resources/corporation.svg" th:src="${corp.corp_logo}" class="rounded-circle" alt="" width="100px">
 
     <!-- 기업정보 상세조회-->
+
+ <form action="corp_info.html" th:action method="post">
     <table class="table table-bordered corp_info">
         <tbody>
         <tr>
             <th class="corp_info_th">상태</th>
-            <td class="corp_info_td" th:text="${corp.corp_status}">사용가능</td>
+            <td class="corp_info_td">
+                <div class="form-group col">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="corp_status" id="radio_statusON" value=1  th:checked="${corp.corp_status.equals('사용 중')}">
+                        <label class="form-check-label" for="radio_statusON">사용 중</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="corp_status" id="radio_statusOFF" value=0  th:checked="${corp.corp_status.equals('사용 정지')}">
+                        <label class="form-check-label" for="radio_statusOFF">사용 정지</label>
+                    </div>
+                </div>
+             </td>
         </tr>
         <tr>
             <th>기업명</th>
-            <td class="corp_info_td" th:text="${corp.corp_name}">달봉이</td>
+            <td><input class="corp_info_td" name="corp_name" th:value="${corp.corp_name}" style="float:left;"></td>
         </tr>
         <tr>
             <th>대표자</th>
-            <td class="corp_info_td" th:text="${corp.corp_admin}">홍길동</td>
+            <td><input class="corp_info_td" name="corp_admin" th:value="${corp.corp_admin}"style="float:left;"></td>
         </tr>
         <tr>
             <th>아이디</th>
-            <td class="corp_info_td"th:text="${corp.corp_id}">qwerty1</td>
+            <td class="corp_info_td"th:text="${corp.corp_id}"></td>
         </tr>
         <tr>
             <th>연락처</th>
-            <td class="corp_info_td" th:text="${corp.corp_phone}">010-1234-5678</td>
+            <td><input class="corp_info_td" name="corp_phone"th:value="${corp.corp_phone}"style="float:left;"></td>
         </tr>
         <tr>
             <th>이메일</th>
-            <td class="corp_info_td" th:text="${corp.corp_email}">alphcity@gmail.com</td>
+            <td><input class="corp_info_td" name="corp_email"th:value="${corp.corp_email}"style="float:left;"></td>
         </tr>
         <tr>
             <th>기업상세정보</th>
-            <td class="corp_info_td info_descrip" th:text="${corp.corp_desc}"></td>
+            <td><input class="corp_info_td info_descrip"name="corp_desc" th:value="${corp.corp_desc}"style="float:left;"></td>
         </tr>
         </tbody>
     </table>
     <div class="reg_btn">
-        <button type="submit"
-                th:onclick="|location.href='@{/corporation/{corpId}/edit(corpId=${corp.corp_no})}'|"
-                class="btn btn-dark btn-sm px-4">수정하기</button>
-        <button type="button"
-                th:onclick="|location.href='@{/corporation}'|"
-                class="btn btn-warning btn-sm px-4">목록으로</button>
+        <button type="submit" class="btn btn-dark btn-sm px-4">수정 완료</button>
+        <button type="button" th:onclick="|location.href='@{/corporation}'|" class="btn btn-warning btn-sm px-4">목록으로</button>
     </div>
+ </form>
 </main>
 
 </body>

@@ -19,12 +19,12 @@ public class CorpListDto {
     private String corp_status;
 
     public CorpListDto(Corporation corporation){
-        this.corp_no = corporation.getCorp_no();
-        this.corp_name = corporation.getCorp_name();
-        this.corp_phone = corporation.getCorp_phone();
-        this.corp_admin = corporation.getCorp_admin();
+        this.corp_no = corporation.getCorpNo();
+        this.corp_name = corporation.getCorpName();
+        this.corp_phone = corporation.getCorpPhone();
+        this.corp_admin = corporation.getCorpAdmin();
         this.corp_regTime =corporation.getCorp_regTime();
-        int corp = corporation.getCorp_status();
+        int corp = corporation.getCorpStatus();
         if(corp==1) {
             this.corp_status = "사용 중";
         }

@@ -15,31 +15,29 @@ public class Counselor extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long coun_no;       // 상담원 일련번호
+    private Long counNo;       // 상담원 일련번호
 
     @Column(nullable = false)
-    private String coun_id;     // 상담원 아이디
+    private String counId;     // 상담원 아이디
 
     @Column(nullable = false)
-    private String coun_pw;     // 상담원 비밀번호
+    private String counPw;     // 상담원 비밀번호
 
     @Column(nullable = false)
-    private int coun_status;    // 상담원 상태
+    private int counStatus;    // 상담원 상태
 
     @Column(nullable = false)
-    private int coun_corp;      // 상담원 소속
+    private int counCorp;      // 상담원 소속
 
     @Column(nullable = false)
-    private String coun_name;   // 상담원 이름
+    private String counName;   // 상담원 이름
 
-    private String coun_phone;  // 상담원 연락처
+    private String counPhone;  // 상담원 연락처
 
-    private String coun_email;  // 상담원 이메일
+    private String counEmail;  // 상담원 이메일
 
-    private String coun_image;  // 상담원 사진
+    private String counImage;  // 상담원 사진
 
-    private int coun_gender;    // 상담원 성별
-
-    private LocalDateTime coun_regTime; // 상담원 등록일
+    private int counGender;    // 상담원 성별
 
 }
