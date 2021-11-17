@@ -15,41 +15,39 @@ public class Corporation extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long corp_no;       // 기업 일련번호
+    private Long corpNo;       // 기업 일련번호
 
     @Column(nullable = false)
-    private String corp_id;     // 기업 아이디
+    private String corpId;     // 기업 아이디
 
     @Column(nullable = false)
-    private String corp_pw;     // 기업 비밀번호
+    private String corpPw;     // 기업 비밀번호
 
-    private int corp_status;    // 기업 상태
+    private int corpStatus;    // 기업 상태
 
     @Column(nullable = false)
-    private String corp_name;   // 기업 이름
+    private String corpName;   // 기업 이름
 
-    private String corp_admin;  // 기업 대표자
+    private String corpAdmin;  // 기업 대표자
 
-    private String corp_phone;  // 기업 연락처
+    private String corpPhone;  // 기업 연락처
 
-    private String corp_email;   // 기업 이메일
+    private String corpEmail;   // 기업 이메일
 
-    private String corp_logo;   // 기업 로고
+    private String corpLogo;   // 기업 로고
 
-    private String corp_desc;   // 기업 상세정보
-
-    private LocalDateTime corp_regTime; // 기업 등록일
+    private String corpDesc;   // 기업 상세정보
 
     public Corporation(CorpRegDto corpRegDto) {
-        this.corp_id = corpRegDto.getCorp_id();
-        this.corp_pw = corpRegDto.getCorp_pw();
-        this.corp_name = corpRegDto.getCorp_name();
-        this.corp_admin = corpRegDto.getCorp_admin();
-        this.corp_phone = corpRegDto.getCorp_phone();
-        this.corp_email = corpRegDto.getCorp_email();
-        this.corp_logo = corpRegDto.getCorp_logo();
-        this.corp_desc = corpRegDto.getCorp_descrip();
+        this.corpId = corpRegDto.getCorp_id();
+        this.corpPw = corpRegDto.getCorp_pw();
+        this.corpName = corpRegDto.getCorp_name();
+        this.corpAdmin = corpRegDto.getCorp_admin();
+        this.corpPhone = corpRegDto.getCorp_phone();
+        this.corpEmail = corpRegDto.getCorp_email();
+        this.corpLogo = corpRegDto.getCorp_logo();
+        this.corpDesc = corpRegDto.getCorp_descrip();
 
-        this.corp_status = 1;
+        this.corpStatus = 1;
     }
 }

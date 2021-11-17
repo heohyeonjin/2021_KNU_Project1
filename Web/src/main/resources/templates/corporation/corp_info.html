@@ -35,7 +35,7 @@
         <h3 style="text-align:left;">기업상세조회</h3>
     </div>
 
-    <img src="../resources/corporation.svg" th:src="${corp.corp_logo}" class="rounded-circle" alt="" width="100px">
+    <img th:src="@{/css/images/corporation.svg}" class="rounded-circle" alt="" width="100px">
 
     <!-- 기업정보 상세조회-->
     <table class="table table-bordered corp_info">
@@ -72,7 +72,8 @@
     </table>
     <div class="reg_btn">
         <button type="submit" class="btn btn-dark btn-sm px-4">수정하기</button>
-        <button type="submit" class="btn btn-warning btn-sm px-4">목록으로</button>
+        <button type="submit" class="btn btn-warning btn-sm px-4"
+                th:onclick="|location.href='@{/corporation}'|">목록으로</button>
     </div>
 </main>
 
