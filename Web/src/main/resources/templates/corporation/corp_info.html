@@ -71,18 +71,14 @@
         </tbody>
     </table>
     <div class="reg_btn">
-<<<<<<< HEAD
-        <button type="submit" class="btn btn-dark btn-sm px-4">수정하기</button>
-        <button type="submit" class="btn btn-warning btn-sm px-4"
-                th:onclick="|location.href='@{/corporation}'|">목록으로</button>
-=======
+
         <button type="submit"
                 th:onclick="|location.href='@{/corporation/{corpId}/edit(corpId=${corp.corp_no})}'|"
                 class="btn btn-dark btn-sm px-4">수정하기</button>
         <button type="button"
                 th:onclick="|location.href='@{/corporation}'|"
                 class="btn btn-warning btn-sm px-4">목록으로</button>
->>>>>>> feature/web-corpEdit
+
     </div>
 </main>
 
