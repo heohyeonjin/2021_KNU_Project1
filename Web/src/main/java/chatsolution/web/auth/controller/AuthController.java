@@ -31,16 +31,17 @@ public class AuthController {
 
         LoginRequestDto requestDto = new LoginRequestDto(login_id, login_pw, login_radio);
         boolean result = authService.loginProcess(requestDto);
+
         log.info(login_radio);
         log.info(String.valueOf(result));
         if(login_radio.equals("login_admin") && result) {
             return "redirect:/corporation";
         }
         else if(login_radio.equals("login_corp") && result) {
-            return "corporation/corp_list";
+            return "redirect:/counselor";
         }
         else if(login_radio.equals("login_coun") && result) {
-            return "corporation/corp_list";
+            return "redirect:/counseling";
         }
         else {
             return "auth/auth";

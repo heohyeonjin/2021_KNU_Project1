@@ -38,9 +38,6 @@ public class Corporation extends TimeStamped {
 
     private String corpDesc;   // 기업 상세정보
 
-
-    private LocalDateTime corp_regTime; // 기업 등록일
-
     public Corporation(CorpRegDto corpRegDto) {
         this.corpId = corpRegDto.getCorp_id();
         this.corpPw = corpRegDto.getCorp_pw();
