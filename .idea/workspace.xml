@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d737f24-d902-472e-ab45-deff928abb6e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/controller/CorpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/controller/CorpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/dto/CorpInfoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/dto/CorpInfoDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/service/CorpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/chatsolution/web/corporation/service/CorpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/resources/templates/corporation/corp_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/resources/templates/corporation/corp_info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +43,14 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="true" />
         <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
@@ -101,6 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1637037929606</updated>
       <workItem from="1637037934820" duration="17471000" />
+      <workItem from="1637140906887" duration="2611000" />
     </task>
     <servers />
   </component>
