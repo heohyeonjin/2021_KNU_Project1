@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
-
 @Getter @Setter
 @NoArgsConstructor
 public class CorpInfoDto {
@@ -31,6 +29,7 @@ public class CorpInfoDto {
         this.corp_email = corporation.getCorpEmail();
         this.corp_desc = corporation.getCorpDesc();
         this.corp_logo = corporation.getCorpLogo();
+
         if(corp==1) {
             this.corp_status = "사용 중";
         }

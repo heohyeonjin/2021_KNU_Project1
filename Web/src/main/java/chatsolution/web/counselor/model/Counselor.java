@@ -41,3 +41,4 @@ public class Counselor extends TimeStamped {
     private int counGender;    // 상담원 성별
 
 }
+
