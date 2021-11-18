@@ -27,7 +27,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
-                    android:fontFamily="@font/wemakebold"
                     android:text="@string/sign_up"
                     android:textColor="@color/purple_light"
                     android:textSize="40dp" />
@@ -36,7 +35,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="50dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:text="Thank you for visiting."
                     android:textColor="@color/purple"
                     android:textSize="20dp" />
@@ -46,7 +44,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:textColor="@color/purple"
                     android:textSize="13dp" />
 
@@ -61,12 +58,11 @@
                     android:drawableLeft="@drawable/ic_person"
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:hint="@string/user_name"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|textPersonName"
                     android:textColorHint="@color/purple"
-                    android:textColor="@color/purple_light"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     tools:ignore="LabelFor" />
 
@@ -80,12 +76,11 @@
                     android:drawableLeft="@drawable/ic_lock"
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:hint="@string/login_password"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|textPassword"
                     android:textColorHint="@color/purple"
-                    android:textColor="@color/purple_light"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     tools:ignore="LabelFor" />
 
@@ -102,11 +97,10 @@
                         android:drawableLeft="@drawable/ic_email"
                         android:drawablePadding="15dp"
                         android:elevation="3dp"
-                        android:fontFamily="@font/wemakeregular"
                         android:hint="@string/login_id"
                         android:importantForAutofill="no"
                         android:inputType="textNoSuggestions|textEmailAddress"
-                        android:textColor="@color/purple_light"
+                        android:textColor="@color/white"
                         android:textColorHint="@color/purple"
                         android:textSize="15sp"
                         tools:ignore="LabelFor" />
@@ -118,20 +112,18 @@
                         android:layout_alignParentRight="true"
                         android:layout_weight=".20"
                         android:background="@drawable/btn_purple"
-                        android:fontFamily="@font/wemakeregular"
                         android:minWidth="0dp"
                         android:minHeight="0dp"
                         android:paddingVertical="10dp"
                         android:text="중복 확인"
                         android:textAllCaps="false"
-                        android:textColor="@color/purple_light" />
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:text="Sent on email to your email address. Please check"
                     android:textColor="@color/purple"
                     android:textSize="13dp" />
@@ -148,12 +140,11 @@
                     android:drawableLeft="@drawable/ic_phone"
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:hint="@string/phone"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|phone"
                     android:textColorHint="@color/purple"
-                    android:textColor="@color/purple_light"
+                    android:textColor="@color/white"
                     android:textSize="15sp"
                     tools:ignore="LabelFor" />
 
@@ -161,7 +152,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="25dp"
-                    android:fontFamily="@font/wemakeregular"
                     android:gravity="right"
                     android:text=""
                     android:textColor="@color/purple"
@@ -202,7 +192,6 @@
                         android:cursorVisible="true"
                         android:drawablePadding="15dp"
                         android:elevation="3dp"
-                        android:fontFamily="@font/wemakeregular"
                         android:hint="@string/phone"
                         android:importantForAutofill="no"
                         android:inputType="textNoSuggestions|phone"
@@ -221,8 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@drawable/button_background_purple"
-                    android:fontFamily="@font/wemakebold"
+                    android:background="@drawable/solid_button"
                     android:text="Sign up"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
