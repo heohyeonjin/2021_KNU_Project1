@@ -1,5 +1,6 @@
 package chatsolution.web.message.controller;
 
+import chatsolution.web.message.dto.NewMessageDto;
 import chatsolution.web.message.service.MessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,9 +22,9 @@ public class MessageController {
     }
 
     @PostMapping("/send")
-    public @ResponseBody String msgSend(@RequestParam("msg") String msg, @RequestParam("time") String time) {
-        log.info("전달받은 메세지: " + msg);
-        log.info("전달받은 시간: " + time);
+    public @ResponseBody String msgSend(NewMessageDto newMessageDto) {
+        log.info("전달받은 메세지: " + newMessageDto.getMsg());
+        messageService.saveMsg(newMessageDto);
         String returnValue = "true";
         return returnValue;
     }
