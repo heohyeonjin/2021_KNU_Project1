@@ -1,6 +1,7 @@
 package chatsolution.web.message.controller;
 
 import chatsolution.web.message.dto.MessageDto;
+import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.dto.NewMessageDto;
 import chatsolution.web.message.service.MessageService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -21,6 +23,8 @@ public class MessageController {
 
     @GetMapping
     public String chatList(Model model){
+        List<MessageListDto> messages = messageService.msgList();
+        model.addAttribute("messages", messages);
         return "chat/chat_room";
     }
 
@@ -31,16 +35,5 @@ public class MessageController {
         String returnValue = "true";
         return returnValue;
     }
-
-    //폴링
-    @RequestMapping(value = "/addMessage", method = RequestMethod.GET)
-    public String newMessages(Model model){
-        log.info("야야");
-        List<MessageDto> messages = messageService.updateMessage();
-        log.info(messages.get(0).getMsgContent());
-        model.addAttribute("myMessageData", messages);
-        return "chat/chat_room :: #messageDiv";
-    }
-
 
 }
