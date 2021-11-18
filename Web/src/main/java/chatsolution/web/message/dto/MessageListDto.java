@@ -11,8 +11,7 @@ import java.util.Locale;
 
 @Getter @Setter
 @NoArgsConstructor
-public class MessageDto {
-    private Long no;
+public class MessageListDto {
     private String content;
     private String date;
     private String time;
@@ -20,8 +19,7 @@ public class MessageDto {
     private String timePattern = "HH:mm";
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(timePattern, new Locale("ko", "KR"));
 
-    public MessageDto(Message message) {
-        this.no = message.getMsgNo();
+    public MessageListDto(Message message) {
         this.content = message.getMsgContent();
         this.date = message.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
         this.time = message.getCreatedAt().getHour() + ":" + message.getCreatedAt().getMinute();
