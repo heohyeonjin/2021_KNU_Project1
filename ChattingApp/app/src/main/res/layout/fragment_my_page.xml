@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginBottom="5dp"
-                android:text="채팅"
+                android:text="마이페이지"
                 android:textColor="@color/white"
                 android:textSize="23dp" />
 
@@ -36,7 +36,7 @@
             android:layout_marginBottom="12dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_chat_list_recyclerview"
+            android:id="@+id/fragment_my_page_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

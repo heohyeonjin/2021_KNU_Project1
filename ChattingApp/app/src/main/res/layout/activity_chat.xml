@@ -99,7 +99,6 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:paddingLeft="35dp"
-                android:fontFamily="@font/wemakeregular"
                 android:textSize="15sp"
                 android:background="@drawable/chat_text"
                 android:hint="입력하세요." />

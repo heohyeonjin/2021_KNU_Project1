@@ -12,23 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp">
 
-<!--        <TextView-->
-<!--            android:id="@+id/text_gchat_date_me"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            android:paddingStart="8dp"-->
-<!--            android:paddingTop="4dp"-->
-<!--            android:paddingEnd="8dp"-->
-<!--            android:paddingBottom="4dp"-->
-<!--            android:text="2021년 10월 15일"-->
-<!--            android:textSize="10sp"-->
-<!--            android:textColor="#C0C0C0"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
-
         <androidx.cardview.widget.CardView
             android:id="@+id/card_gchat_send_massage"
             android:layout_width="wrap_content"
@@ -53,7 +36,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/wemakebold"
                     android:maxWidth="260dp"
                     android:paddingLeft="12dp"
                     android:paddingTop="8dp"
@@ -74,7 +56,6 @@
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/card_gchat_send_massage"
             app:layout_constraintEnd_toStartOf="@+id/card_gchat_send_massage" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
