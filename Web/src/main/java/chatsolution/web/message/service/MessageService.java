@@ -2,6 +2,7 @@ package chatsolution.web.message.service;
 
 import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.message.dto.MessageDto;
+import chatsolution.web.message.dto.NewMessageDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.repository.MessageRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ public class MessageService {
 
     private final MessageRepository messageRepository;
 
+
     public List<MessageDto> updateMessage() {
         List<MessageDto> messages = null;
         MessageDto temp1 = new MessageDto("123");
@@ -29,6 +31,15 @@ public class MessageService {
         // 디비 값(최근) > 변수 시간 --> true 반환
         log.info(messages.get(0).getMsgContent());
        return messages;
+
+    // 상담원 메세지 저장
+    public boolean saveMsg(NewMessageDto newMessageDto) {
+        Message newMsg = new Message(newMessageDto);
+        messageRepository.save(newMsg);
+
+        log.info("상담원 메세지 저장 성공");
+        return true;
+
     }
 
 }

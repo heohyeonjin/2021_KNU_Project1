@@ -1,6 +1,7 @@
 package chatsolution.web.message.model;
 
 import chatsolution.web.corporation.model.TimeStamped;
+import chatsolution.web.message.dto.NewMessageDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,11 @@ public class Message extends TimeStamped {
     @Column(nullable = false)
     private String msgType;     // 메세지 타입
 
-    @Column(nullable = false)
+
     private int msgStatus;      // 메세지 전송상태
+
+    public Message(NewMessageDto newMessageDto) {
+        this.msgContent = newMessageDto.getMsg();
+        this.msgType = newMessageDto.getMsgType();
+    }
 }

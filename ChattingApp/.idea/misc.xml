@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/btn_purple.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/menu_selector_chat.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/selected_chat.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/unselected_chat.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_main.xml" value="0.15925925925925927" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_multimedia_popup.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_sign_up.xml" value="0.4" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_receive_msg.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.13125" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.12092391304347826" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/menu/bottom_navigation_main.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/bg_border_white.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/btn_purple.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/button_background_purple.xml" value="0.1" />
@@ -43,6 +58,26 @@
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/layout/fragment_chatting_list.xml" value="0.264" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/menu/bottom_navigation_main.xml" value="0.264" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_find.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_main.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_multimedia_popup.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/activity_sign_up.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/detail_receive_msg.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_find_email_success.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_find_password.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_find_password_success.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_friendlist.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_profile.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/fragment_setting.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/item_chatting_room.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/kkw19/Documents/GitHub/2021_KNU_Project1/ChattingApp/app/src/main/res/layout/item_friend.xml" value="0.19157608695652173" />
       </map>
     </option>
   </component>
