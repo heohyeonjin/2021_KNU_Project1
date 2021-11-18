@@ -36,7 +36,7 @@
     </div>
 
     <!-- 신규등록 form-->
-    <form action="" method="post" name="" class="reg_form">
+    <form th:action method="post" name="" class="reg_form">
         <div class="form-group row">
             <label class="col-sm-2 col-form-label reg_label">성별</label>
             <div class="col-sm-8">
@@ -53,14 +53,21 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label reg_label">소속기업</label>
             <div class="col-sm-5 btn-group">
-                <button class="btn btn-outline-secondary btn-sm px-5" type="button" style="float:left;">기업명</button>
-                <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent" style="float:left;">
-                    <span class="visually-hidden">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                    <li><a class="dropdown-item" href="#">가나소프트</a></li>
-                    <li><a class="dropdown-item" href="#">알파시티</a></li>
-                </ul>
+<!--                <button class="btn btn-outline-secondary btn-sm px-5" type="button" style="float:left;">기업명</button>-->
+<!--                <button type="button" class="btn btn-outline-secondary btn-sm dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="parent" style="float:left;">-->
+<!--                    <span class="visually-hidden">Toggle Dropdown</span>-->
+<!--                </button>-->
+<!--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">-->
+<!--                    <li><a class="dropdown-item" href="#">가나소프트</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">알파시티</a></li>-->
+<!--                </ul>-->
+
+                <select class="btn btn-outline-secondary btn-sm px-5" name="cars" style="float:left;">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
         </div>
 
@@ -113,7 +120,8 @@
             <br><br>
             <div class="reg_btn">
                 <button type="submit" class="btn btn-dark btn-sm px-4">등록하기</button>
-                <button type="submit" class="btn btn-warning btn-sm px-4">목록으로</button>
+                <button type="submit" class="btn btn-warning btn-sm px-4"
+                        th:onclick="|location.href='@{/counselor}'|">목록으로</button>
             </div>
         </div>
     </form>
