@@ -1,12 +1,14 @@
 package chatsolution.web.corporation.model;
 
 import chatsolution.web.corporation.dto.CorpRegDto;
+import chatsolution.web.counselor.model.Counselor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -37,6 +39,19 @@ public class Corporation extends TimeStamped {
     private String corpLogo;   // 기업 로고
 
     private String corpDesc;   // 기업 상세정보
+
+    @OneToMany(mappedBy="corporation")
+    private List<Counselor> counselors;
+
+    // 연관관계 편의 메서드
+    public void addCounselor(Counselor counselor) {
+        this.counselors.add(counselor);
+    }
+
+    // 연관관계 편의 메서드
+    public void removeCounselor(Counselor counselor) {
+        this.counselors.remove(counselor);
+    }
 
     public Corporation(CorpRegDto corpRegDto) {
         this.corpId = corpRegDto.getCorp_id();

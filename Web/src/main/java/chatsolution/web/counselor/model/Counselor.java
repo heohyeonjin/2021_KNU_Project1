@@ -1,5 +1,6 @@
 package chatsolution.web.counselor.model;
 
+import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.model.TimeStamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +28,6 @@ public class Counselor extends TimeStamped {
     private int counStatus;    // 상담원 상태
 
     @Column(nullable = false)
-    private int counCorp;      // 상담원 소속
-
-    @Column(nullable = false)
     private String counName;   // 상담원 이름
 
     private String counPhone;  // 상담원 연락처
@@ -39,6 +37,19 @@ public class Counselor extends TimeStamped {
     private String counImage;  // 상담원 사진
 
     private int counGender;    // 상담원 성별
+
+    @ManyToOne
+    @JoinColumn
+    private Corporation corporation;    // 상담원 소속
+
+    // 연관관계 편의 메서드
+    public void setCorporation(Corporation corporation) {
+        if (this.corporation != null) {
+            this.corporation.removeCounselor(this);
+        }
+        this.corporation = corporation;
+        corporation.addCounselor(this);
+    }
 
 }
 

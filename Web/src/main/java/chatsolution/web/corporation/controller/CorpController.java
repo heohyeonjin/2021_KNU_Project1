@@ -23,6 +23,7 @@ public class CorpController {
 
     private final CorpService corpservice;
 
+    // 기업 리스트
     @GetMapping
     public String corporations(Model model) {
         List<CorpListDto> corps = corpservice.corplist();
@@ -31,11 +32,13 @@ public class CorpController {
 
     }
 
+    // 기업 등록 페이지
     @GetMapping("/add")
     public String addCorpForm() {
         return "corporation/corp_new";
     }
 
+    // 기업 등록
     @PostMapping("/add")
     public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto, Model model) {
         log.info(corpRegDto.getCorp_name());
@@ -59,12 +62,14 @@ public class CorpController {
         log.info("아이디 중복체크 - id 확인결과: " + corpIdCheck);
         return corpIdCheck;
     }
+
     @GetMapping("/{corpId}/edit")
     public String editForm(@PathVariable Long corpId, Model model){
         CorpInfoDto corp = corpservice.corpinfo(corpId);
         model.addAttribute("corp",corp);
         return "corporation/corp_edit";
     }
+
     @PostMapping("/{corpId}/edit")
     public String edit(@PathVariable Long corpId, @ModelAttribute("corp") CorpEditDto corpEditDto){
         corpservice.updateCorp(corpId,corpEditDto);
