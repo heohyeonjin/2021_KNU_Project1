@@ -1,6 +1,8 @@
 package chatsolution.web.counselor.controller;
 
 import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.counselor.dto.CounEditDto;
+import chatsolution.web.counselor.dto.CounInfoDto;
 import chatsolution.web.counselor.dto.CounListDto;
 import chatsolution.web.counselor.dto.CounRegDto;
 import chatsolution.web.counselor.dto.EmbededCorpListDto;
@@ -54,5 +56,28 @@ public class CounselorController {
         log.info(counRegDto.getCoun_gender()+"gender");
         counselorService.saveCoun(counRegDto);
         return "redirect:/counselor";
+    }
+  
+    // 상담원 정보 조회
+    @GetMapping("/{counNo}")
+    public String counselor(@PathVariable long counNo, Model model) {
+        CounInfoDto coun = counselorService.counInfo(counNo);
+        model.addAttribute("coun", coun);
+        return "counselor/coun_info";
+    }
+
+    // 상담원 정보 수정 페이지
+    @GetMapping("/{counNo}/edit")
+    public String editForm(@PathVariable Long counNo, Model model) {
+        CounInfoDto coun = counselorService.counInfo(counNo);
+        model.addAttribute("coun", coun);
+        return "counselor/coun_edit";
+    }
+
+    // 상담원 정보 수정
+    @PostMapping("/{counNo}/edit")
+    public String edit(@PathVariable Long counNo, @ModelAttribute("coun") CounEditDto editDto) {
+        counselorService.updateCoun(counNo, editDto);
+        return "redirect:/counselor/{counNo}";
     }
 }

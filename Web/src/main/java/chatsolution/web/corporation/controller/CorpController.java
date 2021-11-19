@@ -55,7 +55,8 @@ public class CorpController {
         return "corporation/corp_info";
     }
 
-    //아이디 중복체크
+
+    // 기업 아이디 중복확인
     @PostMapping("/idCheck")
     public @ResponseBody boolean idCheck(@RequestParam("id") String id) {
         log.info("아이디 중복체크 - 전달받은 id: " + id);
@@ -64,6 +65,7 @@ public class CorpController {
         return corpIdCheck;
     }
 
+    // 기업 정보 수정 페이지
     @GetMapping("/{corpId}/edit")
     public String editForm(@PathVariable Long corpId, Model model){
         CorpInfoDto corp = corpservice.corpinfo(corpId);
@@ -71,6 +73,7 @@ public class CorpController {
         return "corporation/corp_edit";
     }
 
+    // 기업 정보 수정
     @PostMapping("/{corpId}/edit")
     public String edit(@PathVariable Long corpId, @ModelAttribute("corp") CorpEditDto corpEditDto){
         corpservice.updateCorp(corpId,corpEditDto);

@@ -2,6 +2,9 @@ package chatsolution.web.counselor.service;
 
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
+import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.counselor.dto.CounEditDto;
+import chatsolution.web.counselor.dto.CounInfoDto;
 import chatsolution.web.counselor.dto.CounListDto;
 import chatsolution.web.counselor.dto.CounRegDto;
 import chatsolution.web.counselor.dto.EmbededCorpListDto;
@@ -11,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,10 +46,10 @@ public class CounselorService {
     public boolean idCheck(String id) {
         return counselorRepository.existsByCounId(id);
     }
+  
     //상담원 등록
     public Boolean saveCoun(CounRegDto counRegDto){
         var corpid= counRegDto.getEmbeded_corp();
-        log.info(corpid+"");
         Corporation corp = corpRepository.findById(corpid).orElseThrow(
                 ()-> new NullPointerException("접근 오류"));
         Counselor newCoun = new Counselor(counRegDto,corp);
@@ -53,5 +57,26 @@ public class CounselorService {
         return true;
     }
 
+    // 상담원 상세정보
+    public CounInfoDto counInfo(Long counNo) {
+        Counselor coun = counselorRepository.findById(counNo).orElseThrow(
+                ()->new NullPointerException("접근 오류"));
+      
+        return new CounInfoDto(coun);
+    }
 
+    // 상담원 수정
+    @Transactional
+    public void updateCoun(Long counNo, CounEditDto editDto) {
+        Counselor coun = counselorRepository.findById(counNo).orElseThrow(
+                ()->new NullPointerException("접근 오류"));
+        log.info("찾은 상담원 ID: " + coun.getCounNo());
+
+        coun.setCounStatus(editDto.getCounStatus());
+        coun.setCounName(editDto.getCounName());
+        coun.setCounGender(editDto.getCounGender());
+        coun.setCounPhone(editDto.getCounPhone());
+        coun.setCounEmail(editDto.getCounEmail());
+        coun.setCounImage(editDto.getCounImage());
+    }
 }

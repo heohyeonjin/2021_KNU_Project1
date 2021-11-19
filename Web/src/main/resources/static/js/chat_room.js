@@ -15,19 +15,11 @@ function msgSend(){
         },
         success: function(returnValue){
             if (returnValue) {
-                alert("성공");
-                let myMsg= "하이";
-                let myTime="오전 10:05"
-                let myChat = `<div class="item mymsg">
-                                <div class="box">
-                                    <p class="msg">${myMsg}</p>
-                                    <span class="time">${myTime}</span>
-                                </div>
-                            </div>`
-                $('#messages').append(myChat);
+                console.log("메세지 전송 성공");
             } else {
                 alert("error");
             }
+            $('#input_message').val("");
         },
         error: function(){
             alert("서버 에러입니다");
