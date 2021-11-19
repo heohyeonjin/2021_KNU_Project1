@@ -38,5 +38,4 @@ public class MessageService {
         log.info("상담원 메세지 저장 성공");
         return true;
     }
-
 }

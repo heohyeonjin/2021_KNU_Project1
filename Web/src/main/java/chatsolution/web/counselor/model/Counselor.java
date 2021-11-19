@@ -2,6 +2,7 @@ package chatsolution.web.counselor.model;
 
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.model.TimeStamped;
+import chatsolution.web.counselor.dto.CounRegDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -49,6 +50,17 @@ public class Counselor extends TimeStamped {
         }
         this.corporation = corporation;
         corporation.addCounselor(this);
+    }
+
+    public Counselor(CounRegDto counRegDto, Corporation corp){
+        this.counGender = counRegDto.getCoun_gender();
+        this.corporation = corp;
+        this.counName = counRegDto.getCoun_name();
+        this.counId = counRegDto.getCoun_id();
+        this.counPw = counRegDto.getCoun_pw();
+        this.counPhone = counRegDto.getCoun_phone();
+        this.counEmail = counRegDto.getCoun_email();
+        this.counStatus=1;
     }
 
 }
