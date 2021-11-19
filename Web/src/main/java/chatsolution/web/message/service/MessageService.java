@@ -30,16 +30,15 @@ public class MessageService {
         // 디비 값 < 변수 시간(최근) --> error
         // 디비 값(최근) > 변수 시간 --> true 반환
         log.info(messages.get(0).getMsgContent());
-       return messages;
+        return messages;
+    }
 
     // 상담원 메세지 저장
-    public boolean saveMsg(NewMessageDto newMessageDto) {
-        Message newMsg = new Message(newMessageDto);
-        messageRepository.save(newMsg);
-
-        log.info("상담원 메세지 저장 성공");
-        return true;
-
+    public boolean saveMsg(NewMessageDto newMessageDto){
+            Message newMsg = new Message(newMessageDto);
+            messageRepository.save(newMsg);
+            log.info("상담원 메세지 저장 성공");
+            return true;
     }
 
 }

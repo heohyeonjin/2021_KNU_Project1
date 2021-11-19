@@ -42,12 +42,12 @@ public class CorpController {
     @PostMapping("/add")
     public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto, Model model) {
         log.info(corpRegDto.getCorp_name());
-
         CorpInfoDto newCorp = corpservice.saveCorp(corpRegDto);
         model.addAttribute("corp", newCorp);
         return "redirect:/corporation/" + newCorp.getCorp_no();
     }
 
+    //기업 상세정보
     @GetMapping("/{corpId}")
     public String corporation(@PathVariable long corpId, Model model) {
         CorpInfoDto corp = corpservice.corpinfo(corpId);
@@ -55,6 +55,7 @@ public class CorpController {
         return "corporation/corp_info";
     }
 
+    //아이디 중복체크
     @PostMapping("/idCheck")
     public @ResponseBody boolean idCheck(@RequestParam("id") String id) {
         log.info("아이디 중복체크 - 전달받은 id: " + id);
