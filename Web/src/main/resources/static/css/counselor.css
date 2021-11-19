@@ -6,3 +6,8 @@
 .new-btn {
     float: right;
 }
+
+.edit {
+    width: 50%;
+    float:left;
+}

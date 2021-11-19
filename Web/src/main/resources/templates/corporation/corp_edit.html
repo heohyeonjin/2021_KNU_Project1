@@ -32,7 +32,7 @@
 <div th:replace="menu/nav::nav"></div>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 wrapper">
     <div class="pt-3 pb-2 mb-3 border-bottom">
-        <h3 style="text-align:left;">기업 수정 폼</h3>
+        <h3 style="text-align:left;">기업정보 수정</h3>
     </div>
 
     <img src="../resources/corporation.svg" th:src="${corp.corp_logo}" class="rounded-circle" alt="" width="100px">
@@ -59,27 +59,27 @@
         </tr>
         <tr>
             <th>기업명</th>
-            <td><input class="corp_info_td" name="corp_name" th:value="${corp.corp_name}" style="float:left;"></td>
+            <td><input class="corp_info_td edit" name="corp_name" th:value="${corp.corp_name}"></td>
         </tr>
         <tr>
             <th>대표자</th>
-            <td><input class="corp_info_td" name="corp_admin" th:value="${corp.corp_admin}"style="float:left;"></td>
+            <td><input class="corp_info_td edit" name="corp_admin" th:value="${corp.corp_admin}"></td>
         </tr>
         <tr>
             <th>아이디</th>
-            <td class="corp_info_td"th:text="${corp.corp_id}"></td>
+            <td><input class="corp_info_td edit" name="corp_id" th:value="${corp.corp_id}" disabled></td>
         </tr>
         <tr>
             <th>연락처</th>
-            <td><input class="corp_info_td" name="corp_phone"th:value="${corp.corp_phone}"style="float:left;"></td>
+            <td><input class="corp_info_td edit" name="corp_phone" th:value="${corp.corp_phone}"></td>
         </tr>
         <tr>
             <th>이메일</th>
-            <td><input class="corp_info_td" name="corp_email"th:value="${corp.corp_email}"style="float:left;"></td>
+            <td><input class="corp_info_td edit" name="corp_email" th:value="${corp.corp_email}"></td>
         </tr>
         <tr>
             <th>기업상세정보</th>
-            <td><input class="corp_info_td info_descrip"name="corp_desc" th:value="${corp.corp_desc}"style="float:left;"></td>
+            <td><input class="corp_info_td edit info_descrip" name="corp_desc" th:value="${corp.corp_desc}"></td>
         </tr>
         </tbody>
     </table>

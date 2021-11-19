@@ -56,9 +56,9 @@ public class CorpService {
         Corporation corp = corpRepository.findById(corpId).orElseThrow(
                 ()->new NullPointerException("접근 오류"));
         log.info(corpEditDto.getCorp_name());
+
         corp.setCorpStatus(corpEditDto.getCorp_status());
         corp.setCorpName(corpEditDto.getCorp_name());
-        log.info(corp.getCorpName());
         corp.setCorpAdmin(corpEditDto.getCorp_admin());
         corp.setCorpPhone(corpEditDto.getCorp_phone());
         corp.setCorpEmail(corpEditDto.getCorp_email());
