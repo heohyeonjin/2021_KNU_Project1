@@ -40,3 +40,7 @@
 .info_descrip {
     height: 100px;
 }
+.edit {
+    width: 50%;
+    float:left;
+}
