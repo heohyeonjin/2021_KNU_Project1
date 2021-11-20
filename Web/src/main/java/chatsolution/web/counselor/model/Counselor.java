@@ -3,13 +3,12 @@ package chatsolution.web.counselor.model;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.counselor.dto.CounRegDto;
-import chatsolution.web.room.model.Room;
+import chatsolution.web.message.model.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter @Setter

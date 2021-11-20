@@ -3,11 +3,9 @@ package chatsolution.web.message.controller;
 import chatsolution.web.message.dto.MessageDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.repository.MessageRepository;
-import chatsolution.web.message.service.MessageService;
 import chatsolution.web.message.service.PollingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

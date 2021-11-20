@@ -1,9 +1,7 @@
 package chatsolution.web.message.model;
 
-import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.message.dto.NewMessageDto;
-import chatsolution.web.room.model.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
