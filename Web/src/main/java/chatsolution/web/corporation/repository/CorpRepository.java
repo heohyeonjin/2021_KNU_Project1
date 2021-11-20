@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface CorpRepository extends JpaRepository<Corporation, Long> {
     boolean existsByCorpId(String corp_id);
-    Optional<Corporation> findByCorpId(String id);
+    Corporation findByCorpId(String id);
 }

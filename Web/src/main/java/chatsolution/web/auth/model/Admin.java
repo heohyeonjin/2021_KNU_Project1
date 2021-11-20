@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -15,9 +12,12 @@ import javax.persistence.Id;
 public class Admin {
 
     @Id
-    @Column(nullable = false)
-    private String admin_id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long adminNo;
 
     @Column(nullable = false)
-    private String admin_pw;
+    private String adminId;
+
+    @Column(nullable = false)
+    private String adminPw;
 }

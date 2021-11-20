@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Slf4j
 @Controller
 @RequestMapping("/auth")
@@ -27,25 +30,35 @@ public class AuthController {
 
     // 로그인 결과
     @PostMapping
-    public String loginRequest(@RequestParam String login_id, @RequestParam String login_pw, @RequestParam String login_radio){
+    public String loginRequest(LoginRequestDto requestDto, HttpServletRequest servletRequest){
 
-        LoginRequestDto requestDto = new LoginRequestDto(login_id, login_pw, login_radio);
-        boolean result = authService.loginProcess(requestDto);
+        // 로그인 권한 체크
+        String auth = requestDto.getLogin_radio();
+        log.info(requestDto.getLogin_radio());
+        Long userNo = authService.loginProcess(requestDto);
 
-        log.info(login_radio);
-        log.info(String.valueOf(result));
-        if(login_radio.equals("login_admin") && result) {
+        if(auth.equals("login_admin") && userNo != 0L) {
+            servletRequest.getSession().setAttribute("adminNo", userNo);
             return "redirect:/corporation";
         }
-        else if(login_radio.equals("login_corp") && result) {
+        else if(auth.equals("login_corp") && userNo != 0L) {
+            servletRequest.getSession().setAttribute("corpNo", userNo);
             return "redirect:/counselor";
         }
-        else if(login_radio.equals("login_coun") && result) {
+        else if(auth.equals("login_coun") && userNo != 0L) {
+            servletRequest.getSession().setAttribute("counNo", userNo);
             return "redirect:/counseling";
         }
         else {
+            // 실패시 alert 띄우기
             return "auth/auth";
         }
+    }
 
+    // 로그아웃
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/auth";
     }
 }
