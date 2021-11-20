@@ -7,13 +7,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 public class LoginRequestDto {
-    private String id;
-    private String pw;
-    private String auth;
-
-    public LoginRequestDto(String id, String pw, String auth){
-        this.id = id;
-        this.pw = pw;
-        this.auth = auth;
-    }
+    private String login_id;
+    private String login_pw;
+    private String login_radio;
 }

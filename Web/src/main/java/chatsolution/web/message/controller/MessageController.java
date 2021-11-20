@@ -22,11 +22,16 @@ public class MessageController {
     private final MessageService messageService;
 
     @GetMapping
-    public String chatList(Model model){
-        List<MessageListDto> messages = messageService.msgList();
-        model.addAttribute("messages", messages);
-        return "chat/chat_room";
+    public String roomList(Model model) {
+        return "chat/chat_list";
     }
+
+//    @GetMapping
+//    public String chatList(Model model){
+//        List<MessageListDto> messages = messageService.msgList();
+//        model.addAttribute("messages", messages);
+//        return "chat/chat_room";
+//    }
 
     @PostMapping("/send")
     public @ResponseBody String msgSend(NewMessageDto newMessageDto) {
