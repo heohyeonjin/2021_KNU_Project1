@@ -2,11 +2,14 @@ package chatsolution.web.client.model;
 
 import chatsolution.web.client.dto.SignUpRequestDto;
 import chatsolution.web.corporation.model.TimeStamped;
+import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.room.model.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,6 +35,9 @@ public class Client extends TimeStamped {
 
     @Column(nullable = false)
     private int clientGender;             // 고객 성별
+
+    @OneToMany(mappedBy="client")
+    private List<Room> rooms;
 
     public Client(SignUpRequestDto requestDto) {
         this.clientEmail = requestDto.getEmail();

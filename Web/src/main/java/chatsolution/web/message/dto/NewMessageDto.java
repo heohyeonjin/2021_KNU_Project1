@@ -8,7 +8,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class NewMessageDto {
     private String msg;
-    private String msgType;
+    private int msgType;
     private Long sender;
     private Long roomInfo;
 }

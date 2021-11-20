@@ -1,0 +1,40 @@
+package chatsolution.web.room.model;
+
+
+import chatsolution.web.client.model.Client;
+import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.corporation.model.TimeStamped;
+import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.message.model.Message;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Getter@Setter
+@NoArgsConstructor
+@Entity
+public class Room extends TimeStamped {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long RoomNo; // 방 일련번호
+
+    @ManyToOne
+    @JoinColumn
+    private Client client; //고객 외래키
+
+    @ManyToOne //상담원 외래키
+    @JoinColumn
+    private Counselor counselor;
+
+    @OneToMany(mappedBy="room")
+    private List<Message> messages; //메시지들
+
+
+
+
+
+}
