@@ -2,8 +2,7 @@ package chatsolution.web.client.model;
 
 import chatsolution.web.client.dto.SignUpRequestDto;
 import chatsolution.web.corporation.model.TimeStamped;
-import chatsolution.web.counselor.model.Counselor;
-import chatsolution.web.room.model.Room;
+import chatsolution.web.message.model.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

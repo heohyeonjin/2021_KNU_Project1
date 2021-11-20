@@ -1,4 +1,4 @@
-package chatsolution.web.room.model;
+package chatsolution.web.message.model;
 
 
 import chatsolution.web.client.model.Client;
