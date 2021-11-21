@@ -40,4 +40,19 @@ public class ClientAPIService {
 
         return newClient.getClientEmail();
     }
+
+    //로그인
+    public Client loginClient(SignInRequestDto signInRequestDto){
+        Client client = null;
+        String ClientEmail = signInRequestDto.getEmail();
+        Client findClient = clientRepository.findByClientEmail(ClientEmail);
+
+        if(findClient!=null) {
+            if (passwordEncoder.matches(signInRequestDto.getPassword(), findClient.getClientPw())) {
+                client = findClient;
+            }
+            return client;
+        }
+        return client;
+    }
 }

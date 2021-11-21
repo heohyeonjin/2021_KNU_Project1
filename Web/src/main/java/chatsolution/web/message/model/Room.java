@@ -20,7 +20,7 @@ public class Room extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long RoomNo; // 방 일련번호
+    private Long roomNo; // 방 일련번호
 
     @ManyToOne
     @JoinColumn
@@ -34,6 +34,10 @@ public class Room extends TimeStamped {
     private List<Message> messages; //메시지들
 
 
+    public Room(Client client, Counselor counselor){
+        this.setClient(client);
+        this.setCounselor(counselor);
+    }
 
 
 
