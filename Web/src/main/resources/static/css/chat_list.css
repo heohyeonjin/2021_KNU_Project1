@@ -65,3 +65,26 @@ p {
     font-size:15px;
     font-weight:bold;
 }
+
+/* 메세지 */
+.client {
+    font-weight:bolder;
+    font-size: large;
+}
+.last-comment {
+    font-size: medium;
+}
+
+/* 알림 */
+#circle {
+    margin-top: 5px;
+    width : 25px;
+    height : 25px;
+    border-radius: 50%;
+    background-color: tomato;
+    text-align: center;
+    line-height: 25px;
+    float: right;
+    color: white;
+    font-weight: bolder;
+}
