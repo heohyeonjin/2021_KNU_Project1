@@ -1,6 +1,7 @@
 package chatsolution.web.message.model;
 
 import chatsolution.web.corporation.model.TimeStamped;
+import chatsolution.web.message.dto.ClientMessageSendDto;
 import chatsolution.web.message.dto.NewMessageDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,10 @@ public class Message extends TimeStamped {
 
     private int msgSender; // 보낸 사람 (상담원 : 0 고객 : 1)
 
+    private int clientRead;
+
+    private int counRead;
+
     @ManyToOne
     @JoinColumn
     private Room room; //
@@ -34,5 +39,15 @@ public class Message extends TimeStamped {
     public Message(NewMessageDto newMessageDto) {
         this.msgContent = newMessageDto.getMsg();
         this.msgType = newMessageDto.getMsgType();
+    }
+
+    // 클라이언트 메시지
+    public Message(ClientMessageSendDto clientMessageSendDto, Room room){
+        this.msgContent = clientMessageSendDto.getContent();
+        this.msgType = clientMessageSendDto.getMsgType();
+        this.msgSender = 1;
+        this.clientRead=1;
+        this.counRead=0;
+        this.room = room;
     }
 }
