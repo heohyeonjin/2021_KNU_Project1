@@ -8,6 +8,7 @@
     android:orientation="horizontal"
     android:background="@drawable/item_border">
 
+
     <ImageView
         android:id="@+id/companyImg"
         android:layout_width="25dp"

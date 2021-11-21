@@ -33,4 +33,10 @@ public class Room extends TimeStamped {
     @OneToMany(mappedBy="room")
     private List<Message> messages; //메시지들
 
+
+    public Room(Client client, Counselor counselor){
+        this.setClient(client);
+        this.setCounselor(counselor);
+    }
+
 }

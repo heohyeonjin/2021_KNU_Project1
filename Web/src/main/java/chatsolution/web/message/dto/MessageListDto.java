@@ -12,6 +12,7 @@ import java.util.Locale;
 @Getter @Setter
 @NoArgsConstructor
 public class MessageListDto {
+
     private String content;
     private String date;
     private String time;
