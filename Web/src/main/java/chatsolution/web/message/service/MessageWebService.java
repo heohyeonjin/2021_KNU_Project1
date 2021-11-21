@@ -4,15 +4,16 @@ import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.dto.NewMessageDto;
+import chatsolution.web.message.dto.RoomInfoDto;
 import chatsolution.web.message.dto.RoomListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.MessageRepository;
+import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ public class MessageWebService {
 
     private final CounselorRepository counselorRepository;
     private final MessageRepository messageRepository;
+    private final RoomRepository roomRepository;
 
     // 채팅방 리스트 띄우기
     public List<RoomListDto> roomList(Long counNo){
@@ -35,6 +37,18 @@ public class MessageWebService {
         return existRoom.stream()
                 .map(o -> new RoomListDto(o))
                 .collect(Collectors.toList());
+    }
+
+    // 상담원 이름 얻기
+    public Optional<Counselor> getCounName(Long counNo) {
+        return counselorRepository.findById(counNo);
+    }
+
+    // 채팅방 내 상담원/방 정보 얻기
+    public RoomInfoDto getRoomInfo(Long roomNo) {
+        Optional<Room> room = roomRepository.findById(roomNo);
+
+        return new RoomInfoDto(room.get().getClient().getClientName(), roomNo);
     }
 
     // 채팅방 내 존재하는 메세지 띄우기
@@ -58,11 +72,12 @@ public class MessageWebService {
     }
 
     // 상담원이 전송한 메세지 저장
-    public boolean saveMsg(NewMessageDto newMessageDto) {
-        Message newMsg = new Message(newMessageDto);
+    public void saveMsg(NewMessageDto newMessageDto, Long roomNo) {
+        Optional<Room> room = roomRepository.findById(roomNo);
+        Message newMsg = new Message(newMessageDto, room.get());
         messageRepository.save(newMsg);
+        room.get().getMessages().add(newMsg);
 
         log.info("상담원 메세지 저장 성공");
-        return true;
     }
 }

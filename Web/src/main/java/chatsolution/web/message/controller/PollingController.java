@@ -17,19 +17,17 @@ import java.util.List;
 public class PollingController {
 
     private final PollingService pollingService;
-    private final MessageRepository messageRepository;
 
-    //폴링
-    @GetMapping
+    // 채팅방 내 마지막 메세지 확인
+    @GetMapping("/chat/lastMsg")
+    public @ResponseBody Long checkLast(@RequestParam("roomNo") Long roomNo) {
+        return pollingService.checkLast(roomNo);
+    }
+
+    //채팅방 폴링
+    @GetMapping("/chat")
     public @ResponseBody List<MessageDto> newMessages(@RequestParam("lastMsg") Long lastMsg){
         List<MessageDto> messages = pollingService.updateMessage(lastMsg);
         return messages;
-    }
-
-    // 마지막 메세지
-    @GetMapping("/lastMsg")
-    public @ResponseBody Long checkLast() {
-        Message last = messageRepository.findTopByOrderByMsgNoDesc();
-        return last.getMsgNo();
     }
 }
