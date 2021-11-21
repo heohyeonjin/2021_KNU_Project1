@@ -20,16 +20,19 @@ public class Message extends TimeStamped {
     @Column(nullable = false)
     private String msgContent;  // 메세지 내용
 
-    private int msgType;     // 메세지 타입
+    private int msgType;        // 메세지 타입
 
     private int msgStatus;      // 메세지 전송상태
 
-    private int msgSender; // 보낸 사람 (상담원 : 0 고객 : 1)
+    private int msgSender;      // 보낸 사람 (상담원 : 0 고객 : 1)
+
+    private int counRead;       // 상담원 읽음 처리
+
+    private int clientRead;     // 고객 읽음 처리
 
     @ManyToOne
     @JoinColumn
-    private Room room; //
-
+    private Room room;
 
     public Message(NewMessageDto newMessageDto) {
         this.msgContent = newMessageDto.getMsg();
