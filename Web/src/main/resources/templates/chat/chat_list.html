@@ -11,10 +11,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <header class ="p-1 bg-dark text-white sticky-top">
     <div class="d-flex w-100 justify-content-between">
-        <img th:src="@{/css/logo.png}" style="width:80px" href="#" alt=""/>
+        <img th:src="@{/images/logo.png}" style="width:80px" href="#" alt=""/>
         <h5 class="head mb-1 mx-3 my-1 flex-fill">
-            <div class="my-1"style="color:gray;font-size:15px">상담원</div>
-            <div class="counseler-name mt-1">허현진</div>
+            <div class="my-1" style="color:gray;font-size:15px">상담원</div>
+            <div class="mt-1">허현진</div>
         </h5>
         <div>
             <label class="switch">
@@ -29,136 +29,19 @@
 </header>
 
 
-<div class=counseling-list>
+<div class=counseling-list th:each="room: ${rooms}">
     <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
+        <a th:href="@{/counseling/{roomNo}(roomNo=${room.roomNo})}" class="list-group-item" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
+                <img th:src="@{/images/person.svg}" style="width:50px" href="#" alt=""/>
                 <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
+                    <div th:text="${room.name}" class="client my-1"> 홍길동</div>
+                    <div th:text="${room.content}" class="last-comment">사이즈 문의드립니다.</div>
                 </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="client-name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
-            </div>
-        </a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img src="../resources/person.svg" style="width:50px" href="#" alt=""></img>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div class="name my-1"style="font-weight:bold"> 홍길동</div>
-                    <div class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>오후 5:24</small>
+                <small>
+                    <div th:text="${room.time}">2021-11-12</div>
+                    <div th:id="circle">1</div>
+                </small>
             </div>
         </a>
     </div>
