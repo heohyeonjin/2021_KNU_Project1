@@ -182,23 +182,6 @@
                         android:text="여"
                        android:textColor="@color/purple_light" />
 
-                    <TextView
-                        android:id="@+id/textView"
-                        android:layout_width="0dp"
-                        android:layout_height="48dp"
-                        android:layout_weight="1"
-                        android:text="생년월일"
-
-                        android:cursorVisible="true"
-                        android:drawablePadding="15dp"
-                        android:elevation="3dp"
-                        android:hint="@string/phone"
-                        android:importantForAutofill="no"
-                        android:inputType="textNoSuggestions|phone"
-                        android:textColorHint="@color/purple"
-                        android:textColor="@color/purple_light"
-                        android:textSize="15sp"
-                        tools:ignore="LabelFor"/>
 
 
                 </RadioGroup>
