@@ -43,13 +43,14 @@ public class ClientAPIController {
 
     //로그인
     @PostMapping("/api/login")
-    public String Login(@RequestBody SignInRequestDto requestDto, HttpServletRequest servletRequest ){
+    public SignUpRequestDto Login(@RequestBody SignInRequestDto requestDto, HttpServletRequest servletRequest ){
         Client client = clientAPIService.loginClient(requestDto);
+        SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client);
         if(client==null)
-            return "false";
+            return null;
         else{
             servletRequest.getSession().setAttribute("clientNo",client.getClientNo());
-            return "true";
+            return signUpRequestDto;
         }
     }
 }
