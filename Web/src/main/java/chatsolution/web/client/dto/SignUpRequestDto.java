@@ -1,5 +1,6 @@
 package chatsolution.web.client.dto;
 
+import chatsolution.web.client.model.Client;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,4 +13,12 @@ public class SignUpRequestDto {
     private String name;
     private int gender;
     private String tel;
+
+    public SignUpRequestDto(Client client){
+        this.email = client.getClientEmail();
+        this.password = client.getClientPw();
+        this.name = client.getClientName();
+        this.gender = client.getClientGender();
+        this.tel = client.getClientPhone();
+    }
 }
