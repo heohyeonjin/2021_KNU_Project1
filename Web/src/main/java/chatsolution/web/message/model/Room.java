@@ -39,6 +39,4 @@ public class Room extends TimeStamped {
         this.setCounselor(counselor);
     }
 
-
-
 }

@@ -1,14 +1,15 @@
-//방에 들어갈 때 Id, roomId값 받아오기
-
 let lastMsg = 0;
 
-function checkLast(){
+function checkLast(roomNo){
+    console.log("방정보: " + roomNo);
     $.ajax({
-        url: "/poll/lastMsg",
+        url: "/poll/chat/lastMsg",
         type: "get",
+        data: { roomNo:roomNo },
         success: function(response) {
             if (response) {
                 lastMsg = response;
+                console.log("마지막 메세지 id: " + lastMsg);
             }
             addMessage();
         },
@@ -20,7 +21,7 @@ function checkLast(){
 
 function addMessage() {
     $.ajax({
-        url: "/poll",
+        url: "/poll/chat",
         type: 'get',
         data: { lastMsg:lastMsg },
         timeout:60000,
@@ -28,20 +29,32 @@ function addMessage() {
             if (response) {
                 for (let i=0; i<response.length; i++) {
                     console.log(response);
-                    let myMsg = response[i]['content'];
-                    let myTime= response[i]['time'];
-                    let myChat = `<div class="item mymsg">
-                                    <div class="box">
-                                        <p class="msg">${myMsg}</p>
-                                        <span class="time">${myTime}</span>
-                                    </div>
-                                </div>`
-                    $('#messages').append(myChat);
-                    console.log("뭐지: " + lastMsg);
+                    let content = response[i]['content'];
+                    let time = response[i]['time'];
+                    let sender = response[i]['sender'];
+                    if (sender === 0) {
+                        let myChat = `<div class="item mymsg">
+                                        <div class="box">
+                                            <p class="msg">${content}</p>
+                                            <span class="time">${time}</span>
+                                        </div>
+                                    </div>`
+                        $('#messages').append(myChat);
+                    }
+                    else if (sender === 1) {
+                        let clientChat = `<div class="item">
+                                            <div class="box">
+                                                <p class="msg">${content}</p>
+                                                <span class="time">${time}</span>
+                                            </div>
+                                        </div>`
+                        $('#messages').append(clientChat);
+                    }
+                    else {
+                        alert("sender validation 오류");
+                    }
                 }
                 lastMsg = response[response.length-1]['no'];
-                console.log("polling 후: " + lastMsg);
-
             }
             setTimeout(addMessage(),10);
         },
