@@ -44,6 +44,7 @@ public class ClientMessageController {
         else{
             Optional<Corporation> corporation = corpRepository.findById(corpNo);
             Corporation corp = corporation.get();
+
             if(corp.getCounselors().size()==0){
                 return "해당 기업의 상담원이 존재하지 않습니다";
             }

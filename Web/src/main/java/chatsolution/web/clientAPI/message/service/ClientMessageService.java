@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -56,6 +57,7 @@ public class ClientMessageService {
     }
 
     // 메시지 추가
+    @Transactional
     public String addMessage(Long roomNo, MessageSendDto clientMessageSendDto){
         Optional<Room> findRoom = roomRepository.findById(roomNo);
         Room room = findRoom.get();
@@ -63,6 +65,7 @@ public class ClientMessageService {
         Message newMsg = new Message(clientMessageSendDto, room);
         messageRepository.save(newMsg);
         room.getMessages().add(newMsg);
+        room.setMsgSize(room.getMsgSize()+1);
 
         return newMsg.getMsgContent();
     }
