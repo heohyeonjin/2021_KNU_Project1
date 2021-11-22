@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -72,11 +73,17 @@ public class MessageWebService {
     }
 
     // 상담원이 전송한 메세지 저장
+    @Transactional
     public void saveMsg(NewMessageDto newMessageDto, Long roomNo) {
-        Optional<Room> room = roomRepository.findById(roomNo);
-        Message newMsg = new Message(newMessageDto, room.get());
+        Room room = roomRepository.findById(roomNo).orElseThrow(
+                ()->new NullPointerException("접근 오류"));
+        Message newMsg = new Message(newMessageDto, room);
         messageRepository.save(newMsg);
-        room.get().getMessages().add(newMsg);
+
+        List<Message> newMessages = room.getMessages();
+        newMessages.add(newMsg);
+        room.setMessages(newMessages);
+        room.setMsgSize(room.getMsgSize() + 1);   // DB modifiedAt 변경용
 
         log.info("상담원 메세지 저장 성공");
     }

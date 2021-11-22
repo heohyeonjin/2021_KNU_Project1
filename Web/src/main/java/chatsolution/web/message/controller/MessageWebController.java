@@ -34,6 +34,7 @@ public class MessageWebController {
 
         Optional<Counselor> counselor = messageWebService.getCounName(enter);
         List<RoomListDto> rooms = messageWebService.roomList(enter);
+        model.addAttribute("counNo", enter);
         model.addAttribute("counName", counselor.get().getCounName());
         model.addAttribute("rooms", rooms);
         return "chat/chat_list";
@@ -52,6 +53,7 @@ public class MessageWebController {
         return "chat/chat_room";
     }
 
+    // web에서 메세지 전송
     @PostMapping("/{roomNo}/send")
     public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) {
         log.info("전달받은 메세지: " + newMessageDto.getMsg());
