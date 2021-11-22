@@ -5,6 +5,8 @@ import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.clientAPI.message.dto.RoomListDto;
 import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
+import chatsolution.web.message.model.Room;
+import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,13 +21,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ClientRoomListController {
     private final ClientMessageService messageClientService;
-    private final CorpRepository corpRepository;
+    private final RoomRepository roomRepository;
 
     //채팅방 리스트
     @GetMapping("/api/rooms")
     public List<RoomListDto> roomList(HttpServletRequest request){
         Client client = messageClientService.getClient(request.getSession());
-        return client.getRooms().stream()
+        List<Room> room =roomRepository.findAllByClient_ClientNoOrderByModifiedAtDesc(client.getClientNo());
+        return room.stream()
                 .map(o -> new RoomListDto(o))
                 .collect(Collectors.toList());
     }
