@@ -1,11 +1,9 @@
 package chatsolution.web.message.model;
 
 
-import chatsolution.web.client.model.Client;
-import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.counselor.model.Counselor;
-import chatsolution.web.message.model.Message;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

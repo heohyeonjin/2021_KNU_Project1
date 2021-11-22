@@ -1,10 +1,10 @@
-package chatsolution.web.client.controller;
+package chatsolution.web.clientAPI.auth.controller;
 
-import chatsolution.web.client.dto.IdDoubleCheckDto;
-import chatsolution.web.client.dto.SignInRequestDto;
-import chatsolution.web.client.dto.SignUpRequestDto;
-import chatsolution.web.client.model.Client;
-import chatsolution.web.client.service.ClientAPIService;
+import chatsolution.web.clientAPI.auth.dto.IdDoubleCheckDto;
+import chatsolution.web.clientAPI.auth.dto.SignInRequestDto;
+import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
+import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.clientAPI.auth.service.ClientAPIService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

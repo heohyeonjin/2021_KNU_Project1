@@ -1,10 +1,10 @@
-package chatsolution.web.client.service;
+package chatsolution.web.clientAPI.auth.service;
 
-import chatsolution.web.client.dto.IdDoubleCheckDto;
-import chatsolution.web.client.dto.SignInRequestDto;
-import chatsolution.web.client.dto.SignUpRequestDto;
-import chatsolution.web.client.model.Client;
-import chatsolution.web.client.repository.ClientRepository;
+import chatsolution.web.clientAPI.auth.dto.IdDoubleCheckDto;
+import chatsolution.web.clientAPI.auth.dto.SignInRequestDto;
+import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
+import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.clientAPI.auth.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
