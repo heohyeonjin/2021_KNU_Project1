@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.example.chattingapp.R
+import com.example.chattingapp.data.model.Corporation
 import com.example.chattingapp.databinding.ActivityMainBinding
 import com.example.chattingapp.ui.navigation.ChattingListFragment
 import com.example.chattingapp.ui.navigation.CompanyListFragment
@@ -16,6 +17,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var chatListFragment: ChattingListFragment
     private lateinit var companyListFragment: CompanyListFragment
     private lateinit var mypageFragment: MypageFragment
+    var companyList: ArrayList<Corporation> = arrayListOf(
+        Corporation(1,"samsung","company","company"),
+        Corporation(2,"LG","company","company")
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +54,13 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.selectedItemId = R.id.action_company_list
 
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(
+            R.id.main_content,
+            CompanyListFragment()
+        )
+        transaction.commit()
+        intent.putExtra("companyList",companyList)
     }
 
 }
