@@ -31,10 +31,6 @@ public class Message extends TimeStamped {
 
     private int clientRead;     // 고객 읽음 처리 (안읽음 : 0 읽음 : 1)
 
-    private int clientRead;
-
-    private int counRead;
-
     @ManyToOne
     @JoinColumn
     private Room room;
