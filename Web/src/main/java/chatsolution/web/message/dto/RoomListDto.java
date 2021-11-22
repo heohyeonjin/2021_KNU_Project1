@@ -40,7 +40,14 @@ public class RoomListDto {
             this.time = last.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
         }
         else {
-            this.time = last.getCreatedAt().getHour() + ":" + last.getCreatedAt().getMinute();
+            int hour = last.getCreatedAt().getHour();
+            if (hour >= 12) {
+                if (hour == 12) hour = 12;
+                else hour = hour - 12;
+                this.time = "오후 " + hour + ":" + last.getCreatedAt().getMinute();
+            } else {
+                this.time = "오전 " + hour + ":" + last.getCreatedAt().getMinute();
+            }
         }
     }
 }

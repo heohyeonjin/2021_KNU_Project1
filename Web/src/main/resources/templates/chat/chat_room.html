@@ -8,13 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" th:inline="javascript" th:src="@{/js/chat_room.js}"></script>
-    <script type="text/javascript" th:inline="javascript" th:src="@{/js/poll.js}"></script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/poll_message.js}"></script>
     <link rel="stylesheet" th:href="@{/css/chat_room.css}">
 </head>
 <script th:inline="javascript">
     $(document).ready(function(){
         /*<![CDATA[*/
-        checkLast(/*[[ ${info.roomNo} ]]*/);
+        checkLastMsg(/*[[ ${info.roomNo} ]]*/);
         /*]]*/
     });
 </script>

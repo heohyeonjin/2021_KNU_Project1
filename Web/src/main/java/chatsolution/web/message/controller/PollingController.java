@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Slf4j
@@ -20,7 +21,7 @@ public class PollingController {
 
     // 채팅방 내 마지막 메세지 확인
     @GetMapping("/chat/lastMsg")
-    public @ResponseBody Long checkLast(@RequestParam("roomNo") Long roomNo) {
+    public @ResponseBody Long checkLastMsg(@RequestParam("roomNo") Long roomNo) {
         return pollingService.checkLast(roomNo);
     }
 
@@ -29,5 +30,14 @@ public class PollingController {
     public @ResponseBody List<MessageDto> newMessages(@RequestParam("lastMsg") Long lastMsg){
         List<MessageDto> messages = pollingService.updateMessage(lastMsg);
         return messages;
+    }
+
+    // 채팅방 리스트 내 마지막 채팅방 확인
+    @GetMapping("/room/lastRoom")
+    public @ResponseBody Long checkLastRoom(HttpServletRequest servletRequest) {
+        Long enter = (Long)servletRequest.getSession().getAttribute("counNo");
+        log.info("로그인한 상담원 정보: " + enter);
+
+        return enter;
     }
 }

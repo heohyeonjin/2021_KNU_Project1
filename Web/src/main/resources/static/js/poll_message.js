@@ -1,6 +1,6 @@
 let lastMsg = 0;
 
-function checkLast(roomNo){
+function checkLastMsg(roomNo){
     console.log("방정보: " + roomNo);
     $.ajax({
         url: "/poll/chat/lastMsg",

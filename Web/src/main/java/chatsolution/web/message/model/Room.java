@@ -28,6 +28,8 @@ public class Room extends TimeStamped {
     @JoinColumn
     private Counselor counselor;
 
+    private int msgSize = 0;
+
     @OneToMany(mappedBy="room")
     private List<Message> messages; //메시지들
 
