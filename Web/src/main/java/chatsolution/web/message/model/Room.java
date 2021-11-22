@@ -28,12 +28,10 @@ public class Room extends TimeStamped {
     @JoinColumn
     private Counselor counselor;
 
-    private int msgSize = 0;
+    private int msgSize;
 
     @OneToMany(mappedBy="room")
     private List<Message> messages; //메시지들
-
-    private int msgSize;
 
     public Room(Client client, Counselor counselor){
         this.setClient(client);
