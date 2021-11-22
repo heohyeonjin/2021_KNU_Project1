@@ -31,4 +31,5 @@ public class RoomClientController {
                 .map(o -> new ClientRoomListDto(o))
                 .collect(Collectors.toList());
     }
+
 }
