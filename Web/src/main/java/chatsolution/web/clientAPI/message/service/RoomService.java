@@ -1,8 +1,7 @@
-package chatsolution.web.message.service;
+package chatsolution.web.clientAPI.message.service;
 
 
-import chatsolution.web.client.model.Client;
-import chatsolution.web.client.repository.ClientRepository;
+import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class RoomClientService {
+public class RoomService {
 
     final private RoomRepository roomRepository;
 

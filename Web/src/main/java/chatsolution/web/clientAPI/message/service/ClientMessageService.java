@@ -1,9 +1,9 @@
-package chatsolution.web.message.service;
+package chatsolution.web.clientAPI.message.service;
 
 
-import chatsolution.web.client.model.Client;
-import chatsolution.web.client.repository.ClientRepository;
-import chatsolution.web.message.dto.ClientMessageSendDto;
+import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.clientAPI.auth.repository.ClientRepository;
+import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
@@ -14,14 +14,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class MessageClientService {
+public class ClientMessageService {
 
     private final RoomRepository roomRepository;
     private final ClientRepository clientRepository;
@@ -57,7 +56,7 @@ public class MessageClientService {
     }
 
     // 메시지 추가
-    public String addMessage(Long roomNo, ClientMessageSendDto clientMessageSendDto){
+    public String addMessage(Long roomNo, MessageSendDto clientMessageSendDto){
         Optional<Room> findRoom = roomRepository.findById(roomNo);
         Room room = findRoom.get();
 

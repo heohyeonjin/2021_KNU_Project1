@@ -1,6 +1,6 @@
-package chatsolution.web.client.model;
+package chatsolution.web.clientAPI.auth.model;
 
-import chatsolution.web.client.dto.SignUpRequestDto;
+import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.message.model.Room;
 import lombok.Getter;

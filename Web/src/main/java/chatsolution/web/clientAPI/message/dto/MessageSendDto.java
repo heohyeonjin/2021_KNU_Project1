@@ -1,14 +1,13 @@
-package chatsolution.web.message.dto;
+package chatsolution.web.clientAPI.message.dto;
 
 
-import chatsolution.web.message.model.Message;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor
-public class ClientMessageSendDto {
+public class MessageSendDto {
 
     private String content; // 메시지 내용
     private int msgType; // 메시지 타입

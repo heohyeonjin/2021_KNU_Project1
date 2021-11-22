@@ -1,7 +1,7 @@
 package chatsolution.web.message.model;
 
 import chatsolution.web.corporation.model.TimeStamped;
-import chatsolution.web.message.dto.ClientMessageSendDto;
+import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.message.dto.NewMessageDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -46,7 +46,7 @@ public class Message extends TimeStamped {
     }
 
     // 클라이언트 메시지
-    public Message(ClientMessageSendDto clientMessageSendDto, Room room){
+    public Message(MessageSendDto clientMessageSendDto, Room room){
         this.msgContent = clientMessageSendDto.getContent();
         this.msgType = clientMessageSendDto.getMsgType();
         this.msgSender = 1;
