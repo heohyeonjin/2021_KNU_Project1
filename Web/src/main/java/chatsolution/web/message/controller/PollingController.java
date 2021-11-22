@@ -22,7 +22,7 @@ public class PollingController {
     // 채팅방 내 마지막 메세지 확인
     @GetMapping("/chat/lastMsg")
     public @ResponseBody Long checkLastMsg(@RequestParam("roomNo") Long roomNo) {
-        return pollingService.checkLast(roomNo);
+        return pollingService.checkLastMsg(roomNo);
     }
 
     //채팅방 폴링
@@ -36,8 +36,6 @@ public class PollingController {
     @GetMapping("/room/lastRoom")
     public @ResponseBody Long checkLastRoom(HttpServletRequest servletRequest) {
         Long enter = (Long)servletRequest.getSession().getAttribute("counNo");
-        log.info("로그인한 상담원 정보: " + enter);
-
-        return enter;
+        return pollingService.checklastRoom(enter);
     }
 }
