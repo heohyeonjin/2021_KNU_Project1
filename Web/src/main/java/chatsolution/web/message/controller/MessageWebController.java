@@ -30,7 +30,6 @@ public class MessageWebController {
     public String roomList(Model model, HttpServletRequest request) {
 
         Long enter = (Long)request.getSession().getAttribute("counNo");
-        log.info("로그인한 상담원 일련번호: " + enter);
 
         Optional<Counselor> counselor = messageWebService.getCounName(enter);
         List<RoomListDto> rooms = messageWebService.roomList(enter);

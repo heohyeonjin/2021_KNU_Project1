@@ -23,12 +23,8 @@ public class PollingService {
     private final RoomRepository roomRepository;
 
     // 채팅방 내 마지막 메세지 확인
-    public Long checkLast(Long roomNo) {
-        Optional<Room> room = roomRepository.findById(roomNo);
-
-        int size = room.get().getMessages().size();
-        Message message = room.get().getMessages().get(size - 1);
-
+    public Long checkLastMsg(Long roomNo) {
+        Message message = messageRepository.findTopByRoom_RoomNoOrderByMsgNoDesc(roomNo);
         return message.getMsgNo();
     }
 
@@ -62,5 +58,11 @@ public class PollingService {
         }
 
         return messages;
+    }
+
+    // 채팅목록 내 마지막 방 확인
+    public Long checklastRoom(Long counNo) {
+        Room last = roomRepository.findTopByCounselor_CounNoOrderByRoomNoDesc(counNo);
+        return last.getRoomNo();
     }
 }

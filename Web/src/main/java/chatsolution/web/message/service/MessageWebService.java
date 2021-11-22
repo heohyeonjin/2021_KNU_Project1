@@ -30,11 +30,7 @@ public class MessageWebService {
 
     // 채팅방 리스트 띄우기
     public List<RoomListDto> roomList(Long counNo){
-
-        Optional<Counselor> coun = counselorRepository.findById(counNo);
-        if (coun.isEmpty()) return null;
-
-        List<Room> existRoom = coun.get().getRooms();
+        List<Room> existRoom = roomRepository.findAllByCounselor_CounNoOrderByModifiedAtDesc(counNo);
         return existRoom.stream()
                 .map(o -> new RoomListDto(o))
                 .collect(Collectors.toList());
