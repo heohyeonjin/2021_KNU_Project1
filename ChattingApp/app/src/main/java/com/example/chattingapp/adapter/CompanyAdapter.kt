@@ -33,23 +33,14 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
         val corpDesc = itemView?.findViewById<TextView>(R.id.company_introduce)
         val corpName = itemView?.findViewById<TextView>(R.id.company_name)
 
-
+        
 
         fun bind(corp: Corporation, position:Int){
             Glide.with(itemView).load(corp.corpLogo).into(corpLogo)
             corpName?.text = corp.corpName
             corpDesc?.text = corp.corpDesc
-
-
-
-
-
         }
     }
-
-
-
-
 
 
 

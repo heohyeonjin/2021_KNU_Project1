@@ -9,5 +9,4 @@ import java.util.List;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
     Message findTopByOrderByMsgNoDesc();
-    Message findTopByRoom_RoomNoOrderByMsgNoDesc(Long roomNo);
 }

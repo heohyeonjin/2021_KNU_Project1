@@ -58,6 +58,8 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                 MyApplication.prefs.setUserEmail(it.email)
                 MyApplication.prefs.setUserName(it.name)
 
+                /** SP 아이디, 로그인했음, */
+
                 val intent = Intent(this, MainActivity::class.java)
                 val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
                 intent.putExtra("user", intentData)

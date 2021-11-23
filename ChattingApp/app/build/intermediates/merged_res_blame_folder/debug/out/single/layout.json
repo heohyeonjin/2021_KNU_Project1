@@ -1,0 +1,78 @@
+[
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_my_page.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\detail_date.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\detail_date.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_sign_up.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_sign_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_chat_list.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_chat_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_find_password_success.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_find_password_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_find_password_success.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_find_password_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_profile.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_find_password.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_find_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_chat.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_chat.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\detail_receive_msg.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\detail_receive_msg.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_find_email_success.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_find_email_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_company.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\item_company.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_multimedia_popup.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_multimedia_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_find.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_find.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\detail_send_msg.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\detail_send_msg.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_company_list.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_company_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_find_password.xml",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_find_password.xml"
+    }
+]

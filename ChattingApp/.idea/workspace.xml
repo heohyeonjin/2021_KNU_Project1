@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidConfiguredLogFilters">
+    <filters>
+      <filter>
+        <option name="logLevel" value="verbose" />
+        <option name="logMessagePattern" value="" />
+        <option name="logTagPattern" value="kkm__" />
+        <option name="name" value="kkm__" />
+        <option name="packageNamePattern" value="" />
+      </filter>
+    </filters>
+  </component>
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="kkm__" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e5142e16-5004-4a4b-b0af-580f7bbf9f4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/controller/ClientAPIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/IdDoubleCheckDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/SignInRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/SignUpRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/model/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/repository/ClientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/service/ClientAPIService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/PollingRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Web/src/main/resources/static/js/poll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/corporation/repository/CorpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/corporation/repository/CorpRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/counselor/model/Counselor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/counselor/model/Counselor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/MessageWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/MessageWebController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/PollingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/PollingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/NewMessageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/NewMessageDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/RoomListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/RoomListDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/MessageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/RoomRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/MessageWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/MessageWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/PollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/PollingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/static/js/chat_room.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/static/js/chat_room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_room.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\kkw19\.android\avd\Pixel_5_API_29.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ChattingApp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ChattingApp" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ChattingApp" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="20zndfPzscGujFqhRKCpoNV1ikl" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\kkw19\Documents\GitHub\2021_KNU_Project1\ChattingApp\app\src\main\res\drawable-v24" />
+      <recent name="C:\Users\kkw19\Documents\GitHub\2021_KNU_Project1\ChattingApp\app\src\main\java\com\example\chattingapp\ui\navigation" />
+      <recent name="C:\Users\kkw19\Documents\GitHub\2021_KNU_Project1\ChattingApp\app\src\main\res\layout" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.chattingapp.adapter" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="ChattingApp.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e5142e16-5004-4a4b-b0af-580f7bbf9f4e" name="Default Changelist" comment="" />
+      <created>1637056373062</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637056373062</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

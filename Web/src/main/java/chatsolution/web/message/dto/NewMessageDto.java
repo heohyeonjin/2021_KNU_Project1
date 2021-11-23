@@ -9,4 +9,6 @@ import lombok.Setter;
 public class NewMessageDto {
     private String msg;
     private int msgType;
+    private Long sender;
+    private Long roomInfo;
 }
