@@ -6,6 +6,7 @@ import chatsolution.web.message.model.Room;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -13,16 +14,20 @@ import java.time.format.DateTimeFormatter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Slf4j
 public class RoomListDto {
     private String CorpName; // 회사 명
     private String content;
     private String time;
+    private int ClientRead; // 읽음 처리 ( 1: 읽음 0 : 안읽음 )
 
     public RoomListDto(Room room){
         this.CorpName = room.getCounselor().getCorporation().getCorpName();
         int size = room.getMessages().size()-1;
         Message lastMsg = room.getMessages().get(size);
         this.content = lastMsg.getMsgContent();
+        this.ClientRead = room.getMessages().get(size).getClientRead();
+        log.info(this.ClientRead+"");
 
         // 오늘 날짜
         LocalDate now = LocalDate.now();
