@@ -58,7 +58,7 @@ public class Counselor extends TimeStamped {
 
     public Counselor(CounRegDto counRegDto, Corporation corp){
         this.counGender = counRegDto.getCoun_gender();
-        setCorporation(corp);
+        this.corporation = corp;
         this.counName = counRegDto.getCoun_name();
         this.counId = counRegDto.getCoun_id();
         this.counPw = counRegDto.getCoun_pw();

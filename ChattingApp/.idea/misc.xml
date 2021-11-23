@@ -8,7 +8,6 @@
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/selected_chat.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/unselected_chat.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.264" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password.xml" value="0.6" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_main.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_multimedia_popup.xml" value="0.25" />
@@ -17,16 +16,7 @@
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.25" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.13125" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.1" />
-<<<<<<< Updated upstream
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.12092391304347826" />
-=======
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_email_success.xml" value="0.264" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_password.xml" value="0.536" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_password_success.xml" value="0.13580246913580246" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.12092391304347826" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.2" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/network_security_config.xml" value="0.10182370820668693" />
->>>>>>> Stashed changes
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/menu/bottom_navigation_main.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/bg_border_white.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/btn_purple.xml" value="0.1" />

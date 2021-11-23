@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_blue"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        tools:context=".ui.auth.SignUpActivity" android:tag="layout/activity_sign_up_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="40dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/sign_up"
+                    android:textColor="@color/purple_light"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="50dp"
+                    android:text="Thank you for visiting."
+                    android:textColor="@color/purple"
+                    android:textSize="20dp" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:textColor="@color/purple"
+                    android:textSize="13dp" />
+
+                <EditText
+                    android:id="@+id/sign_up_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="15dp"
+                    android:textCursorDrawable="@null"
+                    android:background="@drawable/bg_border_white"
+                    android:cursorVisible="true"
+                    android:drawableLeft="@drawable/ic_person"
+                    android:drawablePadding="15dp"
+                    android:elevation="3dp"
+                    android:hint="@string/user_name"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions|textPersonName"
+                    android:textColorHint="@color/purple"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:ignore="LabelFor" />
+
+                <EditText
+                    android:id="@+id/sign_up_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_border_white"
+                    android:cursorVisible="true"
+                    android:drawableLeft="@drawable/ic_lock"
+                    android:drawablePadding="15dp"
+                    android:elevation="3dp"
+                    android:hint="@string/login_password"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions|textPassword"
+                    android:textColorHint="@color/purple"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:ignore="LabelFor" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/sign_up_email_text"
+                        android:layout_width="221dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/bg_border_white"
+                        android:cursorVisible="true"
+                        android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="15dp"
+                        android:elevation="3dp"
+                        android:hint="@string/login_id"
+                        android:importantForAutofill="no"
+                        android:inputType="textNoSuggestions|textEmailAddress"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/purple"
+                        android:textSize="15sp"
+                        tools:ignore="LabelFor" />
+
+                    <Button
+                        android:id="@+id/sign_up_email_btn"
+                        android:layout_width="172dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_weight=".20"
+                        android:background="@drawable/btn_purple"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingVertical="10dp"
+                        android:text="중복 확인"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="Sent on email to your email address. Please check"
+                    android:textColor="@color/purple"
+                    android:textSize="13dp" />
+
+
+
+                <EditText
+                    android:id="@+id/sign_up_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/bg_border_white"
+                    android:cursorVisible="true"
+                    android:drawableLeft="@drawable/ic_phone"
+                    android:drawablePadding="15dp"
+                    android:elevation="3dp"
+                    android:hint="@string/phone"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions|phone"
+                    android:textColorHint="@color/purple"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:ignore="LabelFor" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="right"
+                    android:text=""
+                    android:textColor="@color/purple"
+                    android:textSize="13dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="30dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio_korean"
+                        android:layout_width="8dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/purple_light"
+                        android:text="남"
+                        android:textColor="@color/purple_light" />
+
+                    <RadioButton
+                        android:id="@+id/radio_english"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:buttonTint="@color/purple_light"
+                        android:text="여"
+                       android:textColor="@color/purple_light" />
+
+
+
+                </RadioGroup>
+
+
+                <Button
+                    android:id="@+id/sign_up_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@drawable/solid_button"
+                    android:text="Sign up"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="25dp">
+
+                </Button>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+         
