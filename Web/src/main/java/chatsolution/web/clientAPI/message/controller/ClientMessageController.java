@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class ClientMessageController {
 
@@ -25,14 +26,14 @@ public class ClientMessageController {
     private final RoomService roomClientService;
     private final CorpRepository corpRepository;
 
-    @GetMapping("/api/message/{roomNo}") // 채팅 방 안 메시지 내역
+    @GetMapping("/message/{roomNo}") // 채팅 방 안 메시지 내역
     public List<MessageListDto> messageList(@PathVariable Long roomNo){
         List<MessageListDto> messages = messageClientService.messageList(roomNo);
         return messages;
     }
 
     // 기업 선택 -> 메시지 하나 보내면 방 생성
-    @PostMapping("/api/message/{corpNo}") // 메시지 전송 및 방 생성
+    @PostMapping("/message/{corpNo}") // 메시지 전송 및 방 생성
     public String sendMsg(@RequestBody MessageSendDto clientMessageSendDto , @PathVariable Long corpNo, HttpServletRequest request){
         Client client = messageClientService.getClient(request.getSession()); //고객 정보
         Long checkRoom = messageClientService.checkRoom(client,corpNo); //방 존재 유무 확인
