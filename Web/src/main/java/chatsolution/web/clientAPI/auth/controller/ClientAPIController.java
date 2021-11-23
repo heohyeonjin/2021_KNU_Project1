@@ -45,10 +45,11 @@ public class ClientAPIController {
     @PostMapping("/api/login")
     public SignUpRequestDto Login(@RequestBody SignInRequestDto requestDto, HttpServletRequest servletRequest ){
         Client client = clientAPIService.loginClient(requestDto);
-        SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client);
-        if(client==null)
+        if(client==null) {
             return null;
+        }
         else{
+            SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client);
             servletRequest.getSession().setAttribute("clientNo",client.getClientNo());
             return signUpRequestDto;
         }
