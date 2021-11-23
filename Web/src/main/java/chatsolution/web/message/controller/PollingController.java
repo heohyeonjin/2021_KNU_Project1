@@ -1,6 +1,7 @@
 package chatsolution.web.message.controller;
 
 import chatsolution.web.message.dto.MessageDto;
+import chatsolution.web.message.dto.RoomListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.repository.MessageRepository;
 import chatsolution.web.message.service.PollingService;
@@ -28,8 +29,7 @@ public class PollingController {
     //채팅방 폴링
     @GetMapping("/chat")
     public @ResponseBody List<MessageDto> newMessages(@RequestParam("lastMsg") Long lastMsg){
-        List<MessageDto> messages = pollingService.updateMessage(lastMsg);
-        return messages;
+        return pollingService.updateMessage(lastMsg);
     }
 
     // 채팅방 리스트 내 마지막 채팅방 확인
@@ -37,5 +37,11 @@ public class PollingController {
     public @ResponseBody Long checkLastRoom(HttpServletRequest servletRequest) {
         Long enter = (Long)servletRequest.getSession().getAttribute("counNo");
         return pollingService.checklastRoom(enter);
+    }
+
+    // 채팅방 리스트 폴링
+    @GetMapping("/room")
+    public @ResponseBody List<RoomListDto> newRooms(@RequestParam("lastRoom") Long lastRoom) {
+        return pollingService.updateRoom(lastRoom);
     }
 }

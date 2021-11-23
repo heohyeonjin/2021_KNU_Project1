@@ -20,11 +20,10 @@ public class RoomListDto {
     private String name;
     private String content;
     private String time;
-    private int sender;
 
     public RoomListDto(Room room) {
-        int size = room.getMessages().size() - 1;
-        Message last = room.getMessages().get(size);
+        int size = room.getMessages().size();
+        Message last = room.getMessages().get(size - 1);
 
         this.roomNo = room.getRoomNo();
         this.name = room.getClient().getClientName();
