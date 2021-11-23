@@ -5,6 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.chattingapp.ui.auth.AuthViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -39,6 +45,7 @@
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="15dp"
                 android:hint="@string/login_id"
+                android:text="@={viewmodel.signInEmail}"
                 android:importantForAutofill="no"
                 android:inputType="textNoSuggestions|textEmailAddress"
                 android:paddingVertical="15dp"
@@ -57,7 +64,7 @@
                 android:drawableLeft="@drawable/ic_lock"
                 android:drawablePadding="15dp"
                 android:hint="@string/login_password"
-
+                android:text="@={viewmodel.signInPassword}"
                 android:textSize="15dp"
                 android:importantForAutofill="no"
                 android:inputType="textNoSuggestions|textPassword"
@@ -74,6 +81,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/log_in"
+                android:onClick="@{() -> viewmodel.checkSignInField()}"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="17dp"
