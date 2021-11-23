@@ -5,9 +5,9 @@
     <title>Counseling List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <link rel="stylesheet" th:href="@{/css/chat_list.css}">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" th:inline="javascript" th:src="@{/js/poll_room.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/chat_list.css}">
 </head>
 <script th:inline="javascript">
     $(document).ready(function(){
@@ -38,6 +38,7 @@
 
 
 <div class=counseling-list th:each="room: ${rooms}">
+    <div class="list-group" id="rooms"></div>
     <div class="list-group">
         <a th:href="@{/counseling/{roomNo}(roomNo=${room.roomNo})}" class="list-group-item" aria-current="true">
             <div class="d-flex w-100 justify-content-between">

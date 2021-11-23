@@ -13,6 +13,7 @@
 </head>
 <script th:inline="javascript">
     $(document).ready(function(){
+        $('#chat_wrap').scrollTop($('#chat_wrap')[0].scrollHeight);
         /*<![CDATA[*/
         checkLastMsg(/*[[ ${info.roomNo} ]]*/);
         /*]]*/
@@ -38,7 +39,7 @@
     </div>
 </header>
 
-<div id="chat_warp">
+<div id="chat_wrap">
     <div class="inner" id="messages">
         <div th:each="msg: ${messages}">
             <div th:if="${msg.sender} == 1" class="item">
