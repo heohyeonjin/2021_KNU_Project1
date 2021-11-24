@@ -39,13 +39,13 @@ public class ClientRoomController {
                 .collect(Collectors.toList());
     }
 
-    // 특정 기업의 채팅방 들어가기
-    @GetMapping("/{roomNo}")
-    public String enterRoom(@PathVariable Long roomNo){
-    Optional<Room> findRoom = roomRepository.findById(roomNo);
-    Room room = findRoom.get();
-    roomService.msgReadProcess(room); // 고객 읽음 처리
-    return roomNo+"번 방 입장";
-    }
+//    // 특정 기업의 채팅방 들어가기
+//    @GetMapping("/{roomNo}")
+//    public String enterRoom(@PathVariable Long roomNo){
+//    Optional<Room> findRoom = roomRepository.findById(roomNo);
+//    Room room = findRoom.get();
+//    roomService.msgReadProcess(room); // 고객 읽음 처리
+//    return "true";
+//    }
 
 }
