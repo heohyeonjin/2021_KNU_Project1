@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -34,6 +35,7 @@ public class PollingService {
     }
 
     // polling 통해 비동기적으로 메세지 띄우기
+    @Transactional
     public List<MessageDto> updateMessage(Long lastMsg) {
         List<MessageDto> messages = new ArrayList<>();
 
@@ -60,6 +62,7 @@ public class PollingService {
 
         // 최신 update 메세지 리스트 저장
         for (int i=idx+1; i<size; i++) {
+            room.getMessages().get(i).setCounRead(1);
             MessageDto recent = new MessageDto(room.getMessages().get(i));
             messages.add(recent);
         }

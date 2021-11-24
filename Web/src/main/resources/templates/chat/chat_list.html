@@ -49,7 +49,7 @@
                 </h5>
                 <small>
                     <div th:text="${room.time}">2000-00-00</div>
-                    <div th:id="circle">0</div>
+                    <div th:if="${room.counRead} == 0" th:id="circle" th:text="new">0</div>
                 </small>
             </div>
         </a>

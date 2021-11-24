@@ -20,6 +20,7 @@ public class RoomListDto {
     private String name;
     private String content;
     private String time;
+    private int counRead;
 
     public RoomListDto(Room room) {
         int size = room.getMessages().size();
@@ -48,5 +49,8 @@ public class RoomListDto {
                 this.time = "오전 " + hour + ":" + last.getCreatedAt().getMinute();
             }
         }
+
+        // 새로운 알림 있는지 확인
+        this.counRead = room.getMessages().get(room.getMsgSize() - 1).getCounRead();
     }
 }
