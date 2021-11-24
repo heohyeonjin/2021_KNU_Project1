@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.SignUpForm
 import com.example.chattingapp.databinding.ActivityLoginBinding
+import com.example.chattingapp.ui.ChatActivity
 import com.example.chattingapp.ui.MainActivity
 import com.example.chattingapp.utils.MyApplication
 import com.example.chattingapp.utils.NetworkConnection
@@ -19,7 +20,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var viewModel : AuthViewModel
-    lateinit var viewModelFactory: AuthViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +47,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     }
 
     private fun initViewModel(){
-        viewModelFactory = AuthViewModelFactory()
+        viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(AuthViewModel::class.java)
         viewModel.authSignInListener = this
         viewModel.isSelected.set(false)
@@ -58,9 +59,11 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                 MyApplication.prefs.setUserEmail(it.email)
                 MyApplication.prefs.setUserName(it.name)
 
-                val intent = Intent(this, MainActivity::class.java)
-                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
-                intent.putExtra("user", intentData)
+                Log.d("tag", "로그인!!!!!!!!!!!!!!!!!")
+
+                val intent = Intent(this, ChatActivity::class.java)
+//                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
+//                intent.putExtra("user", intentData)
                 startActivity(intent)
                 finish()
             }
