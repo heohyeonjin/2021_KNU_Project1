@@ -13,7 +13,7 @@
 </head>
 <script th:inline="javascript">
     $(document).ready(function(){
-        $('#chat_wrap').scrollTop($('#chat_wrap')[0].scrollHeight);
+        $('.inner').scrollTop($(document).height());
         /*<![CDATA[*/
         checkLastMsg(/*[[ ${info.roomNo} ]]*/);
         /*]]*/
