@@ -21,17 +21,26 @@
         android:usesCleartextTraffic="true"
         >
 
+<!--        <activity-->
+<!--            android:name=".ui.auth.SignInActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <activity
-            android:name=".ui.auth.SignInActivity"
+            android:name=".ui.auth.SignUpActivity"
             android:exported="true">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
-
+        <activity android:name=".ui.auth.SignInActivity" />
         <activity android:name=".ui.auth.FindPasswordActivity" />
         <activity android:name=".ui.auth.FindPasswordVerifyActivity" />
 
