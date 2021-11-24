@@ -21,7 +21,7 @@ public class ClientAPIController {
     private final ClientAPIService clientAPIService;
 
     // 아이디 중복체크
-    @GetMapping("/api/check")
+    @PostMapping("/api/check")
     public String idDoubleCheck(@RequestBody IdDoubleCheckDto idDoubleCheckDto) {
         boolean exist = clientAPIService.idCheck(idDoubleCheckDto);
 

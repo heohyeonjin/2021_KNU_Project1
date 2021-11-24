@@ -38,6 +38,8 @@ public class Client extends TimeStamped {
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
 
+    private String token;
+
     public Client(SignUpRequestDto requestDto) {
         this.clientEmail = requestDto.getEmail();
         this.clientPw = requestDto.getPassword();
