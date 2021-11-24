@@ -40,7 +40,8 @@ function addMessage() {
                                         </div>
                                     </div>`
                         $('#messages').append(myChat);
-                        $("body").scrollTop($(document).height());
+                        $('.inner').scrollTop($(document).height());
+
                     }
                     else if (sender === 1) {
                         let clientChat = `<div class="item">
@@ -50,7 +51,7 @@ function addMessage() {
                                             </div>
                                         </div>`
                         $('#messages').append(clientChat);
-                        $("body").scrollTop($(document).height());
+                        $('.inner').scrollTop($(document).height());
                     }
                     else {
                         alert("sender validation 오류");

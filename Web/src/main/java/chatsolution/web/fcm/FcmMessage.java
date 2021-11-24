@@ -14,7 +14,6 @@ public class FcmMessage {
     private boolean validate_only;
     private Message message;
 
-
     @Builder
     @AllArgsConstructor
     @Getter

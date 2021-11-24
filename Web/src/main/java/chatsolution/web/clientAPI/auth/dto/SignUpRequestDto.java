@@ -13,7 +13,6 @@ public class SignUpRequestDto {
     private String name;
     private int gender;
     private String tel;
-    private String fcmToken;
 
     public SignUpRequestDto(Client client){
         this.email = client.getClientEmail();
@@ -21,6 +20,5 @@ public class SignUpRequestDto {
         this.name = client.getClientName();
         this.gender = client.getClientGender();
         this.tel = client.getClientPhone();
-        this.fcmToken = client.getFcmToken();
     }
 }

@@ -33,7 +33,7 @@ public class Client extends TimeStamped {
     private String clientPhone;     // 고객 전화번호
 
     @Column(nullable = false)
-    private int clientGender;             // 고객 성별
+    private int clientGender;        // 고객 성별
 
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
@@ -46,8 +46,5 @@ public class Client extends TimeStamped {
         this.clientName = requestDto.getName();
         this.clientPhone = requestDto.getTel();
         this.clientGender = requestDto.getGender();
-    }
-    public void updateFcmToken(String fcmToken){
-        this.fcmToken = fcmToken;
     }
 }
