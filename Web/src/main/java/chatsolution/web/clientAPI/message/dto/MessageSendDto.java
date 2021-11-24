@@ -11,4 +11,5 @@ public class MessageSendDto {
 
     private String content; // 메시지 내용
     private int msgType; // 메시지 타입
+
 }

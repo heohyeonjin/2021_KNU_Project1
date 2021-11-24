@@ -1,11 +1,10 @@
 package chatsolution.web.message.service;
 
+import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
-import chatsolution.web.message.dto.MessageListDto;
-import chatsolution.web.message.dto.NewMessageDto;
-import chatsolution.web.message.dto.RoomInfoDto;
-import chatsolution.web.message.dto.RoomListDto;
+import chatsolution.web.message.dto.*;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.MessageRepository;
@@ -90,4 +89,11 @@ public class MessageWebService {
 
         log.info("상담원 메세지 저장 성공");
     }
+
+    public Room getRoom(Long roomNo){
+        Optional<Room> findRoom = roomRepository.findById(roomNo);
+        Room room = findRoom.get();
+      return room;
+    }
+
 }
