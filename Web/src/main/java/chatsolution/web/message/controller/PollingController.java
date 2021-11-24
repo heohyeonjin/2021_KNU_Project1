@@ -4,6 +4,8 @@ import chatsolution.web.message.dto.MessageDto;
 import chatsolution.web.message.dto.RoomListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.repository.MessageRepository;
+import chatsolution.web.message.repository.RoomRepository;
+import chatsolution.web.message.service.MessageWebService;
 import chatsolution.web.message.service.PollingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,8 @@ import java.util.List;
 public class PollingController {
 
     private final PollingService pollingService;
+    private final MessageWebService messageWebService;
+    private final RoomRepository roomRepository;
 
     // 채팅방 내 마지막 메세지 확인
     @GetMapping("/chat/lastMsg")
@@ -42,6 +46,9 @@ public class PollingController {
     // 채팅방 리스트 폴링
     @GetMapping("/room")
     public @ResponseBody List<RoomListDto> newRooms(@RequestParam("lastRoom") Long lastRoom) {
-        return pollingService.updateRoom(lastRoom);
+//        return pollingService.updateRoom(lastRoom);
+        Long enter = roomRepository.findById(lastRoom).get().getCounselor().getCounNo();
+        return messageWebService.roomList(enter);
+
     }
 }
