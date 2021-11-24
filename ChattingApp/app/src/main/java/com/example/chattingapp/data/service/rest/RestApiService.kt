@@ -1,6 +1,7 @@
 package com.example.chattingapp.data.service.rest
 
 import com.example.chattingapp.data.model.ApiResult
+import com.example.chattingapp.data.model.EmailDTO
 import com.example.chattingapp.data.model.SignInForm
 import com.example.chattingapp.data.model.SignUpForm
 import retrofit2.http.Body
@@ -12,6 +13,7 @@ interface RestApiService {
     // User
     @POST("/api/signup") suspend fun signUp(@Body signUpForm: SignUpForm) : String
     @POST("/api/login") suspend fun login(@Body signInForm: SignInForm) : SignUpForm
+    @POST("/api/check") suspend fun requestEmailCheck(@Body signUpEmail : EmailDTO) : String
 
     companion object {
         val instance = RestApiServiceGenerator.createService(RestApiService::class.java)
