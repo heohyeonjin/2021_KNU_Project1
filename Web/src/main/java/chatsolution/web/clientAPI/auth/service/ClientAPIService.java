@@ -25,7 +25,7 @@ public class ClientAPIService {
         Client exist = clientRepository.findByClientEmail(requestId);
 
         // 존재하면 false
-        return exist.getClientEmail() == null;
+        return exist == null;
     }
 
     // 회원가입

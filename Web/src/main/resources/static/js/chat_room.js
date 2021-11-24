@@ -18,7 +18,7 @@ function msgSend(roomNo){
             $('#input_message').val("");
         },
         error: function(){
-            alert("서버 에러입니다");
+            alert("메세지 전송에 실패하였습니다.");
         }
     });
 }

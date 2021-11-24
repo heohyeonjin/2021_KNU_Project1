@@ -40,7 +40,7 @@
 <div class=counseling-list th:each="room: ${rooms}">
     <div class="list-group" id="rooms"></div>
     <div class="list-group">
-        <a th:href="@{/counseling/{roomNo}(roomNo=${room.roomNo})}" class="list-group-item" aria-current="true">
+        <a th:attr="onclick=|window.open('/counseling/${room.roomNo}', '', 'width=450, height=800')|"  class="list-group-item" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
                 <img th:src="@{/images/person.svg}" style="width:50px" href="#" alt=""/>
                 <h5 class="text mb-1 mx-3 flex-fill">
