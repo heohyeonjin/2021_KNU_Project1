@@ -41,6 +41,7 @@ function addMessage() {
                                     </div>`
                         $('#messages').append(myChat);
                         $('.inner').scrollTop($(document).height());
+
                     }
                     else if (sender === 1) {
                         let clientChat = `<div class="item">
