@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.chattingapp.R
-import com.example.chattingapp.data.model.SignUpForm
 import com.example.chattingapp.databinding.ActivitySignUpBinding
-import com.example.chattingapp.ui.MainActivity
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
@@ -17,7 +15,7 @@ class SignUpActivity : AppCompatActivity() , AuthListener{
 
     private lateinit var binding: ActivitySignUpBinding
     lateinit var viewModel : AuthViewModel
-    lateinit var viewModelFactory: AuthViewModelFactory
+    lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +31,7 @@ class SignUpActivity : AppCompatActivity() , AuthListener{
 
     private fun initViewModel(){
         var emailCheckFlag : Int = 0
-        viewModelFactory = AuthViewModelFactory()
+        viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProvider(this,viewModelFactory).get(AuthViewModel::class.java)
         viewModel.authSignUpListener = this
         binding.viewmodel = viewModel
