@@ -49,6 +49,7 @@ public class MessageWebService {
     }
 
     // 채팅방 내 존재하는 메세지 띄우기
+    @Transactional
     public List<MessageListDto> msgList(Long counNo, Long roomNo){
 
         // 먼저 counNo로 counselor 찾기 -> counselor room에서 roomNo 찾기
@@ -63,6 +64,12 @@ public class MessageWebService {
         }
         
         List<Message> existMsg = room.getMessages();
+
+        // 상담원 읽음 처리
+        for (Message message : existMsg) {
+            message.setCounRead(1);
+        }
+
         return existMsg.stream()
                 .map(o -> new MessageListDto(o))
                 .collect(Collectors.toList());

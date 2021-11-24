@@ -78,9 +78,10 @@ p {
 /* 알림 */
 #circle {
     margin-top: 5px;
-    width : 25px;
+    width : 40px;
     height : 25px;
-    border-radius: 50%;
+    border-radius: 50%
+;
     background-color: tomato;
     text-align: center;
     line-height: 25px;
