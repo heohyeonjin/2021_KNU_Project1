@@ -3,6 +3,7 @@ package com.example.chattingapp.ui.auth
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -14,8 +15,11 @@ import com.example.chattingapp.utils.MyApplication
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class SignInActivity : AppCompatActivity(), AuthListener {
+    val TAG = "SignInActivity"
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var viewModel : AuthViewModel
@@ -58,6 +62,8 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                 MyApplication.prefs.setUserEmail(it.email)
                 MyApplication.prefs.setUserName(it.name)
 
+                getFcm_Token()
+
                 val intent = Intent(this, MainActivity::class.java)
                 val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
                 intent.putExtra("user", intentData)
@@ -69,6 +75,27 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                 viewModel.removeEditText()
             }
         }
+    }
+
+    fun getFcm_Token(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            //val msg = getString(R.string.msg_token_fmt, token)
+
+            /** 실행시마다 서버에 토큰값 저장. */
+            Log.d(TAG, token!! )
+
+
+
+        })
+
     }
 
     override fun onStarted() {}

@@ -47,10 +47,4 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
         }
     }
 
-
-
-
-
-
-
 }

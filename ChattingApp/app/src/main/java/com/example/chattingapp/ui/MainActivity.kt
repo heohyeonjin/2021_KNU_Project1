@@ -2,6 +2,8 @@ package com.example.chattingapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.Corporation
@@ -9,6 +11,8 @@ import com.example.chattingapp.databinding.ActivityMainBinding
 import com.example.chattingapp.ui.navigation.ChattingListFragment
 import com.example.chattingapp.ui.navigation.CompanyListFragment
 import com.example.chattingapp.ui.navigation.MypageFragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
@@ -54,13 +58,42 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.selectedItemId = R.id.action_company_list
 
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(
+        val transaction_company = supportFragmentManager.beginTransaction()
+        transaction_company.replace(
             R.id.main_content,
             CompanyListFragment()
         )
-        transaction.commit()
+        transaction_company.commit()
         intent.putExtra("companyList",companyList)
+
+        val transaction_chatroom = supportFragmentManager.beginTransaction()
+        transaction_chatroom.replace(
+            R.id.main_content,
+            CompanyListFragment()
+        )
+        transaction_chatroom.commit()
+        intent.putExtra("chatRoomList",companyList)
+
+        getFcm_Token()
+    }
+
+
+
+
+    fun getFcm_Token(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            val msg = getString(R.string.msg_token_fmt, token)
+            Log.d(TAG, msg)
+            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+        })
     }
 
 }
