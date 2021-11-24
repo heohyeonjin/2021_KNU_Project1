@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\merged_res\\debug\\layout_item_chatroomlist.xml.flat",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\item_chatroomlist.xml"
+    },
+    {
         "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_my_page.xml.flat",
         "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_my_page.xml"
     },
@@ -214,6 +218,10 @@
     {
         "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_find_password_success.xml.flat",
         "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\activity_find_password_success.xml"
+    },
+    {
+        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\merged_res\\debug\\drawable_oval.xml.flat",
+        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\drawable\\oval.xml"
     },
     {
         "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",

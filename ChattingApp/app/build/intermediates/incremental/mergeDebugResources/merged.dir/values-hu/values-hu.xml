@@ -35,8 +35,10 @@
     <string name="character_counter_content_description">Begépelt karakterszám: %2$d/%1$d</string>
     <string name="character_counter_overflowed_content_description">Maximális karakterszám túllépve: %2$d/%1$d</string>
     <string name="clear_text_end_icon_content_description">Szöveg törlése</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"A(z) <ns1:g id="APP_NAME">%1$s</ns1:g> alkalmazás problémába ütközött a Google Play-szolgáltatások használata során. Próbálkozzon újra."</string>
     <string name="error_icon_content_description">Hiba</string>
     <string name="exposed_dropdown_menu_content_description">Legördülő menü megjelenítése</string>
+    <string name="fcm_fallback_notification_channel_label">Egyéb</string>
     <string name="icon_content_description">Párbeszédpanel ikonja</string>
     <string name="item_view_role_description">Lap</string>
     <string name="material_clock_toggle_content_description">Válassza ki, hogy délelőtt vagy délután</string>
@@ -84,6 +86,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">Koppintson a nap kiválasztásához</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Váltás szövegbeviteli módra</string>
     <string name="mtrl_picker_toggle_to_year_selection">Koppintson az év kiválasztásához</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Navigálás felfelé"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Navigációs fiók kinyitása"</string>
     <string name="password_toggle_content_description">Jelszó megjelenítése</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Keresés"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

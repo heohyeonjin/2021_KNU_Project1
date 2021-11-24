@@ -35,8 +35,10 @@
     <string name="character_counter_content_description">តួ​អក្សរ​បាន​បញ្ចូល​ %1$d នៃ %2$d</string>
     <string name="character_counter_overflowed_content_description">ដែនកំណត់តួអក្សរបានលើស %1$d នៃ %2$d</string>
     <string name="clear_text_end_icon_content_description">សម្អាតអក្សរ</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> កំពុងមានបញ្ហាជាមួយសេវាកម្មរបស់ Google Play ។ សូមព្យាយាមម្តងទៀតនៅពេលក្រោយ។"</string>
     <string name="error_icon_content_description">បញ្ហា</string>
     <string name="exposed_dropdown_menu_content_description">បង្ហាញ​ម៉ឺនុយ​ធ្លាក់ចុះ</string>
+    <string name="fcm_fallback_notification_channel_label">ផ្សេងៗ</string>
     <string name="icon_content_description">រូប​ប្រអប់បញ្ចូល</string>
     <string name="item_view_role_description">ផ្ទាំង</string>
     <string name="material_clock_toggle_content_description">ជ្រើសរើស AM ឬ PM</string>
@@ -84,6 +86,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">ចុច​ដើម្បីប្ដូរទៅ​ការជ្រើសរើសថ្ងៃ</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">ប្ដូរទៅ​របៀប​បញ្ចូល​អក្សរ</string>
     <string name="mtrl_picker_toggle_to_year_selection">ចុច​ដើម្បីប្ដូរទៅ​ការជ្រើសរើសឆ្នាំ</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"រំកិលឡើងលើ"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"បើកថតរុករក"</string>
     <string name="password_toggle_content_description">បង្ហាញពាក្យសម្ងាត់</string>
     <string msgid="6264217191555673260" name="search_menu_title">"ស្វែងរក"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

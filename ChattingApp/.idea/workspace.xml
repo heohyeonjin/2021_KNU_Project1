@@ -23,36 +23,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5142e16-5004-4a4b-b0af-580f7bbf9f4e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/controller/ClientAPIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/IdDoubleCheckDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/SignInRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/dto/SignUpRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/model/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/repository/ClientRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/client/service/ClientAPIService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/PollingRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Web/src/main/resources/static/js/poll.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/corporation/repository/CorpRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/corporation/repository/CorpRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/counselor/model/Counselor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/counselor/model/Counselor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/MessageWebController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/MessageWebController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/PollingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/controller/PollingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/MessageListDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/NewMessageDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/NewMessageDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/RoomListDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/dto/RoomListDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/model/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/RoomRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/repository/RoomRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/MessageWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/MessageWebService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/PollingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/java/chatsolution/web/message/service/PollingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/static/js/chat_room.js" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/static/js/chat_room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_room.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Web/src/main/resources/templates/chat/chat_room.html" afterDir="false" />
-    </list>
+    <list default="true" id="e5142e16-5004-4a4b-b0af-580f7bbf9f4e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,5 +188,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

@@ -35,8 +35,10 @@
     <string name="character_counter_content_description">Izinhlamvu ezifakiwe ezingu-%1$d zokungu-%2$d</string>
     <string name="character_counter_overflowed_content_description">Umkhawulo wezinhlamvu udlule u-%1$d kokungu-%2$d</string>
     <string name="clear_text_end_icon_content_description">Sula umbhalo</string>
+    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> inenkinga ngamasevisi e-Google Play. Sicela uzame futhi."</string>
     <string name="error_icon_content_description">Iphutha</string>
     <string name="exposed_dropdown_menu_content_description">Bonisa imenyu yokudonsela phansi</string>
+    <string name="fcm_fallback_notification_channel_label">Okwahlukahlukene</string>
     <string name="icon_content_description">Isithonjana sebhokisi</string>
     <string name="item_view_role_description">Ithebhu</string>
     <string name="material_clock_toggle_content_description">Khetha u-AM noma u-PM</string>
@@ -84,6 +86,8 @@
     <string name="mtrl_picker_toggle_to_day_selection">Thepha ukuze ushintshe ekukhetheni usuku</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Shintshela kwimodi yokufaka yombhalo</string>
     <string name="mtrl_picker_toggle_to_year_selection">Thepha ukuze ushintshele ekukhetheni unyaka</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Zulazulela phezulu"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Vula idrowa lakho lokuzula"</string>
     <string name="password_toggle_content_description">Bonisa iphasiwedi</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Sesha"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
