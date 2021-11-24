@@ -40,7 +40,7 @@ function addRoom(){
                                         </h5>
                                         <small>
                                             <div>${time}</div>
-                                            <div id="circle">0</div>
+                                            <div id="circle">new</div>
                                         </small>
                                     </div>
                                 </a>`

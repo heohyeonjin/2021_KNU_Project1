@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -25,10 +27,11 @@ public class ClientAPIService {
         Client exist = clientRepository.findByClientEmail(requestId);
 
         // 존재하면 false
-        return exist.getClientEmail() == null;
+        return exist == null;
     }
 
     // 회원가입
+    @Transactional
     public String registerClient(SignUpRequestDto requestDto) {
 
         // 패스워드 암호화

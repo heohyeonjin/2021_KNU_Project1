@@ -1,10 +1,10 @@
 package chatsolution.web.message.controller;
 
+import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
-import chatsolution.web.message.dto.MessageListDto;
-import chatsolution.web.message.dto.NewMessageDto;
-import chatsolution.web.message.dto.RoomInfoDto;
-import chatsolution.web.message.dto.RoomListDto;
+import chatsolution.web.fcm.service.FirebaseCloudMessageService;
+import chatsolution.web.message.dto.*;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.service.MessageWebService;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,6 +25,7 @@ import java.util.Optional;
 public class MessageWebController {
 
     private final MessageWebService messageWebService;
+    private final FirebaseCloudMessageService fcmService;
 
     // 채팅방 목록
     @GetMapping
@@ -54,9 +56,14 @@ public class MessageWebController {
 
     // web에서 메세지 전송
     @PostMapping("/{roomNo}/send")
-    public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) {
+    public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) throws IOException {
         log.info("전달받은 메세지: " + newMessageDto.getMsg());
         messageWebService.saveMsg(newMessageDto, roomNo);
+        // token, title, content
+        Room room = messageWebService.getRoom(roomNo);
+        Client client = room.getClient(); String token = client.getFcmToken(); // 클라이언트 토큰 값
+        Corporation corporation = room.getCounselor().getCorporation(); String title = corporation.getCorpName(); // 기업 이름
+        fcmService.sendMessageTo(token,title,newMessageDto.getMsg());
         return "success";
     }
 

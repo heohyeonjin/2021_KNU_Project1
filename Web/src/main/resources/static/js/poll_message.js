@@ -61,7 +61,7 @@ function addMessage() {
             setTimeout(addMessage(),10);
         },
         error: function(){
-            alert("서버 에러입니다");
+            //alert("서버 에러입니다");
         }
     });
 }

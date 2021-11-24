@@ -38,11 +38,16 @@ public class Client extends TimeStamped {
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
 
+    private String fcmToken;
+
     public Client(SignUpRequestDto requestDto) {
         this.clientEmail = requestDto.getEmail();
         this.clientPw = requestDto.getPassword();
         this.clientName = requestDto.getName();
         this.clientPhone = requestDto.getTel();
         this.clientGender = requestDto.getGender();
+    }
+    public void updateFcmToken(String fcmToken){
+        this.fcmToken = fcmToken;
     }
 }

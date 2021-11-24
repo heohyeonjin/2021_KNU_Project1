@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.chattingapp.ui.auth.AuthViewModel" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,15 +40,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="50dp"
-                    android:text="Thank you for visiting."
-                    android:textColor="@color/purple"
-                    android:textSize="20dp" />
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:textColor="@color/purple"
                     android:textSize="13dp" />
@@ -59,6 +56,7 @@
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
                     android:hint="@string/user_name"
+                    android:text="@={viewmodel.signupName}"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|textPersonName"
                     android:textColorHint="@color/purple"
@@ -77,6 +75,7 @@
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
                     android:hint="@string/login_password"
+                    android:text="@={viewmodel.signupPassword}"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|textPassword"
                     android:textColorHint="@color/purple"
@@ -98,6 +97,7 @@
                         android:drawablePadding="15dp"
                         android:elevation="3dp"
                         android:hint="@string/login_id"
+                        android:text="@={viewmodel.signupEmail}"
                         android:importantForAutofill="no"
                         android:inputType="textNoSuggestions|textEmailAddress"
                         android:textColor="@color/white"
@@ -116,6 +116,7 @@
                         android:minHeight="0dp"
                         android:paddingVertical="10dp"
                         android:text="중복 확인"
+                        android:onClick="@{()->viewmodel.getCheckCode()}"
                         android:textAllCaps="false"
                         android:textColor="@color/white" />
                 </LinearLayout>
@@ -141,6 +142,7 @@
                     android:drawablePadding="15dp"
                     android:elevation="3dp"
                     android:hint="@string/phone"
+                    android:text="@={viewmodel.signupPhone}"
                     android:importantForAutofill="no"
                     android:inputType="textNoSuggestions|phone"
                     android:textColorHint="@color/purple"
@@ -162,10 +164,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="30dp"
+                    android:checkedButton="@={viewmodel.signupGender}"
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radio_korean"
+                        android:id="@+id/radio_male"
                         android:layout_width="8dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -174,14 +177,13 @@
                         android:textColor="@color/purple_light" />
 
                     <RadioButton
-                        android:id="@+id/radio_english"
+                        android:id="@+id/radio_female"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:buttonTint="@color/purple_light"
                         android:text="여"
                        android:textColor="@color/purple_light" />
-
 
 
                 </RadioGroup>
@@ -195,6 +197,7 @@
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/solid_button"
                     android:text="Sign up"
+                    android:onClick="@{() -> viewmodel.checkSignUpFeild()}"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="25dp">

@@ -21,7 +21,7 @@ public class ClientAPIController {
     private final ClientAPIService clientAPIService;
 
     // 아이디 중복체크
-    @GetMapping("/api/check")
+    @PostMapping("/api/check")
     public String idDoubleCheck(@RequestBody IdDoubleCheckDto idDoubleCheckDto) {
         boolean exist = clientAPIService.idCheck(idDoubleCheckDto);
 
@@ -33,7 +33,6 @@ public class ClientAPIController {
     @PostMapping("/api/signup")
     public String signUp(@RequestBody SignUpRequestDto requestDto){
         String savedClient = clientAPIService.registerClient(requestDto);
-
         if (!Objects.equals(savedClient, requestDto.getEmail())) {
             return "false";
         }
@@ -51,6 +50,7 @@ public class ClientAPIController {
         else{
             SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client);
             servletRequest.getSession().setAttribute("clientNo",client.getClientNo());
+
             return signUpRequestDto;
         }
     }
