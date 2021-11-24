@@ -13,6 +13,9 @@ interface RestApiService {
     @POST("/api/signup") suspend fun signUp(@Body signUpForm: SignUpForm) : String
     @POST("/api/login") suspend fun login(@Body signInForm: SignInForm) : SignUpForm
 
+    // Token
+    @POST("/getToken") suspend fun getToken(@Body sendToken: String) : String
+
     companion object {
         val instance = RestApiServiceGenerator.createService(RestApiService::class.java)
     }

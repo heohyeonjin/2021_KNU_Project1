@@ -12,7 +12,10 @@ import com.example.chattingapp.utils.NetworkStatus
 import androidx.lifecycle.viewModelScope
 import com.example.chattingapp.data.model.SignInForm
 import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.service.TokenApiService
 import com.example.chattingapp.data.service.UserApiService
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
@@ -24,11 +27,15 @@ class AuthViewModel() : ViewModel() {
     var signupPhone = ObservableField<String>()
     var signupGender = ObservableField<Int>()
     var signUpResponseCode = ""
+    var TAG = ""
 
     // signIn field
     var signInEmail = ObservableField<String>()
     var signInPassword = ObservableField<String>()
     var isSelected = ObservableField<Boolean>()
+
+    // token
+    var sendToken = ""
 
     //auth listener
     var authSignUpListener: AuthListener? = null
@@ -59,7 +66,9 @@ class AuthViewModel() : ViewModel() {
 
     // 로그인
     private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
+    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
     val signInResponse : LiveData<SignUpForm> = _signInResponse
+    val tokenResponse : LiveData<String> = _tokenResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading
@@ -75,6 +84,7 @@ class AuthViewModel() : ViewModel() {
             _signInResponse.value = UserApiService.instance.login(
                 SignInForm(signInEmail.get()!!, signInPassword.get()!!)
             )
+
             _signInLoading.postValue(false)
         }
         else{
@@ -82,6 +92,46 @@ class AuthViewModel() : ViewModel() {
             authSignInListener?.onFailure("네트워크 연결을 확인해 주세요.",99)
         }
 
+    }
+
+    fun sendToken() = viewModelScope.launch {
+        if(NetworkStatus.status){
+//            Log.d("tag", "aaaaaaaaa")
+            _signInLoading.postValue(true)
+
+            getFcm_Token()
+            _tokenResponse.value = TokenApiService.instance.getToken(sendToken)
+
+            _signInLoading.postValue(false)
+        }
+        else{
+            Log.d("networkStatus","in viewmodel " + NetworkStatus.status.toString())
+            authSignInListener?.onFailure("네트워크 연결을 확인해 주세요.",99)
+        }
+    }
+
+    fun getFcm_Token() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+
+            //val msg = getString(R.string.msg_token_fmt, token)
+
+            /** 실행시마다 서버에 토큰값 저장. */
+
+            /** 실행시마다 서버에 토큰값 저장. */
+            Log.d(TAG, token!! )
+
+            sendToken = token
+
+            Log.d(TAG, "토큰 받아옴 : " + sendToken)
+
+        })
     }
 
     // 로그인 필드 확인

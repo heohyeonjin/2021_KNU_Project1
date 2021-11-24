@@ -24,6 +24,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     private lateinit var binding: ActivityLoginBinding
     lateinit var viewModel : AuthViewModel
     lateinit var viewModelFactory: AuthViewModelFactory
+    private var sendToken = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +51,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     }
 
     private fun initViewModel(){
+
         viewModelFactory = AuthViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(AuthViewModel::class.java)
         viewModel.authSignInListener = this
@@ -57,46 +59,38 @@ class SignInActivity : AppCompatActivity(), AuthListener {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
+
+
         viewModel.signInResponse.observe(this){
             if(it != null){
                 MyApplication.prefs.setUserEmail(it.email)
                 MyApplication.prefs.setUserName(it.name)
 
-                getFcm_Token()
 
                 val intent = Intent(this, MainActivity::class.java)
-                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
-                intent.putExtra("user", intentData)
+                //val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
+                //intent.putExtra("user", intentData)
                 startActivity(intent)
                 finish()
+
             }
             else{
                 toast("error")
                 viewModel.removeEditText()
             }
         }
-    }
 
-    fun getFcm_Token(){
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
+
+        viewModel.tokenResponse.observe(this) {
+            if(it.equals("true")) {
+                toast("토큰 보냄")
+            } else {
+                toast("토큰 못보냄")
             }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            //val msg = getString(R.string.msg_token_fmt, token)
-
-            /** 실행시마다 서버에 토큰값 저장. */
-            Log.d(TAG, token!! )
-
-
-
-        })
-
+        }
     }
+
+
 
     override fun onStarted() {}
     override fun onSuccess() {}

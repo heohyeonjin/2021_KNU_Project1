@@ -1,10 +1,13 @@
 package com.example.chattingapp.adapter
 
+import android.app.PendingIntent.getActivity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chattingapp.R
@@ -39,6 +42,8 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
             Glide.with(itemView).load(corp.corpLogo).into(corpLogo)
             corpName?.text = corp.corpName
             corpDesc?.text = corp.corpDesc
+            
+
 
 
 
@@ -46,5 +51,6 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
 
         }
     }
+
 
 }

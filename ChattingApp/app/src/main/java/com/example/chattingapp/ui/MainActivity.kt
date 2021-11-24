@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.ArrayRes
 import androidx.databinding.DataBindingUtil
 import com.example.chattingapp.R
+import com.example.chattingapp.data.model.ChatRoom
 import com.example.chattingapp.data.model.Corporation
 import com.example.chattingapp.databinding.ActivityMainBinding
 import com.example.chattingapp.ui.navigation.ChattingListFragment
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity() {
     var companyList: ArrayList<Corporation> = arrayListOf(
         Corporation(1,"samsung","company","company"),
         Corporation(2,"LG","company","company")
+    )
+
+    var chatroomList: ArrayList<ChatRoom> = arrayListOf(
+        ChatRoom(1,"samsung","hi","2021.11.11")
     )
 
 
@@ -72,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             CompanyListFragment()
         )
         transaction_chatroom.commit()
-        intent.putExtra("chatRoomList",companyList)
+        intent.putExtra("chatRoomList",chatroomList)
 
         getFcm_Token()
     }
