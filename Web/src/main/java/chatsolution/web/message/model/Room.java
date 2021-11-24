@@ -1,16 +1,15 @@
 package chatsolution.web.message.model;
 
 
-import chatsolution.web.client.model.Client;
-import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.counselor.model.Counselor;
-import chatsolution.web.message.model.Message;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter@Setter
@@ -20,7 +19,7 @@ public class Room extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long RoomNo; // 방 일련번호
+    private Long roomNo; // 방 일련번호
 
     @ManyToOne
     @JoinColumn
@@ -30,11 +29,16 @@ public class Room extends TimeStamped {
     @JoinColumn
     private Counselor counselor;
 
+    private int msgSize;
+
     @OneToMany(mappedBy="room")
     private List<Message> messages; //메시지들
 
-
-
-
+    public Room(Client client, Counselor counselor){
+        this.setClient(client);
+        this.setCounselor(counselor);
+        this.msgSize=0;
+        this.messages = new ArrayList<>();
+    }
 
 }

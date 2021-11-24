@@ -7,13 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" th:src="@{/js/chat_room.js}"></script>
-    <script type="text/javascript" th:src="@{/js/poll.js}"></script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/chat_room.js}"></script>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/poll_message.js}"></script>
     <link rel="stylesheet" th:href="@{/css/chat_room.css}">
 </head>
-<script>
+<script th:inline="javascript">
     $(document).ready(function(){
-        checkLast();
+        $('#chat_wrap').scrollTop($('#chat_wrap')[0].scrollHeight);
+        /*<![CDATA[*/
+        checkLastMsg(/*[[ ${info.roomNo} ]]*/);
+        /*]]*/
     });
 </script>
 <body>
@@ -28,7 +31,7 @@
             <img th:src="@{/images/person.svg}">
         </button>
         <h5 class="mx-3 my-3 flex-fill">
-            <div class="counseler-name">허현진</div>
+            <div th:text="${info.name}">허현진</div>
         </h5>
         <button onclick="addMessage()" class="answer_btn mx-2">
             답변완료
@@ -36,17 +39,17 @@
     </div>
 </header>
 
-<div id="chat_warp">
+<div id="chat_wrap">
     <div class="inner" id="messages">
         <div th:each="msg: ${messages}">
-<!--            <div class="item">-->
-<!--                <div class="box">-->
-<!--                    <p class="msg">안녕하세요</p>-->
-<!--                    <span class="time">오전 10:05</span>-->
-<!--                </div>-->
-<!--            </div>-->
-            <div  id="messageDiv" class="item mymsg" >
+            <div th:if="${msg.sender} == 1" class="item">
                 <div class="box">
+                    <p class="msg" th:text="${msg.content}">안녕하세요</p>
+                    <span class="time" th:text="${msg.time}">오전 10:05</span>
+                </div>
+            </div>
+            <div class="item mymsg" >
+                <div th:if="${msg.sender} == 0" class="box">
                     <p class="msg" th:text="${msg.content}">안녕하세요</p>
                     <span class="time" th:text="${msg.time}">오전 10:05</span>
                 </div>
@@ -56,7 +59,7 @@
 </div>
     <div id="chat_form" class="input-group d-flex justify-content-between" >
         <input type="text" class="form-control" id="input_message" placeholder="채팅을 입력하세요."/>
-        <button class="send_btn" id="input_send" onclick="msgSend()">전송</button>
+        <button class="send_btn" id="input_send" th:attr="onclick=|msgSend('${info.roomNo}')|">전송</button>
     </div>
     <div class="file-upload" style="float:right">
         <label for="file-input">
