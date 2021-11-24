@@ -35,10 +35,8 @@
     <string name="character_counter_content_description">Въведени знаци: %1$d от %2$d</string>
     <string name="character_counter_overflowed_content_description">Максималният брой знаци е надхвърлен с(ъс) %1$d от %2$d</string>
     <string name="clear_text_end_icon_content_description">Изчистване на текста</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> има проблеми с услугите за Google Play. Моля, опитайте отново."</string>
     <string name="error_icon_content_description">Грешка</string>
     <string name="exposed_dropdown_menu_content_description">Показване на падащото меню</string>
-    <string name="fcm_fallback_notification_channel_label">Разни</string>
     <string name="icon_content_description">Икона за диалогов прозорец</string>
     <string name="item_view_role_description">Раздел</string>
     <string name="material_clock_toggle_content_description">Изберете AM или PM</string>
@@ -86,8 +84,6 @@
     <string name="mtrl_picker_toggle_to_day_selection">Докоснете, за да превключите към избиране на ден</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Превключване към режим за въвеждане на текст</string>
     <string name="mtrl_picker_toggle_to_year_selection">Докоснете, за да превключите към избиране на година</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Придвижване нагоре"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Отваряне на слоя за навигация"</string>
     <string name="password_toggle_content_description">Показване на паролата</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Търсене"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

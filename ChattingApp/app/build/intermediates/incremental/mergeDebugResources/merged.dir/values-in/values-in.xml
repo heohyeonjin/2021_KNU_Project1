@@ -35,10 +35,8 @@
     <string name="character_counter_content_description">Karakter yang dimasukkan %1$d dari %2$d</string>
     <string name="character_counter_overflowed_content_description">Melebihi batas karakter %1$d dari %2$d</string>
     <string name="clear_text_end_icon_content_description">Menghapus teks</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> mengalami masalah dengan layanan Google Play. Coba lagi."</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Tampilkan menu dropdown</string>
-    <string name="fcm_fallback_notification_channel_label">Lain-Lain</string>
     <string name="icon_content_description">Ikon Dialog</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Pilih AM atau PM</string>
@@ -86,8 +84,6 @@
     <string name="mtrl_picker_toggle_to_day_selection">Ketuk untuk beralih ke memilih hari</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Beralih ke mode masukan teks</string>
     <string name="mtrl_picker_toggle_to_year_selection">Ketuk untuk beralih ke memilih tahun</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Kembali ke atas"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Buka panel navigasi"</string>
     <string name="password_toggle_content_description">Tampilkan sandi</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Telusuri"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

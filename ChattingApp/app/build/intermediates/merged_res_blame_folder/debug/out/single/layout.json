@@ -72,10 +72,6 @@
         "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_company_list.xml"
     },
     {
-        "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_chatroomlist.xml",
-        "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\item_chatroomlist.xml"
-    },
-    {
         "merged": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_find_password.xml",
         "source": "C:\\Users\\kkw19\\Documents\\GitHub\\2021_KNU_Project1\\ChattingApp\\app\\src\\main\\res\\layout\\fragment_find_password.xml"
     }

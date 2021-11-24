@@ -37,10 +37,8 @@
     <string name="character_counter_content_description">Število vnesenih znakov je %1$d od %2$d</string>
     <string name="character_counter_overflowed_content_description">Omejitev števila znakov je presegla %1$d od %2$d</string>
     <string name="clear_text_end_icon_content_description">Izbris besedila</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"Aplikacija <ns1:g id="APP_NAME">%1$s</ns1:g> ima težave s storitvami Google Play. Poskusite znova."</string>
     <string name="error_icon_content_description">Napaka</string>
     <string name="exposed_dropdown_menu_content_description">Prikaz spustnega menija</string>
-    <string name="fcm_fallback_notification_channel_label">Razno</string>
     <string name="icon_content_description">Ikona pogovornega okna</string>
     <string name="item_view_role_description">Zavihek</string>
     <string name="material_clock_toggle_content_description">Izberite dopoldanski ali popoldanski čas.</string>
@@ -88,8 +86,6 @@
     <string name="mtrl_picker_toggle_to_day_selection">Dotik za preklop na izbiro dneva</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Preklop na način vnosa besedila</string>
     <string name="mtrl_picker_toggle_to_year_selection">Dotik za preklop na izbiro leta</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Pomik navzgor"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Odpri predal za krmarjenje"</string>
     <string name="password_toggle_content_description">Prikaz gesla</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Iskanje"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

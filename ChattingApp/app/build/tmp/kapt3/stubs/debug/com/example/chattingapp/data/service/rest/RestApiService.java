@@ -8,16 +8,16 @@ public abstract interface RestApiService {
     public static final com.example.chattingapp.data.service.rest.RestApiService.Companion Companion = null;
     
     @org.jetbrains.annotations.Nullable()
-    @retrofit2.http.POST(value = "/api/signup")
+    @error.NonExistentClass()
     public abstract java.lang.Object signUp(@org.jetbrains.annotations.NotNull()
-    @retrofit2.http.Body()
+    @error.NonExistentClass()
     com.example.chattingapp.data.model.SignUpForm signUpForm, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super java.lang.String> continuation);
     
     @org.jetbrains.annotations.Nullable()
-    @retrofit2.http.POST(value = "/api/login")
+    @error.NonExistentClass()
     public abstract java.lang.Object login(@org.jetbrains.annotations.NotNull()
-    @retrofit2.http.Body()
+    @error.NonExistentClass()
     com.example.chattingapp.data.model.SignInForm signInForm, @org.jetbrains.annotations.NotNull()
     kotlin.coroutines.Continuation<? super com.example.chattingapp.data.model.SignUpForm> continuation);
     

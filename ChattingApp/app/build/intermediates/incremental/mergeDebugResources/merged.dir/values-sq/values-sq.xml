@@ -35,10 +35,8 @@
     <string name="character_counter_content_description">Karakteret e futura: %1$d nga %2$d</string>
     <string name="character_counter_overflowed_content_description">Kufiri i karaktereve është kaluar: %1$d nga %2$d</string>
     <string name="clear_text_end_icon_content_description">Pastro tekstin</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> ka probleme me shërbimet e Google Play. Provo sërish."</string>
     <string name="error_icon_content_description">Gabim</string>
     <string name="exposed_dropdown_menu_content_description">Shfaq menynë me lëshim poshtë</string>
-    <string name="fcm_fallback_notification_channel_label">Të ndryshme</string>
     <string name="icon_content_description">Ikona e dialogut</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Zgjidh paradite ose pasdite</string>
@@ -86,8 +84,6 @@
     <string name="mtrl_picker_toggle_to_day_selection">Trokit për të kaluar te zgjedhja e një dite</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Kalo te modaliteti i \"Hyrjes së tekstit\"</string>
     <string name="mtrl_picker_toggle_to_year_selection">Trokit për të kaluar te zgjedhja e një viti</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Ngjitu lart"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Hap sirtarin e navigimit"</string>
     <string name="password_toggle_content_description">Shfaq fjalëkalimin</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Kërko"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>

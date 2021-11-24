@@ -35,10 +35,8 @@
     <string name="character_counter_content_description">Characters entered %1$d of %2$d</string>
     <string name="character_counter_overflowed_content_description">Character limit exceeded %1$d of %2$d</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
-    <string msgid="2518680582564677258" name="common_google_play_services_unknown_issue">"<ns1:g id="APP_NAME">%1$s</ns1:g> is having trouble with Google Play services. Please try again."</string>
     <string name="error_icon_content_description">Error</string>
     <string name="exposed_dropdown_menu_content_description">Show drop-down menu</string>
-    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
     <string name="icon_content_description">Dialogue Icon</string>
     <string name="item_view_role_description">Tab</string>
     <string name="material_clock_toggle_content_description">Select a.m. or p.m.</string>
@@ -86,8 +84,6 @@
     <string name="mtrl_picker_toggle_to_day_selection">Tap to switch to selecting a day</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Switch to text input mode</string>
     <string name="mtrl_picker_toggle_to_year_selection">Tap to switch to selecting a year</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Navigate up"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Open navigation drawer"</string>
     <string name="password_toggle_content_description">Show password</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Search"</string>
     <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
