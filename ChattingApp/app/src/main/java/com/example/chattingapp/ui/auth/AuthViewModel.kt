@@ -16,7 +16,6 @@ import com.example.chattingapp.data.service.UserApiService
 import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
-    val TAG = "AuthViewModel"
 
     //sign up field
     var signupName = ObservableField<String>()
@@ -66,8 +65,8 @@ class AuthViewModel() : ViewModel() {
     val signInLoading: LiveData<Boolean> get() = _signInLoading
 
     fun postSignIn() = viewModelScope.launch {
-        Log.i("kkm__$TAG", "NetworkStatus.status : $NetworkStatus.status")
-        if( NetworkStatus.status ){
+        if(NetworkStatus.status){
+//            Log.d("tag", "aaaaaaaaa")
             _signInLoading.postValue(true)
             if(isSelected.get()!!){
                 MyApplication.prefs.setUserEmail(signInEmail.get()!!)
