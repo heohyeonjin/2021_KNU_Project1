@@ -2,8 +2,9 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
-apply plugin: 'kotlin-parcelize'
+
 
 android {
     compileSdk 30
@@ -58,10 +59,7 @@ dependencies {
     implementation("androidx.cardview:cardview:1.0.0")
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
-<<<<<<< Updated upstream
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-=======
+
 
     // retrofit
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -97,5 +95,5 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.2.2"
 
     implementation("io.reactivex.rxjava2:rxjava:2.2.8")
->>>>>>> Stashed changes
+
 }
