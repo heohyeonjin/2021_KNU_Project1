@@ -76,17 +76,18 @@
 
             <Button
                 android:id="@+id/signInBtn"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/solid_button"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
                 android:text="@string/log_in"
                 android:onClick="@{() -> viewmodel.checkSignInField()}"
                 android:textAllCaps="false"
-                android:textColor="@color/white"
                 android:textSize="17dp"
-                android:backgroundTint="@color/main_yellow"
-                android:background="@drawable/solid_button" />
+                android:textColor="@color/white"/>
+
 
 
             <LinearLayout

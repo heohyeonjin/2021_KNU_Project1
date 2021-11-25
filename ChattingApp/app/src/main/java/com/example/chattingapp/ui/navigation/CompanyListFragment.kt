@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -38,6 +39,11 @@ class CompanyListFragment : Fragment() {
         listAdapter = CompanyAdapter(list)
         companyView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         companyView.adapter = listAdapter
+        listAdapter.itemClick = object: CompanyAdapter.ItemClick{
+            override fun OnClick(view: View, position: Int) {
+                Toast.makeText(context, position.toString(), Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
     }
