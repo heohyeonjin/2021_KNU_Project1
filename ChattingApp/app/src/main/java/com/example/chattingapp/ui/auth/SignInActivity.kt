@@ -3,6 +3,7 @@ package com.example.chattingapp.ui.auth
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -15,8 +16,11 @@ import com.example.chattingapp.utils.MyApplication
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class SignInActivity : AppCompatActivity(), AuthListener {
+    val TAG = "SignInActivity"
 
     private lateinit var binding: ActivityLoginBinding
     lateinit var viewModel : AuthViewModel
@@ -47,6 +51,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     }
 
     private fun initViewModel(){
+
         var flag = 0 //로그인 성공 시 1, 로그인 실패 시 0
         viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(AuthViewModel::class.java)
@@ -54,6 +59,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
         viewModel.isSelected.set(false)
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
+
 
         viewModel.signInResponse.observe(this){ it ->
             flag = 0
@@ -77,13 +83,25 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 //                intent.putExtra("user", intentData)
                 startActivity(intent)
                 finish()
+
             }
             else{
                 toast("error")
                 viewModel.removeEditText()
             }
         }
+
+
+        viewModel.tokenResponse.observe(this) {
+            if(it.equals("true")) {
+                toast("토큰 보냄")
+            } else {
+                toast("토큰 못보냄")
+            }
+        }
     }
+
+
 
     override fun onStarted() {}
     override fun onSuccess() {}
