@@ -6,17 +6,23 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chattingapp.R
-import com.example.chattingapp.data.model.ApiResult
 import com.example.chattingapp.utils.MyApplication
 import com.example.chattingapp.utils.NetworkStatus
 import androidx.lifecycle.viewModelScope
-import com.example.chattingapp.data.model.EmailDTO
-import com.example.chattingapp.data.model.SignInForm
-import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.model.*
+import com.example.chattingapp.data.service.ChatApiService
+import com.example.chattingapp.data.service.TokenApiService
 import com.example.chattingapp.data.service.UserApiService
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
+
+    var TAG = ""
+
+    //토큰
+    var myToken = ""
 
     //sign up field
     //0 : 남자, 1 : 여지
@@ -50,7 +56,6 @@ class AuthViewModel() : ViewModel() {
             authSignUpListener?.onFailure(networkErrorString,99)
         }
     }
-
 
     // 회원가입
     private val _signUpResponse : MutableLiveData<String> = MutableLiveData()
@@ -104,6 +109,41 @@ class AuthViewModel() : ViewModel() {
             authSignInListener?.onFailure("네트워크 연결을 확인해 주세요.",99)
         }
 
+    }
+
+    // fcm 토큰 보내기
+    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
+    val tokenResponse : LiveData<String> get() = _tokenResponse
+
+    fun sendToken() = viewModelScope.launch {
+        if(NetworkStatus.status) {
+            Log.d("tag", "리스폰스 후 토큰 값 : " + myToken)
+            _tokenResponse.value = TokenApiService.instance.sendFirebaseToken(TokenDTO(myToken))
+        }
+        else{
+            authSignUpListener?.onFailure(networkErrorString,99)
+        }
+    }
+
+    // fcm 토큰 발급
+    fun getFcm_Token() {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+            // Get new FCM registration token
+            val token = task.result
+
+            //val msg = getString(R.string.msg_token_fmt, token)
+
+           //실행시마다 서버에 토큰 값 저장
+            Log.d(TAG, token!!)
+
+            myToken = token
+
+            sendToken()
+        })
     }
 
     // 로그인 필드 확인
