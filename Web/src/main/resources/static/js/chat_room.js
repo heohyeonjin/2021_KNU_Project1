@@ -1,7 +1,7 @@
 function msgSend(roomNo){
     let msg = $('#input_message').val();
     let msgType = 1;
-
+    $('#input_message').val("");
     $.ajax({
         url:'/counseling/' + roomNo + '/send',
         type:'post', //POST 방식으로 전달
@@ -15,7 +15,7 @@ function msgSend(roomNo){
             } else {
                 alert("error");
             }
-            $('#input_message').val("");
+
         },
         error: function(){
             alert("메세지 전송에 실패하였습니다.");
