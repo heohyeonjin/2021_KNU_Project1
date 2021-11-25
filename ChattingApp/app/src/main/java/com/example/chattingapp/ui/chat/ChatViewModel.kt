@@ -23,8 +23,8 @@ class ChatViewModel() : ViewModel() {
 
     //채팅 보내기
     private val _getResponse : MutableLiveData<String> = MutableLiveData()
-
     val getResponse : LiveData<String> get() = _getResponse
+
     fun sendChatting() = viewModelScope.launch {
         if(NetworkStatus.status){
             Log.d("sendChat","채팅 감")

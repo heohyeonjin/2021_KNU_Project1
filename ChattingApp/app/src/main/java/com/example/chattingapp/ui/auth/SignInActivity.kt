@@ -47,6 +47,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
     }
 
     private fun initViewModel(){
+        var flag = 0 //로그인 성공 시 1, 로그인 실패 시 0
         viewModelFactory = ViewModelFactory()
         viewModel = ViewModelProvider(this, viewModelFactory).get(AuthViewModel::class.java)
         viewModel.authSignInListener = this
@@ -54,12 +55,22 @@ class SignInActivity : AppCompatActivity(), AuthListener {
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.signInResponse.observe(this){
+        viewModel.signInResponse.observe(this){ it ->
+            flag = 0
             if(it != null){
                 MyApplication.prefs.setUserEmail(it.email)
                 MyApplication.prefs.setUserName(it.name)
 
                 Log.d("tag", "로그인!!!!!!!!!!!!!!!!!")
+
+                viewModel.getFcm_Token()
+//                viewModel.sendToken()
+                
+                viewModel.tokenResponse.observe(this) {
+                    if (it.equals("true")) {
+                        Log.d("tag", "!!!!!!!!!!토큰!!!!!!!!!!11전송")
+                    }
+                }
 
                 val intent = Intent(this, ChatActivity::class.java)
 //                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
