@@ -6,12 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.chattingapp.R
-import com.example.chattingapp.data.model.ApiResult
 import com.example.chattingapp.utils.MyApplication
 import com.example.chattingapp.utils.NetworkStatus
 import androidx.lifecycle.viewModelScope
-import com.example.chattingapp.data.model.SignInForm
-import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.model.*
+import com.example.chattingapp.data.service.ChatApiService
 import com.example.chattingapp.data.service.TokenApiService
 import com.example.chattingapp.data.service.UserApiService
 import com.google.android.gms.tasks.OnCompleteListener
@@ -20,7 +19,13 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
 
+    var TAG = ""
+
+    //토큰
+    var myToken = ""
+
     //sign up field
+    //0 : 남자, 1 : 여지
     var signupName = ObservableField<String>()
     var signupPassword = ObservableField<String>()
     var signupEmail = ObservableField<String>()
@@ -42,6 +47,19 @@ class AuthViewModel() : ViewModel() {
     var authSignInListener: AuthListener? = null
     var networkErrorString = "네트워크 연결을 확인해 주세요."
 
+    // 회원가입 중복 체크
+    private val _getResponse : MutableLiveData<String> = MutableLiveData()
+
+    val getResponse : LiveData<String> get() = _getResponse
+    fun getCheckCode() = viewModelScope.launch {
+        if(NetworkStatus.status){
+            Log.d("checkCode","중복 체크 가라 ")
+            _signUpLoading.postValue(true)
+            _getResponse.value = UserApiService.instance.requestEmailCheck(EmailDTO(signupEmail.get()!!))
+        }else{
+            authSignUpListener?.onFailure(networkErrorString,99)
+        }
+    }
 
     // 회원가입
     private val _signUpResponse : MutableLiveData<String> = MutableLiveData()
@@ -51,11 +69,17 @@ class AuthViewModel() : ViewModel() {
     val signUpLoading: LiveData<Boolean> get() = _signUpLoading //회원가입, 회원 가입 인증번호 요청, 회원 가입 인증번호 확인 시 사용
 
     fun postSignUP() = viewModelScope.launch {
-        if(NetworkStatus.status){
+        if(NetworkStatus.status) {
             _signUpLoading.postValue(true)
 
+            var genderNum = when(signupGender.get()) {
+                R.id.radio_male -> 0
+                R.id.radio_female -> 1
+                else -> null
+            }
+
             _signUpResponse.value = UserApiService.instance.signUp(
-                SignUpForm(signupEmail.get()!!, signupPassword.get()!!, signupName.get()!!, signupGender.get()!!, signupPhone.get()!!)
+                SignUpForm(signupEmail.get()!!, signupPassword.get()!!, signupName.get()!!, genderNum!!, signupPhone.get()!!)
             )
 
         }
@@ -94,43 +118,40 @@ class AuthViewModel() : ViewModel() {
 
     }
 
+
+    // fcm 토큰 보내기
+    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
+    val tokenResponse : LiveData<String> get() = _tokenResponse
+
     fun sendToken() = viewModelScope.launch {
-        if(NetworkStatus.status){
-//            Log.d("tag", "aaaaaaaaa")
-            _signInLoading.postValue(true)
-
-            getFcm_Token()
-            _tokenResponse.value = TokenApiService.instance.getToken(sendToken)
-
-            _signInLoading.postValue(false)
+        if(NetworkStatus.status) {
+            Log.d("tag", "리스폰스 후 토큰 값 : " + myToken)
+            _tokenResponse.value = TokenApiService.instance.sendFirebaseToken(TokenDTO(myToken))
         }
         else{
-            Log.d("networkStatus","in viewmodel " + NetworkStatus.status.toString())
-            authSignInListener?.onFailure("네트워크 연결을 확인해 주세요.",99)
+            authSignUpListener?.onFailure(networkErrorString,99)
         }
     }
 
+    // fcm 토큰 발급
     fun getFcm_Token() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (!task.isSuccessful) {
                 Log.w(TAG, "Fetching FCM registration token failed", task.exception)
                 return@OnCompleteListener
             }
-
             // Get new FCM registration token
             val token = task.result
 
             //val msg = getString(R.string.msg_token_fmt, token)
 
-            /** 실행시마다 서버에 토큰값 저장. */
 
-            /** 실행시마다 서버에 토큰값 저장. */
-            Log.d(TAG, token!! )
+           //실행시마다 서버에 토큰 값 저장
+            Log.d(TAG, token!!)
 
-            sendToken = token
+            myToken = token
 
-            Log.d(TAG, "토큰 받아옴 : " + sendToken)
-
+            sendToken()
         })
     }
 
@@ -165,6 +186,10 @@ class AuthViewModel() : ViewModel() {
         }
         if(signupPhone.get().isNullOrEmpty()){
             authSignUpListener?.onFailure("전화번호를 입력해주세요", 4)
+            return
+        }
+        if(signupGender.get() != R.id.radio_male && signupGender.get() != R.id.radio_female){
+            authSignUpListener?.onFailure("성별을 선택해주세요", 5)
             return
         }
 

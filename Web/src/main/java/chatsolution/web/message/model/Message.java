@@ -1,5 +1,6 @@
 package chatsolution.web.message.model;
 
+import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.message.dto.NewMessageDto;

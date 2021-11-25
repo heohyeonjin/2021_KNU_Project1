@@ -33,10 +33,12 @@ public class Client extends TimeStamped {
     private String clientPhone;     // 고객 전화번호
 
     @Column(nullable = false)
-    private int clientGender;             // 고객 성별
+    private int clientGender;        // 고객 성별
 
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
+
+    private String fcmToken;
 
     public Client(SignUpRequestDto requestDto) {
         this.clientEmail = requestDto.getEmail();

@@ -40,7 +40,8 @@ function addMessage() {
                                         </div>
                                     </div>`
                         $('#messages').append(myChat);
-                        $("body").scrollTop($(document).height());
+                        $('.inner').scrollTop($(document).height());
+
                     }
                     else if (sender === 1) {
                         let clientChat = `<div class="item">
@@ -50,7 +51,7 @@ function addMessage() {
                                             </div>
                                         </div>`
                         $('#messages').append(clientChat);
-                        $("body").scrollTop($(document).height());
+                        $('.inner').scrollTop($(document).height());
                     }
                     else {
                         alert("sender validation 오류");
@@ -61,7 +62,7 @@ function addMessage() {
             setTimeout(addMessage(),10);
         },
         error: function(){
-            alert("서버 에러입니다");
+            //alert("서버 에러입니다");
         }
     });
 }

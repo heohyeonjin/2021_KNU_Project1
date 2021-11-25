@@ -6,6 +6,7 @@ import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
 import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.clientAPI.auth.service.ClientAPIService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
+@Slf4j
 @RestController
 @RequiredArgsConstructor
 public class ClientAPIController {
@@ -21,7 +23,7 @@ public class ClientAPIController {
     private final ClientAPIService clientAPIService;
 
     // 아이디 중복체크
-    @GetMapping("/api/check")
+    @PostMapping("/api/check")
     public String idDoubleCheck(@RequestBody IdDoubleCheckDto idDoubleCheckDto) {
         boolean exist = clientAPIService.idCheck(idDoubleCheckDto);
 
@@ -33,7 +35,6 @@ public class ClientAPIController {
     @PostMapping("/api/signup")
     public String signUp(@RequestBody SignUpRequestDto requestDto){
         String savedClient = clientAPIService.registerClient(requestDto);
-
         if (!Objects.equals(savedClient, requestDto.getEmail())) {
             return "false";
         }
@@ -51,6 +52,7 @@ public class ClientAPIController {
         else{
             SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client);
             servletRequest.getSession().setAttribute("clientNo",client.getClientNo());
+            log.info("로그인 성공");
             return signUpRequestDto;
         }
     }

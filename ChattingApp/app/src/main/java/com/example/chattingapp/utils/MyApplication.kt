@@ -7,7 +7,7 @@ class MyApplication : Application() {
     companion object {
         lateinit var prefs: MySharedPreferences
         lateinit var instance: MyApplication
-            private set
+//            private set
     }
 
     override fun onCreate() {

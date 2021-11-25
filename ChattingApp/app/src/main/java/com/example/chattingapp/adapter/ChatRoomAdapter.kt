@@ -59,12 +59,12 @@ class ChatRoomAdapter(val user : User) : RecyclerView.Adapter<RecyclerView.ViewH
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is LeftViewHolder) {
             holder.binding.textGchatMessageOther.text = lst[position].content
-            holder.binding.textGchatTimestampOther.text = lst[position].writtenAt
+            holder.binding.textGchatTimestampOther.text = lst[position].sendTime
             holder.binding.textGchatUserOther.text = lst[position].writtenBy
         }
         else if (holder is RightViewHolder) {
             holder.binding.textGchatSendMassage.text = lst[position].content
-            holder.binding.textGchatSendTime.text = lst[position].writtenAt
+            holder.binding.textGchatSendTime.text = lst[position].sendTime
         }
         else if (holder is CenterViewHolder) {
             holder.binding.textGchatDate.text = lst[position].sendDate
@@ -79,8 +79,14 @@ class ChatRoomAdapter(val user : User) : RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (user.userNo.toInt() == this.lst[position].userNo)
+//        if (lst == null) {
+//            return CENTER_POSITION
+//        }
+
+        if (user.name.toString() == this.lst[position].writtenAt) {
+            Log.d("tag", "userNo : " + user.userNo)
             return RIGHT_POSITION
+        }
         return LEFT_POSITION
     }
 

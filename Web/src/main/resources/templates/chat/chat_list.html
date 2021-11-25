@@ -39,21 +39,21 @@
 
 <div class=counseling-list th:each="room: ${rooms}">
     <div class="list-group" id="rooms"></div>
-    <div class="list-group">
-        <a th:href="@{/counseling/{roomNo}(roomNo=${room.roomNo})}" class="list-group-item" aria-current="true">
-            <div class="d-flex w-100 justify-content-between">
-                <img th:src="@{/images/person.svg}" style="width:50px" href="#" alt=""/>
-                <h5 class="text mb-1 mx-3 flex-fill">
-                    <div th:text="${room.name}" class="client my-1">홍길동</div>
-                    <div th:text="${room.content}" class="last-comment">사이즈 문의드립니다.</div>
-                </h5>
-                <small>
-                    <div th:text="${room.time}">2000-00-00</div>
-                    <div th:id="circle">0</div>
-                </small>
-            </div>
-        </a>
-    </div>
+<!--    <div class="list-group">-->
+<!--        <a th:attr="onclick=|window.open('/counseling/${room.roomNo}', '', 'width=450, height=800')|"  class="list-group-item" aria-current="true">-->
+<!--            <div class="d-flex w-100 justify-content-between">-->
+<!--                <img th:src="@{/images/person.svg}" style="width:50px" href="#" alt=""/>-->
+<!--                <h5 class="text mb-1 mx-3 flex-fill">-->
+<!--                    <div th:text="${room.name}" class="client my-1">홍길동</div>-->
+<!--                    <div th:text="${room.content}" class="last-comment">사이즈 문의드립니다.</div>-->
+<!--                </h5>-->
+<!--                <small>-->
+<!--                    <div th:text="${room.time}">2000-00-00</div>-->
+<!--                    <div th:if="${room.counRead} == 0" th:id="circle" th:text="new">0</div>-->
+<!--                </small>-->
+<!--            </div>-->
+<!--        </a>-->
+<!--    </div>-->
 </div>
 </body>
 </html>
