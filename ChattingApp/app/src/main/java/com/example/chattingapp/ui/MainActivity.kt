@@ -53,14 +53,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavigation.selectedItemId = R.id.action_company_list
-
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(
-            R.id.main_content,
-            CompanyListFragment()
-        )
-        transaction.commit()
-        intent.putExtra("companyList",companyList)
     }
 
 }

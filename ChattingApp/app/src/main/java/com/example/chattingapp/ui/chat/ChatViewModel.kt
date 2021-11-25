@@ -27,9 +27,9 @@ class ChatViewModel() : ViewModel() {
 
     fun sendChatting() = viewModelScope.launch {
         if(NetworkStatus.status){
-            Log.d("sendChat","채팅 감")
+//            Log.d("sendChat","채팅 감")
             _getResponse.value = ChatApiService.instance.sendChat(Message(sendContent.get()!!, 1))
-            Log.d("receiveError", "리턴 값 " + _getResponse.value)
+//            Log.d("receiveError", "리턴 값 " + _getResponse.value)
         }
     }
 
