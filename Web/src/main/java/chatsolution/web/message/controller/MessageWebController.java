@@ -59,12 +59,16 @@ public class MessageWebController {
     public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) throws IOException {
         log.info("전달받은 메세지: " + newMessageDto.getMsg());
         messageWebService.saveMsg(newMessageDto, roomNo);
+
         // token, title, content
         Room room = messageWebService.getRoom(roomNo);
         Client client = room.getClient();
         String token = client.getFcmToken(); // 클라이언트 토큰 값
-        Corporation corporation = room.getCounselor().getCorporation(); String title = corporation.getCorpName(); // 기업 이름
-        fcmService.sendMessageTo(token,title,newMessageDto.getMsg());
+
+        Corporation corporation = room.getCounselor().getCorporation();
+        String title = corporation.getCorpName(); // 기업 이름
+
+        fcmService.sendMessageTo(token, title, newMessageDto.getMsg());
         return "success";
     }
 

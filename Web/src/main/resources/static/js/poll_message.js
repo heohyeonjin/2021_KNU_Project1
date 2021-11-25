@@ -37,6 +37,7 @@ function addMessage() {
                     if (date !== lastDate) {
                         let dateHtml = `<div class="hr-sect">${date}</div>`;
                         $('#messages').append(dateHtml);
+                        lastDate = date;
                     }
 
                     if (sender === 0) {
