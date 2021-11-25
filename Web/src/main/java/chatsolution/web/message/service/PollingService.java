@@ -3,6 +3,7 @@ package chatsolution.web.message.service;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.MessageDto;
+import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.dto.RoomInfoDto;
 import chatsolution.web.message.dto.RoomListDto;
 import chatsolution.web.message.model.Message;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service

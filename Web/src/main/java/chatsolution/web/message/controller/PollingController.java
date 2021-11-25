@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -23,6 +24,7 @@ public class PollingController {
     private final PollingService pollingService;
     private final MessageWebService messageWebService;
     private final RoomRepository roomRepository;
+    private final MessageRepository messageRepository;
 
     // 채팅방 내 마지막 메세지 확인
     @GetMapping("/chat/lastMsg")
@@ -46,7 +48,6 @@ public class PollingController {
     // 채팅방 리스트 폴링
     @GetMapping("/room")
     public @ResponseBody List<RoomListDto> newRooms(@RequestParam("lastRoom") Long lastRoom) {
-//        return pollingService.updateRoom(lastRoom);
         Long enter = roomRepository.findById(lastRoom).get().getCounselor().getCounNo();
         return messageWebService.roomList(enter);
 

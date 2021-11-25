@@ -51,18 +51,23 @@
 <div id="chat_wrap">
     <div class="inner" id="messages">
         <div th:each="msg: ${messages}">
-            <div th:if="${msg.sender} == 1" class="item">
-                <div class="box">
-                    <p class="msg" th:text="${msg.content}">안녕하세요</p>
-                    <span class="time" th:text="${msg.time}">오전 10:05</span>
-                </div>
-            </div>
-            <div class="item mymsg" >
-                <div th:if="${msg.sender} == 0" class="box">
-                    <p class="msg" th:text="${msg.content}">안녕하세요</p>
-                    <span class="time" th:text="${msg.time}">오전 10:05</span>
-                </div>
-            </div>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                addMsg(/*[[ ${msg} ]]*/);
+                /*]]*/
+            </script>
+<!--            <div th:if="${msg.sender} == 1" class="item">-->
+<!--                <div class="box">-->
+<!--                    <p class="msg" th:text="${msg.content}">안녕하세요</p>-->
+<!--                    <span class="time" th:text="${msg.time}">오전 10:05</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="item mymsg" >-->
+<!--                <div th:if="${msg.sender} == 0" class="box">-->
+<!--                    <p class="msg" th:text="${msg.content}">안녕하세요</p>-->
+<!--                    <span class="time" th:text="${msg.time}">오전 10:05</span>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
