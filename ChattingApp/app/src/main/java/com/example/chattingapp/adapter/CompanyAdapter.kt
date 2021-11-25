@@ -1,6 +1,7 @@
 package com.example.chattingapp.adapter
 
 import android.app.PendingIntent.getActivity
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,11 @@ import com.example.chattingapp.data.model.Corporation
 class CompanyAdapter (val companyList: ArrayList<Corporation>) :
     RecyclerView.Adapter<CompanyAdapter.Holder>(){
 
+    interface ItemClick{
+        fun OnClick(view: View, position: Int)
+    }
+    var itemClick: ItemClick? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_company, parent, false)
         return Holder(view)
@@ -28,6 +34,11 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder?.bind(companyList[position],position)
+        if(itemClick != null){
+            holder?.itemView?.setOnClickListener{
+                v -> itemClick?.OnClick(v, position)
+            }
+        }
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -42,15 +53,15 @@ class CompanyAdapter (val companyList: ArrayList<Corporation>) :
             Glide.with(itemView).load(corp.corpLogo).into(corpLogo)
             corpName?.text = corp.corpName
             corpDesc?.text = corp.corpDesc
-            
-
-
-
 
 
 
         }
     }
+
+
+
+
 
 
 }
