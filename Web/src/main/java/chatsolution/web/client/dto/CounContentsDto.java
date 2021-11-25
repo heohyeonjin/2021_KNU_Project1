@@ -1,27 +1,25 @@
-package chatsolution.web.message.dto;
+package chatsolution.web.client.dto;
+
 
 import chatsolution.web.message.model.Message;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 @Getter @Setter
 @NoArgsConstructor
-public class MessageListDto {
-
+public class CounContentsDto {
     private String content;
+    private int sender;
     private String date;
     private String time;
-    private int sender;
 
-    public MessageListDto(Message message) {
+    public CounContentsDto(Message message){
         this.content = message.getMsgContent();
+        this.sender = message.getMsgSender();
         this.date = message.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
         this.time = message.getCreatedAt().getHour() + ":" + message.getCreatedAt().getMinute();
-        this.sender = message.getMsgSender();
     }
 }

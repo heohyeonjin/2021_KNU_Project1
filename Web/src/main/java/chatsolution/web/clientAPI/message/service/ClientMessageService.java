@@ -4,6 +4,7 @@ package chatsolution.web.clientAPI.message.service;
 import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.clientAPI.auth.repository.ClientRepository;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
+import chatsolution.web.fcm.dto.TokenDto;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
@@ -61,12 +62,27 @@ public class ClientMessageService {
     public String addMessage(Long roomNo, MessageSendDto clientMessageSendDto){
         Optional<Room> findRoom = roomRepository.findById(roomNo);
         Room room = findRoom.get();
-
         Message newMsg = new Message(clientMessageSendDto, room);
         messageRepository.save(newMsg);
         room.getMessages().add(newMsg);
         room.setMsgSize(room.getMsgSize()+1);
-
         return newMsg.getMsgContent();
+    }
+
+    // 메시지 읽음 처리
+    @Transactional
+    public void msgReadProcess(Room room){
+        List<Message> msg = room.getMessages();
+        for(int i =0 ;i<msg.size();i++){
+            if(msg.get(i).getClientRead()==0){
+                msg.get(i).setClientRead(1);
+            }
+        }
+    }
+
+    //토큰 저장
+    @Transactional
+    public void saveToken(Client client, String token){
+        client.setFcmToken(token);
     }
 }
