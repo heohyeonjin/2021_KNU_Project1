@@ -31,8 +31,9 @@
 <!--            </intent-filter>-->
 <!--        </activity>-->
 
+
         <activity
-            android:name=".ui.auth.SignUpActivity"
+            android:name=".ui.auth.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +41,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.auth.SignInActivity" />
+        <activity android:name=".ui.auth.SignUpActivity" />
         <activity android:name=".ui.auth.FindPasswordActivity" />
         <activity android:name=".ui.auth.FindPasswordVerifyActivity" />
 
@@ -54,23 +55,17 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.ChatActivity" />
 
-<!--        <activity android:name=".ui.ChatActivity" />-->
-        <service
-            android:name=".YourFirebaseMessagingService"
-            android:exported="false">
+        <service android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-        <service
-            android:name=".kotlin.MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
     </application>
+
 </manifest>
 

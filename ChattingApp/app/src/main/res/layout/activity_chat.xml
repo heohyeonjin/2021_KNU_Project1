@@ -5,6 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.chattingapp.ui.chat.ChatViewModel" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -102,6 +108,7 @@
                 android:paddingLeft="35dp"
                 android:textSize="15sp"
                 android:background="@drawable/chat_text"
+                android:text="@={viewmodel.sendContent}"
                 android:hint="입력하세요." />
 
             <ImageButton
@@ -120,6 +127,7 @@
                 android:layout_marginRight="13dp"
                 android:layout_gravity="right"
                 android:background="@drawable/ic_send"
+                android:onClick="@{() -> viewmodel.checkChatField()}"
                 android:contentDescription="Send"/>
         </FrameLayout>
 

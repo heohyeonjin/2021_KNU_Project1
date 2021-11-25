@@ -20,7 +20,7 @@ class NetworkConnection(private val context: Context): LiveData<Boolean>()
     {
         super.onActive()
         updateConnection()
-        if(connectivityManager.activeNetwork!=null)
+        /*if(connectivityManager.activeNetwork!=null)
             NetworkStatus.status = true
         else
             NetworkStatus.status = false
@@ -42,7 +42,7 @@ class NetworkConnection(private val context: Context): LiveData<Boolean>()
                     IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
                 )
             }
-        }
+        }*/
     }
 
     override fun onInactive()

@@ -1,7 +1,5 @@
 package chatsolution.web.message.service;
 
-import chatsolution.web.clientAPI.auth.model.Client;
-import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.*;

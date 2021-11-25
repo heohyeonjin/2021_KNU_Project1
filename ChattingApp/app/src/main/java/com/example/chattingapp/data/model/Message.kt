@@ -1,9 +1,11 @@
 package com.example.chattingapp.data.model
 
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Message(
-    val userNo : Int,
-    val roomNo : Int,
     val content : String,
-    val sendTime : String,
-    val sendDate : String
-)
+    val type : Int
+) : Parcelable
