@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -27,14 +28,10 @@ public class RoomService {
         return room.getRoomNo();
     }
 
-    @Transactional
-    public String msgReadProcess(Room room){
-        List<Message> msg = room.getMessages();
-        for(int i =0 ;i<msg.size();i++){
-            if(msg.get(i).getClientRead()==0){
-                msg.get(i).setClientRead(1);
-            }
-        }
-    return "읽음 처리 완료";
+
+    public Room findRoom(Long roomNo){
+        Optional<Room> findRoom = roomRepository.findById(roomNo);
+        Room room = findRoom.get();
+        return room;
     }
 }

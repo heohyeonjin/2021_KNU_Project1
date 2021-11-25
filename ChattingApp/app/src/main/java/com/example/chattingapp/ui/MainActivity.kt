@@ -2,13 +2,19 @@ package com.example.chattingapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.annotation.ArrayRes
 import androidx.databinding.DataBindingUtil
 import com.example.chattingapp.R
+import com.example.chattingapp.data.model.ChatRoom
 import com.example.chattingapp.data.model.Corporation
 import com.example.chattingapp.databinding.ActivityMainBinding
 import com.example.chattingapp.ui.navigation.ChattingListFragment
 import com.example.chattingapp.ui.navigation.CompanyListFragment
 import com.example.chattingapp.ui.navigation.MypageFragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
@@ -20,6 +26,10 @@ class MainActivity : AppCompatActivity() {
     var companyList: ArrayList<Corporation> = arrayListOf(
         Corporation(1,"samsung","company","company"),
         Corporation(2,"LG","company","company")
+    )
+
+    var chatroomList: ArrayList<ChatRoom> = arrayListOf(
+        ChatRoom(1,"samsung","hi","2021.11.11")
     )
 
 
@@ -53,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.bottomNavigation.selectedItemId = R.id.action_company_list
+
     }
 
 }

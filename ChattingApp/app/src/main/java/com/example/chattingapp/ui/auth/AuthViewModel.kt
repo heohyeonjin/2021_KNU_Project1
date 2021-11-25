@@ -32,11 +32,15 @@ class AuthViewModel() : ViewModel() {
     var signupPhone = ObservableField<String>()
     var signupGender = ObservableField<Int>()
     var signUpResponseCode = ""
+    var TAG = ""
 
     // signIn field
     var signInEmail = ObservableField<String>()
     var signInPassword = ObservableField<String>()
     var isSelected = ObservableField<Boolean>()
+
+    // token
+    var sendToken = ""
 
     //auth listener
     var authSignUpListener: AuthListener? = null
@@ -86,7 +90,9 @@ class AuthViewModel() : ViewModel() {
 
     // 로그인
     private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
+    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
     val signInResponse : LiveData<SignUpForm> = _signInResponse
+    val tokenResponse : LiveData<String> = _tokenResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading
@@ -102,6 +108,7 @@ class AuthViewModel() : ViewModel() {
             _signInResponse.value = UserApiService.instance.login(
                 SignInForm(signInEmail.get()!!, signInPassword.get()!!)
             )
+
             _signInLoading.postValue(false)
         }
         else{
@@ -110,6 +117,7 @@ class AuthViewModel() : ViewModel() {
         }
 
     }
+
 
     // fcm 토큰 보내기
     private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
@@ -136,6 +144,7 @@ class AuthViewModel() : ViewModel() {
             val token = task.result
 
             //val msg = getString(R.string.msg_token_fmt, token)
+
 
            //실행시마다 서버에 토큰 값 저장
             Log.d(TAG, token!!)

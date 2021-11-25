@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap core CSS -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous">
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"></script>
+    <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" th:href="@{/css/nav.css}">
+    <link rel="stylesheet" th:href="@{/css/corporation.css}">
+    <title>corporation</title>
+</head>
+<body>
+
+<div th:replace="menu/header::header"></div>
+<div th:replace="menu/nav::nav"></div>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 wrapper">
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h3 style="text-align:left;">고객 정보 및 상담 내역</h3>
+    </div>
+
+    <img th:src="@{/css/images/corporation.svg}" class="rounded-circle" alt="" width="100px">
+    <li style="font-size:17px;text-align:left;font-weight: bold">고객 정보</li>
+
+    <table class="table table-bordered corp_info my-3">
+        <tbody>
+        <tr>
+            <th class="corp_info_th">상태</th>
+            <td class="corp_info_td" th:text="${client.client_status}">고객 상태</td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td class="corp_info_td" th:text="${client.client_name}">고객 이름</td>
+        </tr>
+        <tr>
+            <th>성별</th>
+            <td class="corp_info_td" th:text="${client.client_gender}">고객 성별</td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td class="corp_info_td" th:text="${client.client_phone}">고객 전화번호</td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td class="corp_info_td" th:text="${client.client_email}">고객 이메일</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="reg_btn mb-5">
+        <button type="submit"
+                th:onclick="|location.href='@{/client/{clientNo}/edit(clientNo=${client.client_no})}'|"
+                class="btn btn-dark btn-sm px-4">수정하기</button>
+    </div>
+
+    <li style="font-size:17px;text-align:left;font-weight: bold">상담 내역</li>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">날짜</th>
+            <th scope="col">기업명</th>
+            <th scope="col">내용</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="coun: ${counList}">
+            <td th:text="${coun.date}">날짜</td>
+            <td th:text="${coun.corpName}">기업 이름</a></td>
+            <td><a href="#" th:text="${coun.content}" th:onclick="|window.open('@{/client/counseling/{roomNo}(roomNo=${coun.roomNo})}', '', 'width=450, height=800')|"></a> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="list_btn">
+        <button type="button"
+                th:onclick="|location.href='@{/client}'|"
+                class="btn btn-warning btn-sm px-4">목록으로</button>
+    </div>
+
+</main>
+
+</body>
+</html>

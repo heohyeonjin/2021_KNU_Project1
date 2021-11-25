@@ -1,10 +1,7 @@
 .inner{
-    height:630px;
+    height:740px;
     background-color: rgb(226, 223, 223);
     overflow: auto;
-}
-.profile_btn{
-    border-radius:20px;
 }
 .answer_btn{
     background-color: #EEB500;
@@ -14,52 +11,7 @@
 .answer_btn:hover{
     background-color: goldenrod;
 }
-.chat_area {
-    resize: none;
-}
-#input_message{
-    border:none;
-}
-.send_btn{
-    width: 50px;
-    height: 50px;
-    background-color:gray;
-    color: white;
-    border:solid;
-    font-size: inherit;
-}
-.send_btn:hover{
-    background-color:#EEB500;
-}
-.file-upload {
-    display: flex;
-    flex-direction: column;
-}
-label img{
-    width: 40px;
-    height: 40px;
-    background-color:antiquewhite;
-}
 
-/* 날짜 */
-.hr-sect {
-    display: flex;
-    flex-basis: 100%;
-    align-items: center;
-    color: rgba(0, 0, 0, 0.35);
-    font-size: 12px;
-    margin: 8px 0px;
-}
-.hr-sect::before,
-.hr-sect::after {
-    content: "";
-    flex-grow: 1;
-    background: rgba(0, 0, 0, 0.35);
-    height: 1px;
-    font-size: 0px;
-    line-height: 0px;
-    margin: 0px 16px;
-}
 
 /* 말풍선 */
 .item {

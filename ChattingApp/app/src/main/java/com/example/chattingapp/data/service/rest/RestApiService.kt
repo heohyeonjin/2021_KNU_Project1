@@ -23,6 +23,7 @@ interface RestApiService {
     // Company
     @GET("/api/corporations") fun getCompanyList() : Call<List<Company>>
 
+
     companion object {
         val instance = RestApiServiceGenerator.createService(RestApiService::class.java)
     }

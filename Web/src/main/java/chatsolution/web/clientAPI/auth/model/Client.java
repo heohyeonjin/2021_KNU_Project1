@@ -38,6 +38,8 @@ public class Client extends TimeStamped {
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
 
+    private int clientStatus;
+
     private String fcmToken;
 
     public Client(SignUpRequestDto requestDto) {

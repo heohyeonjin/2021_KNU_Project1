@@ -1,10 +1,14 @@
 package com.example.chattingapp.adapter
 
+import android.app.PendingIntent.getActivity
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chattingapp.R
@@ -13,6 +17,11 @@ import com.example.chattingapp.data.model.Corporation
 
 class CompanyAdapter (val companyList: ArrayList<Company>) :
     RecyclerView.Adapter<CompanyAdapter.Holder>(){
+
+    interface ItemClick{
+        fun OnClick(view: View, position: Int)
+    }
+    var itemClick: ItemClick? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_company, parent, false)
@@ -26,6 +35,11 @@ class CompanyAdapter (val companyList: ArrayList<Company>) :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder?.bind(companyList[position],position)
+        if(itemClick != null){
+            holder?.itemView?.setOnClickListener{
+                v -> itemClick?.OnClick(v, position)
+            }
+        }
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -37,11 +51,8 @@ class CompanyAdapter (val companyList: ArrayList<Company>) :
 
 
         fun bind(corp: Company, position:Int){
-//            Glide.with(itemView).load(corp.corpLogo).into(corpLogo)
             corpName?.text = corp.corpName
             corpAdmin?.text = corp.corpAdmin
-
-
         }
     }
 
@@ -49,4 +60,5 @@ class CompanyAdapter (val companyList: ArrayList<Company>) :
         companyList.add(item)
         notifyDataSetChanged()
     }
+
 }
