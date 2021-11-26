@@ -13,6 +13,16 @@ import com.example.chattingapp.data.model.RoomDTO
 class ChatRoomListAdapter (val chatroomList: ArrayList<RoomDTO>) :
     RecyclerView.Adapter<ChatRoomListAdapter.Holder>(){
 
+    private lateinit var itemClickListener : OnItemClickListener
+    // 리사이클러 뷰에 아이템 클릭 시 이벤트 처리
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_chattroomlist, parent, false)
         return Holder(view)
@@ -25,6 +35,10 @@ class ChatRoomListAdapter (val chatroomList: ArrayList<RoomDTO>) :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder?.bind(chatroomList[position],position)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){

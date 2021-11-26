@@ -26,7 +26,7 @@ import com.example.chattingapp.utils.toast
 class ChatActivity : AppCompatActivity() {
 
     lateinit var viewAdapter : ChatRoomAdapter
-    val datas = mutableListOf<Chat>()
+    val datas = ArrayList<Chat>()
     private lateinit var ChatActivityRecycleview : RecyclerView
     private lateinit var binding: ActivityChatBinding
     lateinit var viewModel : ChatViewModel
@@ -36,9 +36,14 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
+        val connection = NetworkConnection(applicationContext)
+        connection.observe(this){ isConnected ->
+            if (isConnected) NetworkStatus.status = true
+            else NetworkStatus.status = false
+        }
 
-        enterDTO.corpName = ""
-        enterDTO.roomNo = 0L
+        //초기화
+        enterDTO = EnterDTO(0L, "")
 
         if (intent.hasExtra("EnterDTO")) {
             enterDTO = intent.getParcelableExtra("EnterDTO")!!
@@ -46,13 +51,9 @@ class ChatActivity : AppCompatActivity() {
             Log.d("채팅방 들어옴", "enterDTO.corpName & roomNo = " + enterDTO.corpName + enterDTO.roomNo)
         }
 
-        viewAdapter = ChatRoomAdapter()
+        viewAdapter = ChatRoomAdapter(datas)
 
-        val connection = NetworkConnection(applicationContext)
-        connection.observe(this){ isConnected ->
-            if (isConnected) NetworkStatus.status = true
-            else NetworkStatus.status = false
-        }
+
 
         ChatActivityRecycleview = findViewById(R.id.chat_content)
         ChatActivityRecycleview.adapter = viewAdapter

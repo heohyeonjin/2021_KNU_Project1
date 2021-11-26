@@ -19,8 +19,9 @@ import com.example.chattingapp.databinding.DetailSendMsgBinding
 import java.lang.RuntimeException
 
 
-class ChatRoomAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val lst = mutableListOf<Chat>()
+class ChatRoomAdapter(val lst: ArrayList<Chat>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+//    val lst = mutableListOf<Chat>()
     val messageIdToIdx = HashMap<Int, Int>()
 
     val CENTER_POSITION = 0   // 날짜
