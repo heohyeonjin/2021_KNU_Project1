@@ -11,14 +11,14 @@ import lombok.Setter;
 public class CorpDetailDto {
     private String corpName;
     private String corpAdmin;
-    private String corpDecs;
+    private String corpDesc;
     private String corpEmail;
     private String corpTel;
 
     public CorpDetailDto(Corporation corporation){
         this.corpName = corporation.getCorpName();
         this.corpAdmin = corporation.getCorpAdmin();
-        this.corpDecs = corporation.getCorpDesc();
+        this.corpDesc = corporation.getCorpDesc();
         this.corpTel = corporation.getCorpPhone();
         this.corpEmail = corporation.getCorpEmail();
     }

@@ -47,6 +47,12 @@ public class FirebaseCloudMessageService {
                                 .image(null)
                                 .build()
                         )
+                        .data(FcmMessage.Data.builder()
+                                .RoomName(title)
+//                                .image(null)
+                                .build()
+
+                        )
                         .build()
                 )
                 .validate_only(false)

@@ -16,18 +16,20 @@ import java.time.format.DateTimeFormatter;
 @NoArgsConstructor
 @Slf4j
 public class RoomListDto {
-    private String CorpName; // 회사 명
+    private Long roomNo;
+    private String corpName; // 회사 명
     private String content;
     private String time;
-    private int ClientRead; // 읽음 처리 ( 1: 읽음 0 : 안읽음 )
+    private int clientRead; // 읽음 처리 ( 1: 읽음 0 : 안읽음 )
 
     public RoomListDto(Room room){
-        this.CorpName = room.getCounselor().getCorporation().getCorpName();
+        this.roomNo = room.getRoomNo();
+        this.corpName = room.getCounselor().getCorporation().getCorpName();
         int size = room.getMessages().size()-1;
         Message lastMsg = room.getMessages().get(size);
         this.content = lastMsg.getMsgContent();
-        this.ClientRead = room.getMessages().get(size).getClientRead();
-        log.info(this.ClientRead+"");
+        this.clientRead = room.getMessages().get(size).getClientRead();
+        log.info(this.clientRead+"");
 
         // 오늘 날짜
         LocalDate now = LocalDate.now();
