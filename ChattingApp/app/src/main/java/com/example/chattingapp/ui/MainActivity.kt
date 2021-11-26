@@ -23,15 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var chatListFragment: ChattingListFragment
     private lateinit var companyListFragment: CompanyListFragment
     private lateinit var mypageFragment: MypageFragment
-    var companyList: ArrayList<Corporation> = arrayListOf(
-        Corporation(1,"samsung","company","company"),
-        Corporation(2,"LG","company","company")
-    )
-
-    var chatroomList: ArrayList<ChatRoom> = arrayListOf(
-        ChatRoom(1,"samsung","hi","2021.11.11")
-    )
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

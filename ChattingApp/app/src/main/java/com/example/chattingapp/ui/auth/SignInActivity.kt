@@ -1,14 +1,17 @@
 package com.example.chattingapp.ui.auth
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.service.ChatApiService
 import com.example.chattingapp.databinding.ActivityLoginBinding
 import com.example.chattingapp.ui.ChatActivity
 import com.example.chattingapp.ui.MainActivity
@@ -78,7 +81,18 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                     }
                 }
 
-                val intent = Intent(this, ChatActivity::class.java)
+
+                ////////////
+//                ChatApiService.instance.getRoomNo(1L) {
+//                    if(it != null) {
+//                        Log.d("TAG", "room No : " + it)
+//
+//                        ChatApiService.instance.getChattingList()
+//                    }
+//                }
+
+
+                val intent = Intent(this, MainActivity::class.java)
 //                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
 //                intent.putExtra("user", intentData)
                 startActivity(intent)

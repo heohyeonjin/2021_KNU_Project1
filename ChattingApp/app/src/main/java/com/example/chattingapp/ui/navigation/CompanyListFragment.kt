@@ -1,5 +1,6 @@
 package com.example.chattingapp.ui.navigation
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chattingapp.ProfileActivity
 import com.example.chattingapp.R
 import com.example.chattingapp.adapter.ChatRoomAdapter
 import com.example.chattingapp.adapter.CompanyAdapter
@@ -29,6 +31,7 @@ import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 
 class CompanyListFragment : Fragment() {
+
     companion object {
         fun newInstance() : CompanyListFragment {
             return CompanyListFragment()
@@ -50,7 +53,6 @@ class CompanyListFragment : Fragment() {
         return binding.root
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
        
@@ -60,19 +62,26 @@ class CompanyListFragment : Fragment() {
         companyRecyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         companyRecyclerView.setHasFixedSize(true)
 
-//        val connection = NetworkConnection(applicationContext)
-//        connection.observe(this){ isConnected ->
-//            if (isConnected) NetworkStatus.status = true
-//            else NetworkStatus.status = false
-//        }
-
         CompanyApiService.instance.getCompanyList(){
-            Log.d("tag", "!!!!!!!!!1컴퍼니 리스트 응답!!!!!")
             for(company in it) {
                 companyAdapter.setCompany(company)
             }
         }
 
+        // 회사 클릭 시 이벤트
+        companyAdapter.setItemClickListener(object: CompanyAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                Log.d("Tag", "클릭 회사!!!!!! : " + "${companyList[position].corpNo}")
+
+                val corpNo = "${companyList[position].corpNo}"
+
+                // 클린한 회사의 corpNo 값을 ProfileActivity로 넘겨줌
+                val intent = Intent(activity, ProfileActivity::class.java)
+                intent.putExtra("corpNo", corpNo)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        })
 
     }
 
