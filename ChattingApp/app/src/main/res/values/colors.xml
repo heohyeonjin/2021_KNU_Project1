@@ -52,4 +52,9 @@
 
     <color name="calencer_selected">#f79256</color>
     <color name="home_btn_color">#8B8DA4</color>
+
+
+    <color name="navy">#32383E</color>
+    <color name="yellow">#EEB500</color>
+    <color name="white_gray">#E2DFDFFF</color>
 </resources>

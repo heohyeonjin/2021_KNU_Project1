@@ -3,83 +3,77 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginRight="10dp"
-    android:layout_weight="1"
-    android:orientation="horizontal"
-    android:background="@drawable/item_border">
+    android:layout_height="57dp"
+    android:orientation="horizontal">
 
     <ImageView
         android:id="@+id/CorpImg"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="2" />
+        android:layout_height="50dp"
+        android:layout_width="25dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_person"
+        android:layout_weight="1"/>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="55dp"
         android:layout_weight="5"
+        android:layout_gravity="center_vertical"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/chat_company_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="6dp"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:text="CorpName"
-            android:textColor="@color/purple_light"/>
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/current_msg"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
+            android:layout_height="3dp"
             android:layout_weight="1"
+            android:layout_marginLeft="5dp"
             android:text="curMessage"
-            android:textColor="@color/purple_light"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="13dp" />
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
+    <LinearLayout
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_width="60dp"
         android:orientation="vertical">
 
-        <EditText
+        <TextView
             android:id="@+id/currebt_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:layout_weight="1"
+            android:textSize="15dp"
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="time"
             android:labelFor="@id/currebt_time"
-            android:textColor="@color/purple_light"
-            app:layout_constraintBottom_toTopOf="@+id/new_msg"
+            android:textColor="@color/black"
             tools:ignore="SpeakableTextPresentCheck"
             tools:layout_editor_absoluteX="0dp" />
 
-        <TextView
+        <Button
             android:id="@+id/new_msg"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
+            android:layout_width="25dp"
+            android:layout_gravity="right"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:textSize="7dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/oval"
-            android:gravity="center"
-            android:text="unreadMessage"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.698"
-            app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textColor ="@color/white"
+            android:text="new"/>
+    </LinearLayout>
 
 </LinearLayout>
