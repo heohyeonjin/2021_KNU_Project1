@@ -36,7 +36,7 @@
             android:textColor="@color/purple_light"/>
 
         <TextView
-            android:id="@+id/company_introduce"
+            android:id="@+id/current_msg"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:layout_weight="1"
@@ -53,7 +53,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/curtime"
+            android:id="@+id/currebt_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -61,14 +61,14 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="time"
-            android:labelFor="@id/curtime"
+            android:labelFor="@id/currebt_time"
             android:textColor="@color/purple_light"
-            app:layout_constraintBottom_toTopOf="@+id/unreadMessage"
+            app:layout_constraintBottom_toTopOf="@+id/new_msg"
             tools:ignore="SpeakableTextPresentCheck"
             tools:layout_editor_absoluteX="0dp" />
 
         <TextView
-            android:id="@+id/unreadMessage"
+            android:id="@+id/new_msg"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="16dp"

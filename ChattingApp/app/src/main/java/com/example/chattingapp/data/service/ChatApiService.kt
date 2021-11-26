@@ -13,9 +13,16 @@ class ChatApiService(private val restApiService: RestApiService) {
         return restApiService.sendChat(1L, chat)
     }
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun getChattingList(roomNo:Long, callback : Consumer<List<Chat>>){
-        restApiService.getChattingList(roomNo).enqueue(RestApiServiceCallback(callback))
+    fun getChatList(roomNo:Long, callback : Consumer<List<Chat>>){
+        restApiService.getChatList(roomNo).enqueue(RestApiServiceCallback(callback))
+    }
+
+    fun getRoomNo(corpNo: Long, callback : Consumer<EnterDTO>) {
+        restApiService.getRoomNo(corpNo).enqueue(RestApiServiceCallback(callback))
+    }
+
+    fun getChatRoomList(callback : Consumer<List<RoomDTO>>) {
+        restApiService.getChatRoomList().enqueue(RestApiServiceCallback(callback))
     }
 
     companion object{

@@ -1,19 +1,20 @@
 package com.example.chattingapp.ui.navigation
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chattingapp.R
-import com.example.chattingapp.adapter.ChatroomListAdapter
-import com.example.chattingapp.adapter.CompanyAdapter
-import com.example.chattingapp.data.model.ChatRoom
-import com.example.chattingapp.data.model.Corporation
+import com.example.chattingapp.adapter.ChatRoomAdapter
+import com.example.chattingapp.adapter.ChatRoomListAdapter
+import com.example.chattingapp.data.model.RoomDTO
+import com.example.chattingapp.data.service.ChatApiService
+import com.example.chattingapp.data.service.CompanyApiService
+import com.example.chattingapp.databinding.FragmentChatListBinding
 
 class ChattingListFragment : Fragment() {
 
@@ -23,27 +24,34 @@ class ChattingListFragment : Fragment() {
         }
     }
 
+    var chatRoomList = ArrayList<RoomDTO>()
+    private lateinit var chatRoomListAdapter : ChatRoomListAdapter
+    private lateinit var chatRoomListRecyclerView: RecyclerView
+    private lateinit var binding: FragmentChatListBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view:View = inflater.inflate(R.layout.fragment_chat_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat_list, container, false)
 
-        return view
+        return binding.root
     }
-
-    var companyList = arrayListOf<Corporation>()
-    private lateinit var listAdapter : ChatroomListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var list: ArrayList<ChatRoom> = requireActivity().intent!!.extras!!.get("chatRoomList") as ArrayList<ChatRoom>
-        val companyView: RecyclerView = view.findViewById(R.id.fragment_chat_list_recyclerview)
-        listAdapter = ChatroomListAdapter(list)
-        companyView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        companyView.adapter = listAdapter
 
+        chatRoomListAdapter = ChatRoomListAdapter(chatRoomList)
+        chatRoomListRecyclerView = view.findViewById(R.id.fragment_chat_list_recyclerview)
+        chatRoomListRecyclerView.adapter = chatRoomListAdapter
+        chatRoomListRecyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        chatRoomListRecyclerView.setHasFixedSize(true)
 
+        ChatApiService.instance.getChatRoomList(){
+            for(room in it) {
+                chatRoomListAdapter.setChatList(room)
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ import com.example.chattingapp.databinding.DetailSendMsgBinding
 import java.lang.RuntimeException
 
 
-class ChatRoomAdapter(val user : User) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatRoomAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val lst = mutableListOf<Chat>()
     val messageIdToIdx = HashMap<Int, Int>()
 
@@ -59,15 +59,15 @@ class ChatRoomAdapter(val user : User) : RecyclerView.Adapter<RecyclerView.ViewH
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is LeftViewHolder) {
             holder.binding.textGchatMessageOther.text = lst[position].content
-            holder.binding.textGchatTimestampOther.text = lst[position].sendTime
-            holder.binding.textGchatUserOther.text = lst[position].writtenBy
+            holder.binding.textGchatTimestampOther.text = lst[position].time
+            holder.binding.textGchatUserOther.text = "회사이름"
         }
         else if (holder is RightViewHolder) {
             holder.binding.textGchatSendMassage.text = lst[position].content
-            holder.binding.textGchatSendTime.text = lst[position].sendTime
+            holder.binding.textGchatSendTime.text = lst[position].time
         }
         else if (holder is CenterViewHolder) {
-            holder.binding.textGchatDate.text = lst[position].sendDate
+            holder.binding.textGchatDate.text = lst[position].date
         }
     }
 
@@ -79,12 +79,11 @@ class ChatRoomAdapter(val user : User) : RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     override fun getItemViewType(position: Int): Int {
-//        if (lst == null) {
-//            return CENTER_POSITION
-//        }
+        if (lst == null) {
+            return CENTER_POSITION
+        }
 
-        if (user.name.toString() == this.lst[position].writtenAt) {
-            Log.d("tag", "userNo : " + user.userNo)
+        if (lst[position].sender == 1) {
             return RIGHT_POSITION
         }
         return LEFT_POSITION

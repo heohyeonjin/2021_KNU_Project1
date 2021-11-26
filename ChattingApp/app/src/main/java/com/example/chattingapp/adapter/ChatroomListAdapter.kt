@@ -3,16 +3,15 @@ package com.example.chattingapp.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.ChatRoom
-import com.example.chattingapp.data.model.Corporation
+import com.example.chattingapp.data.model.Company
+import com.example.chattingapp.data.model.RoomDTO
 
-class ChatroomListAdapter (val chatroomList: ArrayList<ChatRoom>) :
-    RecyclerView.Adapter<ChatroomListAdapter.Holder>(){
+class ChatRoomListAdapter (val chatroomList: ArrayList<RoomDTO>) :
+    RecyclerView.Adapter<ChatRoomListAdapter.Holder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_chattroomlist, parent, false)
@@ -30,17 +29,24 @@ class ChatroomListAdapter (val chatroomList: ArrayList<ChatRoom>) :
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val corpName = itemView?.findViewById<TextView>(R.id.company_name)
+        val corpName = itemView?.findViewById<TextView>(R.id.chat_company_name)
+        val content = itemView?.findViewById<TextView>(R.id.current_msg)
+        val time = itemView?.findViewById<TextView>(R.id.currebt_time)
+        val clientRead = itemView?.findViewById<TextView>(R.id.new_msg)
 
 
-
-        fun bind(chatroom: ChatRoom, position:Int){
+        fun bind(chatroom: RoomDTO, position:Int){
             corpName?.text = chatroom.corpName
-
-
-
-
-
+            content?.text = chatroom.content
+            time?.text = chatroom.time
+            if (chatroom.clientRead == 0) {
+                clientRead?.text = "new"
+            }
         }
+    }
+
+    fun setChatList(item : RoomDTO){
+        chatroomList.add(item)
+        notifyDataSetChanged()
     }
 }

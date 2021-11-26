@@ -15,13 +15,16 @@ interface RestApiService {
 
     // Chatting
     @POST("/api/message/{corpNo}") suspend fun sendChat(@Path("corpNo") corpNo: Long, @Body chat: Message) : String
-    @GET("/api/messages/{roomNo}") fun getChattingList(@Path("roomNo") roomNo: Long) : Call<List<Chat>>
+    @GET("/api/messages/{roomNo}") fun getChatList(@Path("roomNo") roomNo: Long) : Call<List<Chat>>
+    @GET("/api/rooms") fun getChatRoomList() :  Call<List<RoomDTO>>
+    @GET("/api/corporation/enter/{corpNo}") fun getRoomNo(@Path("corpNo") corpNo: Long) : Call<EnterDTO>
 
     // Token
     @POST("/getToken") suspend fun sendFirebaseToken(@Body sendToken: TokenDTO) : String
 
     // Company
     @GET("/api/corporations") fun getCompanyList() : Call<List<Company>>
+    @GET("/api/corporation/{corpNo}") fun getCompanyProfile(@Path("corpNo") corpNo : Long) : Call<CompanyProfile>
 
 
     companion object {

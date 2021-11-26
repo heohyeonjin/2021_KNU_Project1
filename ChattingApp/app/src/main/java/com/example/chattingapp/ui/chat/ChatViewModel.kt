@@ -38,9 +38,7 @@ class ChatViewModel() : ViewModel() {
         if(sendContent.get().isNullOrEmpty()){
             return
         }
-
         sendChatting()
     }
-
 
 }

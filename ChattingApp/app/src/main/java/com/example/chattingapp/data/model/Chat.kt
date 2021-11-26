@@ -1,9 +1,8 @@
 package com.example.chattingapp.data.model
 
 data class Chat(
-    val roomNo : Long,
-    val content : String,
-    val time : String,
-    val date : String,
-    val sender : Int
+    var content : String,
+    var date : String,
+    var time : String,
+    var sender : Int //0 상담사, 1 고객
 )

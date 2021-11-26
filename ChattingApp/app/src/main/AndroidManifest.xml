@@ -64,6 +64,7 @@
         </activity>
 
         <activity android:name=".ui.ChatActivity" />
+        <activity android:name=".ProfileActivity" />
 
         <service android:name=".MyFirebaseMessagingService"
             android:enabled="true"
