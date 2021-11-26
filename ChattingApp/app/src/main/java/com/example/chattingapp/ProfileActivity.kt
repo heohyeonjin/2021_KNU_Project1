@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,8 @@ import com.example.chattingapp.ui.chat.ChatViewModel
 import com.example.chattingapp.ui.chat.ChatViewModelFactory
 import com.example.chattingapp.ui.navigation.NavigationViewModel
 import com.example.chattingapp.ui.navigation.NavigationViewModelFactory
+import com.example.chattingapp.utils.NetworkConnection
+import com.example.chattingapp.utils.NetworkStatus
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -34,16 +37,48 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
+        var enterButtonEvent = findViewById<Button>(R.id.button_enter_room)
+        var endButton = findViewById<ImageButton>(R.id.imageButton2)
+
+        val connection = NetworkConnection(applicationContext)
+        connection.observe(this){ isConnected ->
+            if (isConnected) NetworkStatus.status = true
+            else NetworkStatus.status = false
+        }
 
         if (intent.hasExtra("corpNo")) {
-            Log.d("Tag", "프로필 눌럿을 때 corpNo 값!!!!!!!!!!" + corpNo)
+            // 잘 넘어옴
             corpNo = intent.getLongExtra("corpNo", 0L)
-
         } else {
             Toast.makeText(this, "전달된 이름이 없습니다", Toast.LENGTH_SHORT).show()
         }
 
         initViewModel()
+
+        enterButtonEvent.setOnClickListener {
+            Log.d("버튼 클릭", "enter room 버튼 눌림!!!!!!!!!!!, corpNo : " + corpNo)
+
+            ChatApiService.instance.getRoomNo(corpNo) {
+                Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo)
+//                if(it != null) {
+//                    val intent = Intent(this, ChatActivity::class.java)
+////                    intent.putExtra("EnterDTO", it)
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intent)
+//                }
+//                else {
+//                    val intent = Intent(this, ChatActivity::class.java)
+//                    startActivity(intent)
+//                }
+
+                val intent = Intent(this, ChatActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        endButton.setOnClickListener {
+            finish()
+        }
     }
 
     private fun initViewModel(){
@@ -52,9 +87,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.viewmodel = navigationViewModel
         binding.lifecycleOwner = this
 
-        var enterButtonEvent = findViewById<Button>(R.id.button_enter_room)
 
-        // 회사 프로필 정보 받아오기
+
+        // 회사 프로필 정보 받아오기 (잘 뜸)
         CompanyApiService.instance.getCompanyProfile(corpNo) {
             var profileCorpName = findViewById<TextView>(R.id.profile_company_name)
             var profileCorpDesc = findViewById<TextView>(R.id.profile_company_desc)
@@ -68,23 +103,5 @@ class ProfileActivity : AppCompatActivity() {
             profileCorpEmail?.text = it.corpEmail
             profileCorpTel?.text = it.corpTel
         }
-
-        enterButtonEvent.setOnClickListener {
-            ChatApiService.instance.getRoomNo(corpNo) {
-                if(it != null) {
-                    val intent = Intent(this, ChatActivity::class.java)
-                    intent.putExtra("EnterDTO", it)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                }
-                else {
-                    val intent = Intent(this, ChatActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-        }
-
-
-
     }
 }

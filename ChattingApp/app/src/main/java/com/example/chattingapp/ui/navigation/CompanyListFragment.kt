@@ -73,7 +73,7 @@ class CompanyListFragment : Fragment() {
             override fun onClick(v: View, position: Int) {
                 Log.d("Tag", "클릭 회사!!!!!! : " + "${companyList[position].corpNo}")
 
-                val corpNo = "${companyList[position].corpNo}"
+                val corpNo = "${companyList[position].corpNo}".toLong()
 
                 // 클린한 회사의 corpNo 값을 ProfileActivity로 넘겨줌
                 val intent = Intent(activity, ProfileActivity::class.java)
