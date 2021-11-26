@@ -32,6 +32,7 @@ public class MessageWebController {
     public String roomList(Model model, HttpServletRequest request) {
 
         Long enter = (Long)request.getSession().getAttribute("counNo");
+        log.info("상담원 페이지 진입");
 
         Optional<Counselor> counselor = messageWebService.getCounName(enter);
         List<RoomListDto> rooms = messageWebService.roomList(enter);

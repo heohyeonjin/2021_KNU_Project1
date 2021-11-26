@@ -3,6 +3,7 @@ package chatsolution.web.clientAPI.message.controller;
 
 import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.clientAPI.corporation.service.ClientCorpService;
+import chatsolution.web.clientAPI.message.dto.EnterDto;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
@@ -37,6 +38,19 @@ public class ClientMessageController {
         Room room = roomService.findRoom(roomNo);
         clientMessageService.msgReadProcess(room); // 읽음 처리
         return messages;
+    }
+
+   @GetMapping("/corporation/enter/{corpNo}") // 방 생성 유무 확인
+   public EnterDto enterCorp(@PathVariable Long corpNo){
+        Long roomNo = clientMessageService.corpEnter(corpNo);
+        String corpName = clientMessageService.getCorpName(corpNo);
+        //roomNo랑 corpName 반환
+        if(roomNo!=0L){
+            return new EnterDto(roomNo,corpName);
+        }
+        else{
+            return null;
+        }
     }
 
     // 기업 선택 -> 메시지 하나 보내면 방 생성
