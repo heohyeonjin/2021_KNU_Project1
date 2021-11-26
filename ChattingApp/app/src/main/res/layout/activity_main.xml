@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_blue"
+        android:background="@color/white"
         tools:context=".ui.MainActivity">
 
         <LinearLayout
@@ -40,7 +40,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="0dp"
             android:background="@color/purple_light"
-            app:itemTextColor="@drawable/menu_selector_people"
+            app:itemIconTint="@drawable/menu_selector_color"
+            app:itemTextColor="@drawable/menu_selector_color"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_navigation_main" />
 
