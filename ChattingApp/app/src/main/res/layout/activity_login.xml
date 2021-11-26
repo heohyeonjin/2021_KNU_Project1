@@ -17,7 +17,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         tools:context=".ui.auth.SignInActivity"
-        android:background="@color/main_blue">
+        android:background="@color/navy">
 
 
         <LinearLayout
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sign_in"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="70dp"
                 android:textColor="@color/purple_light"
                 android:textSize="40dp" />
 
@@ -45,14 +45,14 @@
                 android:drawableLeft="@drawable/ic_email"
                 android:drawablePadding="15dp"
                 android:hint="@string/login_id"
-                android:text="@={viewmodel.signInEmail}"
                 android:importantForAutofill="no"
                 android:inputType="textNoSuggestions|textEmailAddress"
                 android:paddingVertical="15dp"
                 android:singleLine="true"
+                android:text="@={viewmodel.signInEmail}"
+                android:textColor="@color/white"
                 android:textColorHint="@color/purple"
                 android:textSize="15dp"
-                android:textColor="@color/white"
                 tools:ignore="LabelFor" />
 
             <EditText
@@ -76,9 +76,8 @@
 
             <Button
                 android:id="@+id/signInBtn"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:background="@drawable/solid_button"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"
@@ -86,7 +85,7 @@
                 android:onClick="@{() -> viewmodel.checkSignInField()}"
                 android:textAllCaps="false"
                 android:textSize="17dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/navy"/>
 
 
 
