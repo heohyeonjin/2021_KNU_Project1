@@ -39,7 +39,6 @@
         </service>
 
 
-
         <activity
             android:name=".ui.auth.SignInActivity"
             android:exported="true">

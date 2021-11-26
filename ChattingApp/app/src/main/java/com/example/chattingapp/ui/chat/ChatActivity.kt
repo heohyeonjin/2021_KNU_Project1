@@ -3,6 +3,7 @@ package com.example.chattingapp.ui
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -22,6 +23,7 @@ import com.example.chattingapp.ui.chat.ChatViewModelFactory
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
+import org.w3c.dom.Text
 
 class ChatActivity : AppCompatActivity() {
 
@@ -36,6 +38,8 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
+        var chatCompanyName = findViewById<TextView>(R.id.chat_name)
+
         val connection = NetworkConnection(applicationContext)
         connection.observe(this){ isConnected ->
             if (isConnected) NetworkStatus.status = true
@@ -47,20 +51,18 @@ class ChatActivity : AppCompatActivity() {
 
         if (intent.hasExtra("EnterDTO")) {
             enterDTO = intent.getParcelableExtra("EnterDTO")!!
-
+            chatCompanyName?.text = enterDTO.corpName
             Log.d("채팅방 들어옴", "enterDTO.corpName & roomNo = " + enterDTO.corpName + enterDTO.roomNo)
         }
 
-        viewAdapter = ChatRoomAdapter(datas)
-
-
+        viewAdapter = ChatRoomAdapter(datas, chatCompanyName.text.toString())
 
         ChatActivityRecycleview = findViewById(R.id.chat_content)
         ChatActivityRecycleview.adapter = viewAdapter
         ChatActivityRecycleview.layoutManager= LinearLayoutManager(applicationContext)
         ChatActivityRecycleview.setHasFixedSize(true)
 
-//        dataChangeAndScrollToEnd(datas)
+        dataChangeAndScrollToEnd(datas)
 
         initViewModel()
     }
@@ -75,9 +77,10 @@ class ChatActivity : AppCompatActivity() {
         // 채팅 전송
         viewModel.getResponse.observe(this) {
             if (it.equals("true")) { //채팅 전송 성공
-//                datas.add(Chat(1, 3, 1, viewModel.sendContent.get().toString(), "10:10", "1월 1일", "A", "A", 1))
-//                viewAdapter.setMessages(datas)
-//                ChatApiService.instance.getChatList()
+                ChatApiService.instance.getChatList(enterDTO.roomNo) {
+//                    viewAdapter.setMessages(it)
+                    dataChangeAndScrollToEnd(it)
+                }
             }
         }
 
