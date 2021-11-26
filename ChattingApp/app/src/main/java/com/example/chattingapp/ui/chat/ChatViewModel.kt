@@ -39,6 +39,8 @@ class ChatViewModel() : ViewModel() {
             return
         }
         sendChatting()
+
+        sendContent.set("")
     }
 
 }

@@ -3,6 +3,8 @@ package com.example.chattingapp.ui
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -39,6 +41,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
         var chatCompanyName = findViewById<TextView>(R.id.chat_name)
+        var endButton = findViewById<Button>(R.id.chat_back)
 
         val connection = NetworkConnection(applicationContext)
         connection.observe(this){ isConnected ->
@@ -53,18 +56,27 @@ class ChatActivity : AppCompatActivity() {
             enterDTO = intent.getParcelableExtra("EnterDTO")!!
             chatCompanyName?.text = enterDTO.corpName
             Log.d("채팅방 들어옴", "enterDTO.corpName & roomNo = " + enterDTO.corpName + enterDTO.roomNo)
+
+            // 이미 대화 나눈 기록이 있는 방이면 -> 대화 내역 출력하기
+            if (enterDTO.roomNo != null) {
+                ChatApiService.instance.getChatList(enterDTO.roomNo) {
+                    dataChangeAndScrollToEnd(it)
+                }
+            }
         }
 
         viewAdapter = ChatRoomAdapter(datas, chatCompanyName.text.toString())
-
         ChatActivityRecycleview = findViewById(R.id.chat_content)
         ChatActivityRecycleview.adapter = viewAdapter
         ChatActivityRecycleview.layoutManager= LinearLayoutManager(applicationContext)
         ChatActivityRecycleview.setHasFixedSize(true)
 
-        dataChangeAndScrollToEnd(datas)
-
         initViewModel()
+
+        // 닫기 버튼 눌렀을 때
+        endButton.setOnClickListener {
+            finish()
+        }
     }
 
 
@@ -83,7 +95,6 @@ class ChatActivity : AppCompatActivity() {
                 }
             }
         }
-
 
     }
 

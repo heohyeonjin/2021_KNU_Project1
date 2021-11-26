@@ -76,6 +76,7 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
+        // 닫기 버튼 눌렀을 때
         endButton.setOnClickListener {
             finish()
         }
