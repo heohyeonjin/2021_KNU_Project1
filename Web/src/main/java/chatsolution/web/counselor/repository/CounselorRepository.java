@@ -14,9 +14,9 @@ import java.util.Optional;
 public interface CounselorRepository extends JpaRepository<Counselor, Long> {
     Counselor findByCounId(String id);
     boolean existsByCounId(String corp_id);
-
     @NotNull
     Page<Counselor> findAll(Pageable pageable);
+    List<Counselor> findAllByCorporationCorpNo(Long corpNo);
     Page<Counselor> findAllByCounNameContaining(String counName, Pageable pageable);
     List<Counselor> findByCounNameContaining(String counName);
 }

@@ -12,7 +12,6 @@ import java.util.List;
 public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByClientEmail(String email);
     Client findByClientNo(Long clientNo);
-
     @NotNull
     Page<Client> findAll(Pageable pageable);
     Page<Client> findAllByClientNameContaining(String clientName, Pageable pageable);

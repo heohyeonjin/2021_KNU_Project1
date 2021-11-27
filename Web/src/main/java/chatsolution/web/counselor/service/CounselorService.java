@@ -15,8 +15,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -36,7 +38,15 @@ public class CounselorService {
     }
 
     // 상담원 리스트 페이징
-    public List<CounListDto> getCounListPage(int page) {
+    public List<CounListDto> getCounListPage(int page, Long corpNo) {
+        if(corpNo!=0L){
+            log.info("corpNo가 0L이 아닌 경우");
+          List<Counselor> counselors = counselorRepository.findAllByCorporationCorpNo(corpNo);
+            return counselors.stream()
+                    .map(o -> new CounListDto(o))
+                    .collect(Collectors.toList());
+        }
+        log.info("corpNo가 0L인경우");
         Page<Counselor> counPage = counselorRepository.findAll(PageRequest.of(page, 15, Sort.by("counNo").ascending()));
         List<Counselor> counselors = counPage.getContent();
         return counselors.stream()
@@ -49,7 +59,8 @@ public class CounselorService {
         int total = counselorRepository.findAll().size();
         int size = 0;
 
-        if (total % 15 == 0) size = total / 15;
+        if (total % 15 == 0)
+            size = total / 15;
         else size = total / 15 + 1;
         return new CounPages(size, counPage);
     }
@@ -117,5 +128,17 @@ public class CounselorService {
         coun.setCounPhone(editDto.getCounPhone());
         coun.setCounEmail(editDto.getCounEmail());
         coun.setCounImage(editDto.getCounImage());
+    }
+
+    // 기업 No값
+    public Long getCorpNo(HttpSession session){
+        Long corpNo = (Long) session.getAttribute("corpNo");
+        return corpNo;
+    }
+
+    // 권한 값
+    public Long getAuthClassify(HttpSession session){
+        Long classify = (Long) session.getAttribute("auth_classify");
+        return classify;
     }
 }
