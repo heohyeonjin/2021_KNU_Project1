@@ -68,8 +68,8 @@ public class MessageWebController {
 
         Corporation corporation = room.getCounselor().getCorporation();
         String title = corporation.getCorpName(); // 기업 이름
-
-        fcmService.sendMessageTo(token, title, newMessageDto.getMsg());
+        log.info(roomNo.toString());
+        fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString());
         return "success";
     }
 

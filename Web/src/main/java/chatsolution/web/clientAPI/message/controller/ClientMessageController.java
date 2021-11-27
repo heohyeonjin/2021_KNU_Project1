@@ -62,7 +62,7 @@ public class ClientMessageController {
             return checkRoom;
         }
         else{
-            Corporation corp = clientCorpService.corpFind(corpNo);
+            Corporation corp = clientCorpService.corpFind(corpNo); // 기업에 상담원이 존재하지 않는 경우
             if(corp.getCounselors().size()==0){
                 return 0L;
             }
