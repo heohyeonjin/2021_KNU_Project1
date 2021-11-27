@@ -1,7 +1,7 @@
 package chatsolution.web.clientAPI.message.controller;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.message.dto.ClientRoomListDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
