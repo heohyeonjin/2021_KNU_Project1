@@ -35,13 +35,7 @@ class ChatRoomAdapter(val lst: ArrayList<Chat>, val chatCompanyName: String) :
     private lateinit var sendBinding: DetailSendMsgBinding // right
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-
-
         return when(viewType) {
-//            CENTER_POSITION -> {
-//                dateBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.detail_date, parent, false)
-//                CenterViewHolder(dateBinding)
-//            }
             LEFT_POSITION -> {
                 receiveBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.detail_receive_msg, parent, false)
                 LeftViewHolder(receiveBinding)

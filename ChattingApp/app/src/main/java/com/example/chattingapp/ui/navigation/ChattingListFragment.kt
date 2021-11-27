@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chattingapp.ProfileActivity
@@ -31,9 +33,18 @@ class ChattingListFragment : Fragment() {
     }
 
     var chatRoomList = ArrayList<RoomDTO>()
-    private lateinit var chatRoomListAdapter : ChatRoomListAdapter
-    private lateinit var chatRoomListRecyclerView: RecyclerView
-    private lateinit var binding: FragmentChatListBinding
+    lateinit var chatRoomListAdapter : ChatRoomListAdapter
+    lateinit var chatRoomListRecyclerView: RecyclerView
+    lateinit var binding: FragmentChatListBinding
+
+    override fun onResume() {
+        super.onResume()
+        ChatApiService.instance.getChatRoomList(){
+            for(room in it) {
+                chatRoomListAdapter.setChatList(room)
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +52,8 @@ class ChattingListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat_list, container, false)
+
+        onResume()
 
         return binding.root
     }
@@ -75,4 +88,5 @@ class ChattingListFragment : Fragment() {
             }
         })
     }
+
 }
