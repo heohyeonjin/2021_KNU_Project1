@@ -1,9 +1,6 @@
 package chatsolution.web.client.service;
 
-import chatsolution.web.client.dto.ClientCounListDto;
-import chatsolution.web.client.dto.ClientInfoDto;
-import chatsolution.web.client.dto.ClientListDto;
-import chatsolution.web.client.dto.CounContentsDto;
+import chatsolution.web.client.dto.*;
 import chatsolution.web.clientAPI.auth.model.Client;
 import chatsolution.web.clientAPI.auth.repository.ClientRepository;
 import chatsolution.web.message.model.Message;
@@ -13,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -39,7 +37,6 @@ private final RoomRepository roomRepository;
         return new ClientInfoDto(client);
     }
 
-
     //고객 상담리스트
     public List<ClientCounListDto> counselingList(Long clientNo){
         Optional<Client> findClient = clientRepository.findById(clientNo);
@@ -59,11 +56,21 @@ private final RoomRepository roomRepository;
                 .map(o-> new CounContentsDto(o))
                 .collect(Collectors.toList());
     }
+
     //회사 이름
     public String getCorpName(Long roomNo){
         Optional<Room> findRoom = roomRepository.findById(roomNo);
         Room room = findRoom.get();
         String corpName = room.getCounselor().getCorporation().getCorpName();
         return corpName;
+    }
+
+    // 고객정보 수정
+    @Transactional
+    public void updateClient(Long clientNo, ClientEditDto editDto) {
+        Client client = clientRepository.findById(clientNo).orElseThrow(
+                ()->new NullPointerException("접근 오류"));
+
+        client.setClientStatus(editDto.getClient_status());
     }
 }

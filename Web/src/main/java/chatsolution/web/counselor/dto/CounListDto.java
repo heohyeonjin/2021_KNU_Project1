@@ -34,7 +34,7 @@ public class CounListDto {
         }
 
         if (status == 1) {
-            this.counStatus = "사용 가능";
+            this.counStatus = "사용 중";
         } else if (status == 0) {
             this.counStatus = "사용 정지";
         } else {
