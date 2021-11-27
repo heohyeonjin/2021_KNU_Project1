@@ -1,17 +1,17 @@
 package chatsolution.web.counselor.service;
 
+import chatsolution.web.corporation.dto.CorpPages;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.corporation.dto.CorpListDto;
-import chatsolution.web.counselor.dto.CounEditDto;
-import chatsolution.web.counselor.dto.CounInfoDto;
-import chatsolution.web.counselor.dto.CounListDto;
-import chatsolution.web.counselor.dto.CounRegDto;
-import chatsolution.web.counselor.dto.EmbededCorpListDto;
+import chatsolution.web.counselor.dto.*;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -32,6 +32,25 @@ public class CounselorService {
         return couns.stream()
                 .map(o -> new CounListDto(o))
                 .collect(Collectors.toList());
+    }
+
+    // 상담원 리스트 페이징
+    public List<CounListDto> getCounListPage(int page) {
+        Page<Counselor> counPage = counselorRepository.findAll(PageRequest.of(page, 15, Sort.by("counNo").ascending()));
+        List<Counselor> counselors = counPage.getContent();
+        return counselors.stream()
+                .map(o -> new CounListDto(o))
+                .collect(Collectors.toList());
+    }
+
+    // 페이지 개수 찾기
+    public CounPages getCounPages(int counPage) {
+        int total = counselorRepository.findAll().size();
+        int size = 0;
+
+        if (total % 15 == 0) size = total / 15;
+        else size = total / 15 + 1;
+        return new CounPages(size, counPage);
     }
 
     // 소속 기업 리스트

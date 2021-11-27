@@ -1,6 +1,6 @@
 package chatsolution.web.client.dto;
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,25 +1,21 @@
 package chatsolution.web.clientAPI.message.controller;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.corporation.service.ClientCorpService;
 import chatsolution.web.clientAPI.message.dto.EnterDto;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
 import chatsolution.web.corporation.model.Corporation;
-import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Room;
-import chatsolution.web.message.repository.RoomRepository;
-import com.google.api.Http;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
