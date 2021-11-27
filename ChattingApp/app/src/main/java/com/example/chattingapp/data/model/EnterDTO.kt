@@ -6,5 +6,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class EnterDTO(
     var roomNo : Long,
-    var corpName : String
+    var corpName : String,
+    var corpNo : Long
 ) : Parcelable

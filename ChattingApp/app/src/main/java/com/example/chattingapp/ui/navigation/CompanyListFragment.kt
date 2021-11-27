@@ -71,7 +71,7 @@ class CompanyListFragment : Fragment() {
         // 회사 클릭 시 이벤트
         companyAdapter.setItemClickListener(object: CompanyAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                Log.d("Tag", "클릭 회사!!!!!! : " + "${companyList[position].corpNo}")
+                Log.d("Tag", "클릭 회사!!!!!! : " + companyList[position].corpNo)
 
                 val corpNo = "${companyList[position].corpNo}".toLong()
 

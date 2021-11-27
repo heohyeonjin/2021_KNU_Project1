@@ -14,7 +14,7 @@ interface RestApiService {
     @POST("/api/check") suspend fun requestEmailCheck(@Body signUpEmail : EmailDTO) : String
 
     // Chatting
-    @POST("/api/message/{corpNo}") suspend fun sendChat(@Path("corpNo") corpNo: Long, @Body chat: Message) : String
+    @POST("/api/message/{corpNo}") suspend fun sendChat(@Path("corpNo") corpNo: Long, @Body chat: Message) : Long
     @GET("/api/messages/{roomNo}") fun getChatList(@Path("roomNo") roomNo: Long) : Call<List<Chat>>
     @GET("/api/rooms") fun getChatRoomList() :  Call<List<RoomDTO>>
     @GET("/api/corporation/enter/{corpNo}") fun getRoomNo(@Path("corpNo") corpNo: Long) : Call<EnterDTO>

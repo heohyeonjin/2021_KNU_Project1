@@ -3,6 +3,9 @@ package com.example.chattingapp.ui
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -22,11 +25,12 @@ import com.example.chattingapp.ui.chat.ChatViewModelFactory
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
+import org.w3c.dom.Text
 
 class ChatActivity : AppCompatActivity() {
 
     lateinit var viewAdapter : ChatRoomAdapter
-    val datas = mutableListOf<Chat>()
+    val datas = ArrayList<Chat>()
     private lateinit var ChatActivityRecycleview : RecyclerView
     private lateinit var binding: ActivityChatBinding
     lateinit var viewModel : ChatViewModel
@@ -36,17 +40,8 @@ class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
-
-        enterDTO.corpName = ""
-        enterDTO.roomNo = 0L
-
-        if (intent.hasExtra("EnterDTO")) {
-            enterDTO = intent.getParcelableExtra("EnterDTO")!!
-
-            Log.d("채팅방 들어옴", "enterDTO.corpName & roomNo = " + enterDTO.corpName + enterDTO.roomNo)
-        }
-
-        viewAdapter = ChatRoomAdapter()
+        var chatCompanyName = findViewById<TextView>(R.id.chat_name)
+        var endButton = findViewById<Button>(R.id.chat_back)
 
         val connection = NetworkConnection(applicationContext)
         connection.observe(this){ isConnected ->
@@ -54,14 +49,33 @@ class ChatActivity : AppCompatActivity() {
             else NetworkStatus.status = false
         }
 
+        //초기화
+        enterDTO = EnterDTO(0L, "", 0L)
+
+        if (intent.hasExtra("EnterDTO")) {
+            enterDTO = intent.getParcelableExtra("EnterDTO")!!
+            chatCompanyName?.text = enterDTO.corpName
+            Log.d("채팅방 들어옴", "enterDTO.corpName & roomNo = " + enterDTO.corpName + enterDTO.roomNo)
+
+            // 이미 대화 나눈 기록이 있는 방이면 -> 대화 내역 출력하기
+            if (enterDTO.roomNo != null) {
+                ChatApiService.instance.getChatList(enterDTO.roomNo) {
+                    dataChangeAndScrollToEnd(it)
+                }
+            }
+        }
+
+        viewAdapter = ChatRoomAdapter(datas, chatCompanyName.text.toString())
         ChatActivityRecycleview = findViewById(R.id.chat_content)
         ChatActivityRecycleview.adapter = viewAdapter
         ChatActivityRecycleview.layoutManager= LinearLayoutManager(applicationContext)
         ChatActivityRecycleview.setHasFixedSize(true)
-
-//        dataChangeAndScrollToEnd(datas)
-
         initViewModel()
+
+        // 닫기 버튼 눌렀을 때
+        endButton.setOnClickListener {
+            finish()
+        }
     }
 
 
@@ -72,15 +86,17 @@ class ChatActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         // 채팅 전송
+        viewModel.corpNo = enterDTO.corpNo
         viewModel.getResponse.observe(this) {
-            if (it.equals("true")) { //채팅 전송 성공
-//                datas.add(Chat(1, 3, 1, viewModel.sendContent.get().toString(), "10:10", "1월 1일", "A", "A", 1))
-//                viewAdapter.setMessages(datas)
-//                ChatApiService.instance.getChatList()
+            var sendRoomNo = it
+
+            Log.d("채팅보냄", "roomNo: " + it + ", corpNo : " + enterDTO.corpNo)
+            //채팅 전송 성공
+            ChatApiService.instance.getChatList(sendRoomNo) {
+//                    viewAdapter.setMessages(it)
+                dataChangeAndScrollToEnd(it)
             }
         }
-
-
     }
 
     fun dataChangeAndScrollToEnd(messages: List<Chat>) {

@@ -1,6 +1,8 @@
 package com.example.chattingapp.ui.navigation
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,13 +10,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chattingapp.ProfileActivity
 import com.example.chattingapp.R
 import com.example.chattingapp.adapter.ChatRoomAdapter
 import com.example.chattingapp.adapter.ChatRoomListAdapter
+import com.example.chattingapp.adapter.CompanyAdapter
+import com.example.chattingapp.data.model.EnterDTO
 import com.example.chattingapp.data.model.RoomDTO
 import com.example.chattingapp.data.service.ChatApiService
 import com.example.chattingapp.data.service.CompanyApiService
 import com.example.chattingapp.databinding.FragmentChatListBinding
+import com.example.chattingapp.ui.ChatActivity
 
 class ChattingListFragment : Fragment() {
 
@@ -53,5 +59,20 @@ class ChattingListFragment : Fragment() {
                 chatRoomListAdapter.setChatList(room)
             }
         }
+
+        // 채팅방 클릭 시 이벤트
+        chatRoomListAdapter.setItemClickListener(object: ChatRoomListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                var clickRoomEnterDTO = EnterDTO("${chatRoomList[position].roomNo}".toLong(), "${chatRoomList[position].corpName}", "${chatRoomList[position].corpNo}".toLong())
+
+                Log.d("Tag", "클릭 채팅방!!!!!! : " + clickRoomEnterDTO.roomNo + clickRoomEnterDTO.corpName)
+
+                // 클릭한 채팅방의 roomNoActivity로 넘겨줌
+                val intent = Intent(activity, ChatActivity::class.java)
+                intent.putExtra("EnterDTO", clickRoomEnterDTO)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        })
     }
 }

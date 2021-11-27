@@ -81,17 +81,6 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                     }
                 }
 
-
-                ////////////
-//                ChatApiService.instance.getRoomNo(1L) {
-//                    if(it != null) {
-//                        Log.d("TAG", "room No : " + it)
-//
-//                        ChatApiService.instance.getChattingList()
-//                    }
-//                }
-
-
                 val intent = Intent(this, MainActivity::class.java)
 //                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
 //                intent.putExtra("user", intentData)
