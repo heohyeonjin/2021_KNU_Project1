@@ -7,10 +7,11 @@ import com.example.chattingapp.data.service.rest.RestApiService
 class TokenApiService(private val restApiService: RestApiService) {
 
 
-    suspend fun sendFirebaseToken(sendToken : TokenDTO) : String{
+    suspend fun sendFirebaseToken(sendToken: TokenDTO): String {
         return restApiService.sendFirebaseToken(sendToken)
     }
 
-    companion object{
+    companion object {
         val instance = TokenApiService(RestApiService.instance)
     }
+}

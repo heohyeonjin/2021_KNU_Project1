@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.annotation.ArrayRes
 import androidx.databinding.DataBindingUtil
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.ChatRoom
@@ -101,5 +100,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
         })
     }
+
+
+
+
+
 
 }

@@ -1,7 +1,9 @@
 package com.example.chattingapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +20,7 @@ import com.example.chattingapp.ui.chat.ChatViewModelFactory
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
+import retrofit2.http.Tag
 
 class ChatActivity : AppCompatActivity() {
 
@@ -27,6 +30,13 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
     lateinit var viewModel : ChatViewModel
     lateinit var chatViewModelFactory: ChatViewModelFactory
+    val TAG = "msg"
+
+    override fun onNewIntent(intent: Intent?) {
+            super.onNewIntent(intent)
+        val msg_data = intent?.extras!!.getString("msg_data")
+        Log.d(TAG, "msgdata : $msg_data")
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +49,8 @@ class ChatActivity : AppCompatActivity() {
             if (isConnected) NetworkStatus.status = true
             else NetworkStatus.status = false
         }
-
+        val data =intent.getStringExtra("msg_data")
+        Log.d(TAG, "whythereisnomsgdata$data")
         ChatActivityRecycleview = findViewById(R.id.chat_content)
 
         ChatActivityRecycleview.adapter = viewAdapter

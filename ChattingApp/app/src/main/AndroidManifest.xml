@@ -32,15 +32,15 @@
 <!--        </activity>-->
 
 
-        <activity
-            android:name=".ui.auth.SignInActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--        <activity-->
+<!--            android:name=".ui.auth.SignInActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
         <activity android:name=".ui.auth.SignUpActivity" />
         <activity android:name=".ui.auth.FindPasswordActivity" />
         <activity android:name=".ui.auth.FindPasswordVerifyActivity" />
@@ -56,6 +56,7 @@
         </activity>
 
         <activity android:name=".ui.ChatActivity" />
+        <activity android:name=".ProfileActivity"/>
 
         <service android:name=".MyFirebaseMessagingService"
             android:enabled="true"
@@ -64,6 +65,11 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_email">
+
+        </meta-data>
 
     </application>
 

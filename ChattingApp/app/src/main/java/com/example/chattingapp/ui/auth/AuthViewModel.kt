@@ -19,7 +19,6 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
 
-    var TAG = ""
 
     //토큰
     var myToken = ""
@@ -90,9 +89,7 @@ class AuthViewModel() : ViewModel() {
 
     // 로그인
     private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
-    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
     val signInResponse : LiveData<SignUpForm> = _signInResponse
-    val tokenResponse : LiveData<String> = _tokenResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading
