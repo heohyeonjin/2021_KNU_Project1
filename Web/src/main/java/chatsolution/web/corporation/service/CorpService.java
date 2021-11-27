@@ -49,6 +49,25 @@ public class CorpService {
         return new CorpPages(size, corpPage);
     }
 
+    // 기업 검색
+    public List<CorpListDto> search(String keyword, int page) {
+        Page<Corporation> find = corpRepository.findAllByCorpNameContaining(keyword, PageRequest.of(page, 15, Sort.by("corpNo").ascending()));
+        List<Corporation> corporations = find.getContent();
+        return corporations.stream()
+                .map(o -> new CorpListDto(o))
+                .collect(Collectors.toList());
+    }
+
+    // 기업 검색 페이지 개수
+    public CorpPages getSearchPages(int corpPage, String keyword) {
+        int total = corpRepository.findByCorpNameContaining(keyword).size();
+        int size = 0;
+
+        if (total % 15 == 0) size = total / 15;
+        else size = total / 15 + 1;
+        return new CorpPages(size, corpPage);
+    }
+
     //기업 상세정보
     public CorpInfoDto corpinfo(Long corpId){
         Corporation corp = corpRepository.findById(corpId).orElseThrow(
