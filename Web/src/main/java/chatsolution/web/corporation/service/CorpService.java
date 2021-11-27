@@ -10,8 +10,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -74,6 +76,20 @@ public class CorpService {
                 ()->new NullPointerException("접근 오류"));
         log.info(corp.getCorpName());
         return new CorpInfoDto(corp);
+    }
+
+    // 기업 로고 등록
+    public void imageUpload(MultipartFile logo) {
+        String uploadFolder = "/home/ubuntu/image";
+        String uploadFileName = logo.getOriginalFilename();
+        uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
+
+        File saveFile = new File(uploadFolder, uploadFileName);
+        try {
+            logo.transferTo(saveFile);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
     }
 
     //기업 등록

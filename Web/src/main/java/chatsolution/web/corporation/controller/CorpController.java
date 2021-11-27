@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -53,6 +54,8 @@ public class CorpController {
     @PostMapping("/add")
     public String addCorp(@ModelAttribute("corpReg") CorpRegDto corpRegDto, Model model) {
         log.info(corpRegDto.getCorp_name());
+
+        corpservice.imageUpload(corpRegDto.getCorp_logo());
         CorpInfoDto newCorp = corpservice.saveCorp(corpRegDto);
         model.addAttribute("corp", newCorp);
         return "redirect:/corporation/" + newCorp.getCorp_no();
