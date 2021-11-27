@@ -45,19 +45,19 @@
             </div>
 
             <div class="form-group" style="float:right;">
-                <div class="input-group">
-                    <input type="text" class="form-control form-control-sm" id="corp_search" placeholder="기업명으로 검색">
+                <form th:action="@{/corporation/}" method="post" class="input-group">
+                    <input type="text" name="corpSearch" class="form-control form-control-sm" id="corp_search" placeholder="기업명으로 검색">
                     <div class="input-group-append">
                         <button class="btn btn-warning btn-sm" type="submit" id="">검색</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">NO.</th>
+                    <th scope="col">No</th>
                     <th scope="col">기업명</th>
                     <th scope="col">연락처</th>
                     <th scope="col">대표자</th>
@@ -78,16 +78,21 @@
             </tbody>
         </table>
         <div class="corp_page">
-            <nav aria-label="Page navigation example">
+            <nav th:with="
+                pageNumber = ${pages.pageNumber},
+                startPage = ${pages.startPage},
+                endPage = (${pages.endPage})"
+                 aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li th:each="page: ${#numbers.sequence(startPage, endPage)}"
+                        th:classappend="${page == pageNumber} ? 'active'" class="page-item">
+                        <a class="page-link" th:text="${page} + 1" th:href="@{/corporation(page=${page})}"></a>
+                    </li>
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
                             <span aria-hidden="true">&raquo;</span>

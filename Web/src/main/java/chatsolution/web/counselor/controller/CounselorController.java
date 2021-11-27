@@ -1,11 +1,7 @@
 package chatsolution.web.counselor.controller;
 
 import chatsolution.web.corporation.dto.CorpListDto;
-import chatsolution.web.counselor.dto.CounEditDto;
-import chatsolution.web.counselor.dto.CounInfoDto;
-import chatsolution.web.counselor.dto.CounListDto;
-import chatsolution.web.counselor.dto.CounRegDto;
-import chatsolution.web.counselor.dto.EmbededCorpListDto;
+import chatsolution.web.counselor.dto.*;
 import chatsolution.web.counselor.service.CounselorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +19,14 @@ public class CounselorController {
 
     private final CounselorService counselorService;
 
-    // 상담원 리스트
+    // 상담원 리스트 페이징
     @GetMapping
-    public String counselors(Model model) {
-        List<CounListDto> couns = counselorService.counList();
+    public String counselorPaging(@RequestParam(value = "page", defaultValue = "0") int counPage, Model model) {
+        List<CounListDto> couns = counselorService.getCounListPage(counPage);
+        CounPages pages = counselorService.getCounPages(counPage);
         model.addAttribute("couns", couns);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "coun");
         return "counselor/coun_list";
     }
 
@@ -36,6 +35,7 @@ public class CounselorController {
     public String addCounselorForm(Model model) {
         List<EmbededCorpListDto> EmbededCorp = counselorService.corpList();
         model.addAttribute("corps", EmbededCorp);
+        model.addAttribute("nav", "coun");
         return "counselor/coun_new";
     }
 
@@ -63,6 +63,7 @@ public class CounselorController {
     public String counselor(@PathVariable long counNo, Model model) {
         CounInfoDto coun = counselorService.counInfo(counNo);
         model.addAttribute("coun", coun);
+        model.addAttribute("nav", "coun");
         return "counselor/coun_info";
     }
 
@@ -71,6 +72,7 @@ public class CounselorController {
     public String editForm(@PathVariable Long counNo, Model model) {
         CounInfoDto coun = counselorService.counInfo(counNo);
         model.addAttribute("coun", coun);
+        model.addAttribute("nav", "coun");
         return "counselor/coun_edit";
     }
 

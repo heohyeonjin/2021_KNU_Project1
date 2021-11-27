@@ -1,8 +1,8 @@
 package chatsolution.web.clientAPI.message.service;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
-import chatsolution.web.clientAPI.auth.repository.ClientRepository;
+import chatsolution.web.client.model.Client;
+import chatsolution.web.client.repository.ClientRepository;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;

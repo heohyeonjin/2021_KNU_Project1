@@ -1,7 +1,7 @@
 package chatsolution.web.fcm.controller;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.fcm.dto.TokenDto;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.transaction.Transactional;
 
 @Slf4j
 @RestController

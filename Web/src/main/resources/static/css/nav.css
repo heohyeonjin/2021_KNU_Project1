@@ -36,6 +36,11 @@ body {
     color:#EEB500 ;
 }
 
+.sidebar .nav-link.active{
+    color:#EEB500 ;
+    font-weight: bolder;
+}
+
 .logout{
     background-color:#EEB500 ;
 }

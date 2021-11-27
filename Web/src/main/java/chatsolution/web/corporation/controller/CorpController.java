@@ -1,10 +1,7 @@
 package chatsolution.web.corporation.controller;
 
 
-import chatsolution.web.corporation.dto.CorpEditDto;
-import chatsolution.web.corporation.dto.CorpInfoDto;
-import chatsolution.web.corporation.dto.CorpListDto;
-import chatsolution.web.corporation.dto.CorpRegDto;
+import chatsolution.web.corporation.dto.*;
 import chatsolution.web.corporation.service.CorpService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,18 +20,21 @@ public class CorpController {
 
     private final CorpService corpservice;
 
-    // 기업 리스트
+    // 기업 리스트 페이징
     @GetMapping
-    public String corporations(Model model) {
-        List<CorpListDto> corps = corpservice.corplist();
+    public String corporationPaging(@RequestParam(value = "page", defaultValue = "0") int corpPage, Model model) {
+        List<CorpListDto> corps = corpservice.getCorpListPage(corpPage);
+        CorpPages pages = corpservice.getCorpPages(corpPage);
         model.addAttribute("corps", corps);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "corp");
         return "corporation/corp_list";
-
     }
 
     // 기업 등록 페이지
     @GetMapping("/add")
-    public String addCorpForm() {
+    public String addCorpForm(Model model) {
+        model.addAttribute("nav", "corp");
         return "corporation/corp_new";
     }
 
@@ -52,9 +52,9 @@ public class CorpController {
     public String corporation(@PathVariable long corpId, Model model) {
         CorpInfoDto corp = corpservice.corpinfo(corpId);
         model.addAttribute("corp", corp);
+        model.addAttribute("nav", "corp");
         return "corporation/corp_info";
     }
-
 
     // 기업 아이디 중복확인
     @PostMapping("/idCheck")
@@ -70,6 +70,7 @@ public class CorpController {
     public String editForm(@PathVariable Long corpId, Model model){
         CorpInfoDto corp = corpservice.corpinfo(corpId);
         model.addAttribute("corp",corp);
+        model.addAttribute("nav", "corp");
         return "corporation/corp_edit";
     }
 
@@ -79,4 +80,5 @@ public class CorpController {
         corpservice.updateCorp(corpId,corpEditDto);
         return "redirect:/corporation/{corpId}";
     }
+
 }
