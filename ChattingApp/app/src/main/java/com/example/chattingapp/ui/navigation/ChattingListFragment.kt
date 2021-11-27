@@ -63,7 +63,7 @@ class ChattingListFragment : Fragment() {
         // 채팅방 클릭 시 이벤트
         chatRoomListAdapter.setItemClickListener(object: ChatRoomListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
-                var clickRoomEnterDTO = EnterDTO("${chatRoomList[position].roomNo}".toLong(), "${chatRoomList[position].corpName}")
+                var clickRoomEnterDTO = EnterDTO("${chatRoomList[position].roomNo}".toLong(), "${chatRoomList[position].corpName}", "${chatRoomList[position].corpNo}".toLong())
 
                 Log.d("Tag", "클릭 채팅방!!!!!! : " + clickRoomEnterDTO.roomNo + clickRoomEnterDTO.corpName)
 

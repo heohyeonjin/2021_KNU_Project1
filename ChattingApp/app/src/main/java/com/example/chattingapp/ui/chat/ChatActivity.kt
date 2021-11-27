@@ -50,7 +50,7 @@ class ChatActivity : AppCompatActivity() {
         }
 
         //초기화
-        enterDTO = EnterDTO(0L, "")
+        enterDTO = EnterDTO(0L, "", 0L)
 
         if (intent.hasExtra("EnterDTO")) {
             enterDTO = intent.getParcelableExtra("EnterDTO")!!
@@ -70,7 +70,6 @@ class ChatActivity : AppCompatActivity() {
         ChatActivityRecycleview.adapter = viewAdapter
         ChatActivityRecycleview.layoutManager= LinearLayoutManager(applicationContext)
         ChatActivityRecycleview.setHasFixedSize(true)
-
         initViewModel()
 
         // 닫기 버튼 눌렀을 때
@@ -87,15 +86,17 @@ class ChatActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
 
         // 채팅 전송
+        viewModel.corpNo = enterDTO.corpNo
         viewModel.getResponse.observe(this) {
-            if (it.equals("true")) { //채팅 전송 성공
-                ChatApiService.instance.getChatList(enterDTO.roomNo) {
+            var sendRoomNo = it
+
+            Log.d("채팅보냄", "roomNo: " + it + ", corpNo : " + enterDTO.corpNo)
+            //채팅 전송 성공
+            ChatApiService.instance.getChatList(sendRoomNo) {
 //                    viewAdapter.setMessages(it)
-                    dataChangeAndScrollToEnd(it)
-                }
+                dataChangeAndScrollToEnd(it)
             }
         }
-
     }
 
     fun dataChangeAndScrollToEnd(messages: List<Chat>) {

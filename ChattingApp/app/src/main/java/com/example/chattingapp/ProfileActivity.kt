@@ -58,20 +58,12 @@ class ProfileActivity : AppCompatActivity() {
         enterButtonEvent.setOnClickListener {
             Log.d("버튼 클릭", "enter room 버튼 눌림!!!!!!!!!!!, corpNo : " + corpNo)
 
+
             ChatApiService.instance.getRoomNo(corpNo) {
                 Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo)
-//                if(it != null) {
-//                    val intent = Intent(this, ChatActivity::class.java)
-////                    intent.putExtra("EnterDTO", it)
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                    startActivity(intent)
-//                }
-//                else {
-//                    val intent = Intent(this, ChatActivity::class.java)
-//                    startActivity(intent)
-//                }
-
                 val intent = Intent(this, ChatActivity::class.java)
+                intent.putExtra("EnterDTO", it)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
         }
