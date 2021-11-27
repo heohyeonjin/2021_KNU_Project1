@@ -7,6 +7,7 @@ import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.corporation.dto.CorpPages;
 import chatsolution.web.counselor.dto.CounListDto;
 import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
@@ -62,6 +63,25 @@ private final RoomRepository roomRepository;
     // 페이지 개수 찾기
     public ClientPages getClientPages(int clientPage) {
         int total = clientRepository.findAll().size();
+        int size = 0;
+
+        if (total % 15 == 0) size = total / 15;
+        else size = total / 15 + 1;
+        return new ClientPages(size, clientPage);
+    }
+
+    // 고객 검색
+    public List<ClientListDto> search(String keyword, int page) {
+        Page<Client> find = clientRepository.findAllByClientNameContaining(keyword, PageRequest.of(page, 15, Sort.by("clientNo").ascending()));
+        List<Client> clients = find.getContent();
+        return clients.stream()
+                .map(o -> new ClientListDto(o))
+                .collect(Collectors.toList());
+    }
+
+    // 고객 검색 페이지 개수
+    public ClientPages getSearchPages(int clientPage, String keyword) {
+        int total = clientRepository.findByClientNameContaining(keyword).size();
         int size = 0;
 
         if (total % 15 == 0) size = total / 15;

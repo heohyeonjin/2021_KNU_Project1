@@ -1,5 +1,6 @@
 package chatsolution.web.counselor.repository;
 
+import chatsolution.web.client.model.Client;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import org.jetbrains.annotations.NotNull;
@@ -15,7 +16,7 @@ public interface CounselorRepository extends JpaRepository<Counselor, Long> {
     boolean existsByCounId(String corp_id);
     @NotNull
     Page<Counselor> findAll(Pageable pageable);
-
     List<Counselor> findAllByCorporationCorpNo(Long corpNo);
-
+    Page<Counselor> findAllByCounNameContaining(String counName, Pageable pageable);
+    List<Counselor> findByCounNameContaining(String counName);
 }

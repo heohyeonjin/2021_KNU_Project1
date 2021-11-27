@@ -31,6 +31,17 @@ public class CorpController {
         return "corporation/corp_list";
     }
 
+    // 기업 검색
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, @RequestParam(value = "page", defaultValue = "0") int corpPage, Model model) {
+        List<CorpListDto> corps = corpservice.search(keyword, corpPage);
+        CorpPages pages = corpservice.getSearchPages(corpPage, keyword);
+        model.addAttribute("corps", corps);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "corp");
+        return "corporation/corp_list";
+    }
+
     // 기업 등록 페이지
     @GetMapping("/add")
     public String addCorpForm(Model model) {
@@ -80,5 +91,4 @@ public class CorpController {
         corpservice.updateCorp(corpId,corpEditDto);
         return "redirect:/corporation/{corpId}";
     }
-
 }

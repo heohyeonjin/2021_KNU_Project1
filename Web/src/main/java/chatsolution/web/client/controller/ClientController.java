@@ -5,6 +5,8 @@ import chatsolution.web.client.dto.*;
 import chatsolution.web.client.model.Client;
 import chatsolution.web.client.service.ClientService;
 import chatsolution.web.counselor.service.CounselorService;
+import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.corporation.dto.CorpPages;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,17 @@ public class ClientController {
             corpNo=0L;
         List<ClientListDto> clients = clientService.getClientListPage(clientPage,corpNo);
         ClientPages pages = clientService.getClientPages(clientPage);
+        model.addAttribute("clients", clients);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "client");
+        return "client/client_list";
+    }
+
+    // 고객 검색
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, @RequestParam(value = "page", defaultValue = "0") int clientPage, Model model) {
+        List<ClientListDto> clients = clientService.search(keyword, clientPage);
+        ClientPages pages = clientService.getSearchPages(clientPage, keyword);
         model.addAttribute("clients", clients);
         model.addAttribute("pages", pages);
         model.addAttribute("nav", "client");

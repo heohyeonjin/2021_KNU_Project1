@@ -1,5 +1,7 @@
 package chatsolution.web.counselor.controller;
 
+import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.corporation.dto.CorpPages;
 import chatsolution.web.counselor.dto.*;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
@@ -39,12 +41,23 @@ public class CounselorController {
         return "counselor/coun_list";
     }
 
+    // 상담원 검색
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, @RequestParam(value = "page", defaultValue = "0") int counPage, Model model) {
+        List<CounListDto> couns = counselorService.search(keyword, counPage);
+        CounPages pages = counselorService.getSearchPages(counPage, keyword);
+        model.addAttribute("couns", couns);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "coun");
+        return "counselor/coun_list";
+    }
+
     // 상담원 등록 페이지
     @GetMapping("/add")
     public String addCounselorForm(Model model,HttpServletRequest request) {
-        List<EmbededCorpListDto> EmbededCorp = counselorService.corpList();
+        List<EmbeddedCorpListDto> EmbeddedCorp = counselorService.corpList();
         Long auth_classify = counselorService.getAuthClassify(request.getSession()); // 권한 가져오기
-        model.addAttribute("corps", EmbededCorp);
+        model.addAttribute("corps", EmbeddedCorp);
         model.addAttribute("nav", "coun");
         model.addAttribute("auth",auth_classify);
         return "counselor/coun_new";
