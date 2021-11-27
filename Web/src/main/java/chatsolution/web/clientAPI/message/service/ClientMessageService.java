@@ -77,19 +77,8 @@ public class ClientMessageService {
 
     }
 
-    // 기업 선택할 때 방 존재 유무 확인
-    public Long corpEnter(Long corpNo){
-        List<Room> rooms = roomRepository.findAll();
-        for(int i = 0 ;i< rooms.size();i++){
-            if(corpNo==rooms.get(i).getCounselor().getCorporation().getCorpNo()){
-                return rooms.get(i).getRoomNo();
-            }
-        }
-        return 0L;
 
-    }
-
-    // 메시지 보낼 때 방 존재 유무 체크
+    // 방 존재 유무 체크
     public Long checkRoom(Client client, Long corpNo){
         List<Room> room = client.getRooms();
         for(int i =0 ; i<room.size();i++){
