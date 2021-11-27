@@ -2,18 +2,25 @@ package com.example.chattingapp.ui.navigation
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chattingapp.ProfileActivity
 import com.example.chattingapp.R
-import com.example.chattingapp.adapter.ChatroomListAdapter
+import com.example.chattingapp.adapter.ChatRoomAdapter
+import com.example.chattingapp.adapter.ChatRoomListAdapter
 import com.example.chattingapp.adapter.CompanyAdapter
-import com.example.chattingapp.data.model.ChatRoom
-import com.example.chattingapp.data.model.Corporation
+import com.example.chattingapp.data.model.EnterDTO
+import com.example.chattingapp.data.model.RoomDTO
+import com.example.chattingapp.data.service.ChatApiService
+import com.example.chattingapp.data.service.CompanyApiService
+import com.example.chattingapp.databinding.FragmentChatListBinding
+import com.example.chattingapp.ui.ChatActivity
 
 class ChattingListFragment : Fragment() {
 
@@ -23,27 +30,49 @@ class ChattingListFragment : Fragment() {
         }
     }
 
+    var chatRoomList = ArrayList<RoomDTO>()
+    private lateinit var chatRoomListAdapter : ChatRoomListAdapter
+    private lateinit var chatRoomListRecyclerView: RecyclerView
+    private lateinit var binding: FragmentChatListBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view:View = inflater.inflate(R.layout.fragment_chat_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat_list, container, false)
 
-        return view
+        return binding.root
     }
-
-    var companyList = arrayListOf<Corporation>()
-    private lateinit var listAdapter : ChatroomListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var list: ArrayList<ChatRoom> = requireActivity().intent!!.extras!!.get("chatRoomList") as ArrayList<ChatRoom>
-        val companyView: RecyclerView = view.findViewById(R.id.fragment_chat_list_recyclerview)
-        listAdapter = ChatroomListAdapter(list)
-        companyView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        companyView.adapter = listAdapter
 
+        chatRoomListAdapter = ChatRoomListAdapter(chatRoomList)
+        chatRoomListRecyclerView = view.findViewById(R.id.fragment_chat_list_recyclerview)
+        chatRoomListRecyclerView.adapter = chatRoomListAdapter
+        chatRoomListRecyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        chatRoomListRecyclerView.setHasFixedSize(true)
 
+        ChatApiService.instance.getChatRoomList(){
+            for(room in it) {
+                chatRoomListAdapter.setChatList(room)
+            }
+        }
+
+        // 채팅방 클릭 시 이벤트
+        chatRoomListAdapter.setItemClickListener(object: ChatRoomListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                var clickRoomEnterDTO = EnterDTO("${chatRoomList[position].roomNo}".toLong(), "${chatRoomList[position].corpName}", "${chatRoomList[position].corpNo}".toLong())
+
+                Log.d("Tag", "클릭 채팅방!!!!!! : " + clickRoomEnterDTO.roomNo + clickRoomEnterDTO.corpName)
+
+                // 클릭한 채팅방의 roomNoActivity로 넘겨줌
+                val intent = Intent(activity, ChatActivity::class.java)
+                intent.putExtra("EnterDTO", clickRoomEnterDTO)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+        })
     }
 }

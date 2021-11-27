@@ -1,61 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_blue">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars"
-        android:labelFor="@+id/imageButton"
-        android:contentDescription="profile_image"
-        android:background="@color/main_blue"/>
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.chattingapp.ui.navigation.NavigationViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/company_introduce"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:text="company_introduce"
-        android:textColor="@color/purple_light"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton"
-        app:layout_constraintVertical_bias="0.309"
-       />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.activity.MypageActivity"
+        android:background="@color/navy">
 
-    <Button
-        android:id="@+id/button_profile_tochatroom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="To chatroom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_introduce"
-        app:layout_constraintVertical_bias="0.569" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/btn_dialog"
-        android:labelFor="@+id/imageButton2"
-        android:contentDescription="close_window"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/backToMainBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_exit" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/imageButton"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/ic_person" />
+
+            <TextView
+                android:id="@+id/profile_company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toRightOf="@+id/imageButton"
+                android:text="알파시티"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profile_company_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileDescText"
+                android:layout_toRightOf="@+id/profileDescIcon"
+                android:layout_marginBottom="70dp"
+                android:text="기업 상세정보 기입 기업 상세정보 기입 기업 상세정보 기입 기업 상세정보 기입 기업 상세정보 기입 기업 상세정보 기입"
+                android:textColor="@color/purple_light"
+                android:textSize="13dp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileNameIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_person" />
+
+                <TextView
+                    android:id="@+id/profileNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profileNameIcon"
+                    android:text="대표자"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/profile_company_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileNameText"
+                    android:layout_toRightOf="@+id/profileNameIcon"
+                    android:text="@string/profileName"
+                    android:textColor="@color/purple_light"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileEmailIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/profileEmailText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profileEmailIcon"
+                    android:text="@string/profileEmailText"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/profile_company_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileEmailText"
+                    android:layout_toRightOf="@+id/profileEmailIcon"
+                    android:text="@string/profileEmail"
+                    android:textColor="@color/purple_light"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profilePhoneIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/profilePhoneText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profilePhoneIcon"
+                    android:text="@string/profilePhoneText"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/profile_company_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profilePhoneText"
+                    android:layout_toRightOf="@+id/profilePhoneIcon"
+                    android:text="010-1234-5678"
+                    android:textColor="@color/purple_light"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+            <Button
+                android:id="@+id/button_enter_room"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/solid_button"
+                android:text="상담하기"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

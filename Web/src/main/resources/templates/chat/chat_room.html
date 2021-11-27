@@ -13,15 +13,15 @@
 </head>
 <script th:inline="javascript">
     $(document).ready(function(){
-        $('.inner').scrollTop($(document).height());
         /*<![CDATA[*/
         checkLastMsg(/*[[ ${info.roomNo} ]]*/);
         /*]]*/
     });
 
     function process(e) {
-        var code = (e.keyCode ? e.keyCode : e.which);
-        if (code == 13) {
+        let code = (e.keyCode ? e.keyCode : e.which);
+        if (code === 13) {
+            e.preventDefault();
             /*<![CDATA[*/
             msgSend(/*[[ ${info.roomNo} ]]*/);
             /*]]*/
@@ -51,29 +51,22 @@
 <div id="chat_wrap">
     <div class="inner" id="messages">
         <div th:each="msg: ${messages}">
-            <div th:if="${msg.sender} == 1" class="item">
-                <div class="box">
-                    <p class="msg" th:text="${msg.content}">안녕하세요</p>
-                    <span class="time" th:text="${msg.time}">오전 10:05</span>
-                </div>
-            </div>
-            <div class="item mymsg" >
-                <div th:if="${msg.sender} == 0" class="box">
-                    <p class="msg" th:text="${msg.content}">안녕하세요</p>
-                    <span class="time" th:text="${msg.time}">오전 10:05</span>
-                </div>
-            </div>
+            <script th:inline="javascript">
+                /*<![CDATA[*/
+                addMsg(/*[[ ${msg} ]]*/);
+                /*]]*/
+            </script>
         </div>
     </div>
 </div>
-    <div id="chat_form" class="input-group d-flex" >
-        <textarea rows="3" class="form-control chat_area" id="input_message" placeholder="채팅을 입력하세요." th:onkeypress="|process(event, this)|"></textarea>
+    <div id="chat_form" class="input-group d-flex">
+        <textarea rows="3" class="form-control chat_area" id="input_message" name="input_message" placeholder="채팅을 입력하세요." th:onkeypress="|process(event, this)|"></textarea>
         <div class="file-upload" style="float:right">
             <label for="file-input">
                 <img th:src="@{/images/drive.svg}" class="my-2 mx-1">
             </label>
             <input type="file" id="file-input" style="display:none">
-            <button class="send_btn" id="input_send" th:attr="onclick=|msgSend('${info.roomNo}')|">전송</button>
+            <button class="send_btn" id="input_send" name="input_send" th:attr="onclick=|msgSend('${info.roomNo}')|">전송</button>
         </div>
     </div>
 </div>

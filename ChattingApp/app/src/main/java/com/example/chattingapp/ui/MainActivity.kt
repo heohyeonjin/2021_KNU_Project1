@@ -23,15 +23,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var chatListFragment: ChattingListFragment
     private lateinit var companyListFragment: CompanyListFragment
     private lateinit var mypageFragment: MypageFragment
-    var companyList: ArrayList<Corporation> = arrayListOf(
-        Corporation(1,"samsung","company","company"),
-        Corporation(2,"LG","company","company")
-    )
-
-    var chatroomList: ArrayList<ChatRoom> = arrayListOf(
-        ChatRoom(1,"samsung","hi","2021.11.11")
-    )
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,42 +55,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.selectedItemId = R.id.action_company_list
 
-        val transaction_company = supportFragmentManager.beginTransaction()
-        transaction_company.replace(
-            R.id.main_content,
-            CompanyListFragment()
-        )
-        transaction_company.commit()
-        intent.putExtra("companyList",companyList)
-
-        val transaction_chatroom = supportFragmentManager.beginTransaction()
-        transaction_chatroom.replace(
-            R.id.main_content,
-            CompanyListFragment()
-        )
-        transaction_chatroom.commit()
-        intent.putExtra("chatRoomList",chatroomList)
-
-        getFcm_Token()
-    }
-
-
-
-
-    fun getFcm_Token(){
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Log.w(TAG, "Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
-
-            // Get new FCM registration token
-            val token = task.result
-
-            val msg = getString(R.string.msg_token_fmt, token)
-            Log.d(TAG, msg)
-            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
-        })
     }
 
 }

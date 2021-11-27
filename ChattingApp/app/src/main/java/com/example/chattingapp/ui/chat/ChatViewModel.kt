@@ -22,14 +22,15 @@ class ChatViewModel() : ViewModel() {
     var sendMsgType = 1
 
     //채팅 보내기
-    private val _getResponse : MutableLiveData<String> = MutableLiveData()
-    val getResponse : LiveData<String> get() = _getResponse
+    private val _getResponse : MutableLiveData<Long> = MutableLiveData()
+    val getResponse : LiveData<Long> get() = _getResponse
+    var corpNo : Long = 0L
 
     fun sendChatting() = viewModelScope.launch {
         if(NetworkStatus.status){
-            Log.d("sendChat","채팅 감")
-            _getResponse.value = ChatApiService.instance.sendChat(Message(sendContent.get()!!, 1))
-            Log.d("receiveError", "리턴 값 " + _getResponse.value)
+//            Log.d("sendChat","채팅 감")
+            _getResponse.value = ChatApiService.instance.sendChat(corpNo, Message(sendContent.get()!!, 1))
+//            Log.d("receiveError", "리턴 값 " + _getResponse.value)
         }
     }
 
@@ -38,9 +39,9 @@ class ChatViewModel() : ViewModel() {
         if(sendContent.get().isNullOrEmpty()){
             return
         }
-
         sendChatting()
-    }
 
+        sendContent.set("")
+    }
 
 }

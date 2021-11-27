@@ -32,7 +32,6 @@ class AuthViewModel() : ViewModel() {
     var signupPhone = ObservableField<String>()
     var signupGender = ObservableField<Int>()
     var signUpResponseCode = ""
-    var TAG = ""
 
     // signIn field
     var signInEmail = ObservableField<String>()
@@ -90,9 +89,7 @@ class AuthViewModel() : ViewModel() {
 
     // 로그인
     private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
-    private val _tokenResponse : MutableLiveData<String> = MutableLiveData()
     val signInResponse : LiveData<SignUpForm> = _signInResponse
-    val tokenResponse : LiveData<String> = _tokenResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading

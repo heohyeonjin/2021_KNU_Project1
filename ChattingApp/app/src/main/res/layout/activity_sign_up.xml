@@ -12,9 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_blue"
+        android:background="@color/navy"
         android:gravity="center_vertical"
-        android:orientation="vertical"
         tools:context=".ui.auth.SignUpActivity">
 
         <ScrollView
@@ -32,7 +31,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="35dp"
                     android:text="@string/sign_up"
                     android:textColor="@color/purple_light"
                     android:textSize="40dp" />
@@ -192,15 +192,14 @@
                 <Button
                     android:id="@+id/sign_up_btn"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_height="50dp"
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/solid_button"
                     android:text="Sign up"
                     android:onClick="@{() -> viewmodel.checkSignUpFeild()}"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="25dp">
+                    android:textColor="@color/navy"
+                    android:textSize="17dp">
 
                 </Button>
             </LinearLayout>

@@ -32,6 +32,14 @@ function addMessage() {
                     let content = response[i]['content'];
                     let time = response[i]['time'];
                     let sender = response[i]['sender'];
+                    let date = response[i]['date'];
+
+                    if (date !== lastDate) {
+                        let dateHtml = `<div class="hr-sect">${date}</div>`;
+                        $('#messages').append(dateHtml);
+                        lastDate = date;
+                    }
+
                     if (sender === 0) {
                         let myChat = `<div class="item mymsg">
                                         <div class="box">
