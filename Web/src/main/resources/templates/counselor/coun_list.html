@@ -37,7 +37,7 @@
     </div>
 
     <div class="container-fluid">
-        <div class="search">
+        <form th:action="@{/counselor/search}" method="get" class="search">
 
             <div class="form-check form-check-inline" style="margin-top:5px;">
                 <input class="form-check-input" type="checkbox" id="corp_available" value="option1">
@@ -50,18 +50,13 @@
 
             <div class="form-group" style="float:right;">
                 <div class="input-group">
-                    <button class="btn btn-outline-secondary dropdown-toggle btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">기업명</button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">가나소프트</a></li>
-                        <li><a class="dropdown-item" href="#">알파시티</a></li>
-                    </ul>
-                    <input type="text" class="form-control form-control-sm" id="corp_search" placeholder="상담원 이름으로 검색">
+                    <input type="text" name="keyword" class="form-control form-control-sm" id="corp_search" placeholder="상담원 이름으로 검색">
                     <div class="input-group-append">
                         <button class="btn btn-warning btn-sm" type="submit" id="">검색</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
 
         <table class="table table-striped table-hover">
             <thead class="thead-dark">
@@ -76,15 +71,17 @@
             </tr>
             </thead>
             <tbody >
-                <tr th:each="coun: ${couns}">
-                    <td th:text="${coun.counNo}" scope="row">13</td>
+            <div th:each="coun: ${couns}">
+                <tr th:onclick="|location.href='@{/counselor/{counId}(counId=${coun.counNo})}'|" style="cursor:pointer;">
+                    <td th:text="${coun.counNo}">13</td>
                     <td th:text="${coun.counCorp}">가나 소프트</td>
-                    <td><a th:text="${coun.counName}" th:href="@{/counselor/{counId}(counId=${coun.counNo})}">달봉이</a></td>
+                    <td th:text="${coun.counName}">달봉이</td>
                     <td th:text="${coun.counPhone}">010-0000-0000</td>
                     <td th:text="${coun.counGender}">남</td>
                     <td th:text="${coun.counCreatedAt}">2021-08-01</td>
                     <td th:text="${coun.counStatus}">사용 가능</td>
                 </tr>
+            </div>
             </tbody>
         </table>
 

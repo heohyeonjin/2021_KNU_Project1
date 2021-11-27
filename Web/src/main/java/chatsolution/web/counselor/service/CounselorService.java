@@ -1,9 +1,10 @@
 package chatsolution.web.counselor.service;
 
-import chatsolution.web.corporation.dto.CorpPages;
+import chatsolution.web.client.dto.ClientListDto;
+import chatsolution.web.client.dto.ClientPages;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
-import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.counselor.dto.*;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.counselor.repository.CounselorRepository;
@@ -53,11 +54,30 @@ public class CounselorService {
         return new CounPages(size, counPage);
     }
 
+    // 상담원 검색
+    public List<CounListDto> search(String keyword, int page) {
+        Page<Counselor> find = counselorRepository.findAllByCounNameContaining(keyword, PageRequest.of(page, 15, Sort.by("counNo").ascending()));
+        List<Counselor> counselors = find.getContent();
+        return counselors.stream()
+                .map(o -> new CounListDto(o))
+                .collect(Collectors.toList());
+    }
+
+    // 상담원 검색 페이지 개수
+    public CounPages getSearchPages(int counPage, String keyword) {
+        int total = counselorRepository.findByCounNameContaining(keyword).size();
+        int size = 0;
+
+        if (total % 15 == 0) size = total / 15;
+        else size = total / 15 + 1;
+        return new CounPages(size, counPage);
+    }
+
     // 소속 기업 리스트
-    public List<EmbededCorpListDto> corpList(){
+    public List<EmbeddedCorpListDto> corpList(){
         List<Corporation> corps = corpRepository.findAll();
         return corps.stream()
-                .map(o -> new EmbededCorpListDto(o))
+                .map(o -> new EmbeddedCorpListDto(o))
                 .collect(Collectors.toList());
     }
 
