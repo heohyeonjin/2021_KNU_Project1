@@ -20,10 +20,10 @@ public class ClientInfoDto {
         this.client_no=client.getClientNo();
         int status = client.getClientStatus();
         if(status==1){
-            this.client_status="사용 가능";
+            this.client_status="사용 중";
         }
         else{
-            this.client_status="사용 불가";
+            this.client_status="사용 정지";
         }
         this.client_name = client.getClientName();
         int gender = client.getClientGender();
