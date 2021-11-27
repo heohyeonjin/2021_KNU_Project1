@@ -5,6 +5,8 @@ import chatsolution.web.client.model.Client;
 import chatsolution.web.client.repository.ClientRepository;
 import chatsolution.web.corporation.dto.CorpListDto;
 import chatsolution.web.corporation.dto.CorpPages;
+import chatsolution.web.counselor.dto.CounListDto;
+import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
@@ -16,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -36,7 +39,19 @@ private final RoomRepository roomRepository;
     }
 
     // 고객 리스트 페이징
-    public List<ClientListDto> getClientListPage(int page) {
+    public List<ClientListDto> getClientListPage(int page, Long corpNo) {
+        if(corpNo!=0L){
+            log.info("corpNo가 0L이 아닌 경우");
+            List<Room> rooms = roomRepository.findAllByCounselor_Corporation_CorpNo(corpNo);
+            List<Client> clients = new ArrayList<>();
+            log.info("룸사이즈 : "+ rooms.size());
+            for(int i = 0 ; i< rooms.size();i++){
+                clients.add(rooms.get(i).getClient());
+            }
+            return clients.stream()
+                    .map(o -> new ClientListDto(o))
+                    .collect(Collectors.toList());
+        }
         Page<Client> clientPage = clientRepository.findAll(PageRequest.of(page, 15, Sort.by("clientNo").ascending()));
         List<Client> clients = clientPage.getContent();
         return clients.stream()
