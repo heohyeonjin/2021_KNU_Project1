@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.bottomNavigation.apply {
             setOnItemSelectedListener {
-                Log.d("프래그먼트 id : ", "흠냐 = " + it.itemId)
+//                Log.d("프래그먼트 id : ", "흠냐 = " + it.itemId)
                 when(it.itemId){
                     R.id.action_company_list -> {
                         companyListFragment = CompanyListFragment.newInstance()

@@ -54,6 +54,7 @@ class ChatRoomListAdapter (val chatroomList: ArrayList<RoomDTO>) :
             content?.text = chatroom.content
             time?.text = chatroom.time
             if (chatroom.clientRead == 0) {
+                clientRead.visibility = View.VISIBLE
                 clientRead?.text = "new"
             } else {
                 clientRead.visibility = View.GONE

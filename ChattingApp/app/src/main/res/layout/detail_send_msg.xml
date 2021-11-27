@@ -28,7 +28,7 @@
             android:id="@+id/card_gchat_send_massage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/purple"
+            app:cardBackgroundColor="@color/cream"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
             app:cardPreventCornerOverlap="false"
@@ -54,7 +54,7 @@
                     android:paddingTop="8dp"
                     android:paddingRight="12dp"
                     android:text="안녕하세요! 안녕하세요! 안녕하세요! 안녕하세요! 안녕하세요!"
-                    android:textColor="@color/purple_light"
+                    android:textColor="@color/black"
                     android:textSize="11sp" />
             </LinearLayout>
 

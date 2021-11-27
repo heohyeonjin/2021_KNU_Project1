@@ -39,7 +39,9 @@ class ChattingListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+
         ChatApiService.instance.getChatRoomList(){
+            chatRoomListAdapter.chatroomList.clear()
             for(room in it) {
                 chatRoomListAdapter.setChatList(room)
             }
@@ -53,7 +55,7 @@ class ChattingListFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_chat_list, container, false)
 
-        onResume()
+//        onResume()
 
         return binding.root
     }
@@ -68,6 +70,7 @@ class ChattingListFragment : Fragment() {
         chatRoomListRecyclerView.setHasFixedSize(true)
 
         ChatApiService.instance.getChatRoomList(){
+            chatRoomListAdapter.chatroomList.clear()
             for(room in it) {
                 chatRoomListAdapter.setChatList(room)
             }
