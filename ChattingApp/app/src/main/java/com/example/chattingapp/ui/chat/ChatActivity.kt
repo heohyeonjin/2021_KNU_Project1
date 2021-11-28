@@ -1,5 +1,6 @@
 package com.example.chattingapp.ui
 
+import android.app.NotificationManager
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chattingapp.R
 import com.example.chattingapp.adapter.ChatRoomAdapter
 import com.example.chattingapp.data.model.Chat
+import com.example.chattingapp.data.model.EnterDTO
 import com.example.chattingapp.data.model.User
 import com.example.chattingapp.databinding.ActivityChatBinding
 import com.example.chattingapp.ui.auth.ViewModelFactory
@@ -32,15 +34,20 @@ class ChatActivity : AppCompatActivity() {
     lateinit var chatViewModelFactory: ChatViewModelFactory
     val TAG = "msg"
 
+    lateinit var data : EnterDTO
+
     override fun onNewIntent(intent: Intent?) {
             super.onNewIntent(intent)
-        val msg_data = intent?.extras!!.getString("msg_data")
-        Log.d(TAG, "msgdata : $msg_data")
+        val newdata : EnterDTO = intent!!.getParcelableExtra("EnterDTO")!!
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancel(newdata.roomNo.toInt())
+        Log.d(TAG, "msgdata : $newdata")
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
         var user = User(3, "whghtjd320@naver.com", "1111", "조호성", 1, "000", 320)
         viewAdapter = ChatRoomAdapter(user)
@@ -49,7 +56,10 @@ class ChatActivity : AppCompatActivity() {
             if (isConnected) NetworkStatus.status = true
             else NetworkStatus.status = false
         }
-        val data =intent.getStringExtra("msg_data")
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        data = intent.getParcelableExtra("EnterDTO")!!
+
+        notificationManager.cancel(data.roomNo.toInt())
         Log.d(TAG, "whythereisnomsgdata$data")
         ChatActivityRecycleview = findViewById(R.id.chat_content)
 
