@@ -1,10 +1,12 @@
 package chatsolution.web.clientAPI.auth.controller;
 
+import chatsolution.web.clientAPI.auth.dto.ClientMyPageDto;
 import chatsolution.web.clientAPI.auth.dto.IdDoubleCheckDto;
 import chatsolution.web.clientAPI.auth.dto.SignInRequestDto;
 import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
 import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.auth.service.ClientAuthService;
+import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,7 @@ import java.util.Objects;
 public class ClientAuthController {
 
     private final ClientAuthService clientAuthService;
+    private final ClientMessageService clientMessageService;
 
     // 아이디 중복체크
     @PostMapping("/check")
@@ -41,16 +44,22 @@ public class ClientAuthController {
 
     //로그인
     @PostMapping("/login")
-    public SignUpRequestDto Login(@RequestBody SignInRequestDto requestDto, HttpServletRequest servletRequest){
+    public String Login(@RequestBody SignInRequestDto requestDto, HttpServletRequest servletRequest){
         Client client = clientAuthService.loginCheck(requestDto);
         if(client==null) {
-            return null;
+            return "false";
         }
         else{
-            SignUpRequestDto signUpRequestDto = new SignUpRequestDto(client); //값 넘겨주기
             servletRequest.getSession().setAttribute("clientNo",client.getClientNo());
             log.info("로그인 성공");
-            return signUpRequestDto;
+            return "true";
         }
+    }
+
+    // 마이페이지
+    @GetMapping("/mypage")
+    public ClientMyPageDto Mypage(HttpServletRequest request){
+        Client client = clientMessageService.getClient(request.getSession());
+        return new ClientMyPageDto(client);
     }
 }
