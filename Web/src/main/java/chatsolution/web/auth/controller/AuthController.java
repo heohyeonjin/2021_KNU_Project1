@@ -9,14 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
-@RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -25,7 +23,7 @@ public class AuthController {
     // 로그인 화면
     @GetMapping
     public String loginView() {
-        return "auth/auth";
+        return "index";
     }
 
     // 로그인 결과
@@ -52,7 +50,7 @@ public class AuthController {
         }
         else {
             // 실패시 alert 띄우기
-            return "auth/auth";
+            return "index";
         }
     }
 
@@ -60,6 +58,6 @@ public class AuthController {
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();
-        return "redirect:/auth";
+        return "redirect:/";
     }
 }
