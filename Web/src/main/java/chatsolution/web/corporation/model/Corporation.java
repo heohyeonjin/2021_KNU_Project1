@@ -60,7 +60,7 @@ public class Corporation extends TimeStamped {
         this.corpAdmin = corpRegDto.getCorp_admin();
         this.corpPhone = corpRegDto.getCorp_phone();
         this.corpEmail = corpRegDto.getCorp_email();
-        this.corpLogo = corpRegDto.getCorp_logo();
+        this.corpLogo = corpRegDto.getCorp_logo().getOriginalFilename();
         this.corpDesc = corpRegDto.getCorp_descrip();
         this.corpStatus = 1;
     }
