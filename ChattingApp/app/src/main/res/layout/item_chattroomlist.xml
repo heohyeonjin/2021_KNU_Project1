@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:text="CorpName"
-            android:textSize="18dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/black"/>
 

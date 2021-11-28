@@ -13,9 +13,9 @@ class FindPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-//        binding.buttonCertify.setOnClickListener {
-//            val intent = Intent(this, FindPasswordVerifyActivity::class.java)
-//            startActivity(intent)
-//        }
+        binding.buttonActivitySendResetEmail.setOnClickListener {
+            val intent = Intent(this, FindPasswordVerifyActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

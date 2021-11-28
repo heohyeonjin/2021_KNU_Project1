@@ -57,7 +57,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
             ChatApiService.instance.getRoomNo(corpNo) {
-                Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo)
+                Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo + ", corpNo : " + it.corpNo)
                 val intent = Intent(this, ChatActivity::class.java)
                 intent.putExtra("EnterDTO", it)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
