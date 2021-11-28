@@ -88,8 +88,8 @@ class AuthViewModel() : ViewModel() {
     }
 
     // 로그인
-    private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
-    val signInResponse : LiveData<SignUpForm> = _signInResponse
+    private val _signInResponse : MutableLiveData<String> = MutableLiveData()
+    val signInResponse : LiveData<String> = _signInResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading

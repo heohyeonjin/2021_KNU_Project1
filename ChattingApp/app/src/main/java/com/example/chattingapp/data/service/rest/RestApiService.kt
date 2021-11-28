@@ -10,7 +10,7 @@ import retrofit2.Call
 interface RestApiService {
     // User
     @POST("/api/signup") suspend fun signUp(@Body signUpForm: SignUpForm) : String
-    @POST("/api/login") suspend fun login(@Body signInForm: SignInForm) : SignUpForm
+    @POST("/api/login") suspend fun login(@Body signInForm: SignInForm) : String
     @POST("/api/check") suspend fun requestEmailCheck(@Body signUpEmail : EmailDTO) : String
 
     // Chatting
@@ -25,6 +25,9 @@ interface RestApiService {
     // Company
     @GET("/api/corporations") fun getCompanyList() : Call<List<Company>>
     @GET("/api/corporation/{corpNo}") fun getCompanyProfile(@Path("corpNo") corpNo : Long) : Call<CompanyProfile>
+
+    // MyPage
+    @GET("/api/mypage") fun getMyPage() : Call<MyPageDTO>
 
 
     companion object {

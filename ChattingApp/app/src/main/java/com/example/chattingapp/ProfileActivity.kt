@@ -4,10 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -38,7 +35,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
         var enterButtonEvent = findViewById<Button>(R.id.button_enter_room)
-        var endButton = findViewById<ImageButton>(R.id.imageButton2)
+        var endButton = findViewById<ImageView>(R.id.backToMainBtn)
 
         val connection = NetworkConnection(applicationContext)
         connection.observe(this){ isConnected ->
@@ -60,7 +57,7 @@ class ProfileActivity : AppCompatActivity() {
 
 
             ChatApiService.instance.getRoomNo(corpNo) {
-                Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo)
+                Log.d("getRoomNo", "corpName : " + it.corpName + ", roomNo : " + it.roomNo + ", corpNo : " + it.corpNo)
                 val intent = Intent(this, ChatActivity::class.java)
                 intent.putExtra("EnterDTO", it)
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

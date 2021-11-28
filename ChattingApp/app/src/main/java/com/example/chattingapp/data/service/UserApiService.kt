@@ -1,10 +1,9 @@
 package com.example.chattingapp.data.service
 
-import com.example.chattingapp.data.model.ApiResult
-import com.example.chattingapp.data.model.EmailDTO
-import com.example.chattingapp.data.model.SignInForm
-import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.model.*
 import com.example.chattingapp.data.service.rest.RestApiService
+import com.example.chattingapp.data.service.rest.RestApiServiceCallback
+import java.util.function.Consumer
 
 class UserApiService(private val restApiService: RestApiService) {
 
@@ -16,8 +15,12 @@ class UserApiService(private val restApiService: RestApiService) {
         return restApiService.signUp(signUpForm)
     }
 
-    suspend fun login(signInForm: SignInForm) : SignUpForm {
+    suspend fun login(signInForm: SignInForm) : String {
         return restApiService.login(signInForm)
+    }
+
+    fun getMyPage(callback : Consumer<MyPageDTO>) {
+        restApiService.getMyPage().enqueue(RestApiServiceCallback(callback))
     }
 
     companion object{

@@ -30,7 +30,7 @@ public class AuthController {
 
     // 로그인 결과
     @PostMapping
-    public String loginRequest(LoginRequestDto requestDto, HttpServletRequest servletRequest){
+    public String loginRequest(LoginRequestDto requestDto, HttpServletRequest servletRequest ,Model model){
 
         // 로그인 권한 체크
         String auth = requestDto.getLogin_radio();
@@ -43,6 +43,7 @@ public class AuthController {
         }
         else if(auth.equals("login_corp") && userNo != 0L) {
             servletRequest.getSession().setAttribute("corpNo", userNo);
+            servletRequest.getSession().setAttribute("auth_classify",1L);
             return "redirect:/counselor";
         }
         else if(auth.equals("login_coun") && userNo != 0L) {

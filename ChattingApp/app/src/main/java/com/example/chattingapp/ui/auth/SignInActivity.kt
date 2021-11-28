@@ -64,11 +64,10 @@ class SignInActivity : AppCompatActivity(), AuthListener {
         binding.lifecycleOwner = this
 
 
-        viewModel.signInResponse.observe(this){ it ->
-            flag = 0
-            if(it != null){
-                MyApplication.prefs.setUserEmail(it.email)
-                MyApplication.prefs.setUserName(it.name)
+        viewModel.signInResponse.observe(this){
+            if(it.equals("true")){
+//                MyApplication.prefs.setUserEmail(it.email)
+//                MyApplication.prefs.setUserName(it.name)
 
                 Log.d("tag", "로그인!!!!!!!!!!!!!!!!!")
 
@@ -82,15 +81,12 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                 }
 
                 val intent = Intent(this, MainActivity::class.java)
-//                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
-//                intent.putExtra("user", intentData)
                 startActivity(intent)
                 finish()
-
-            }
-            else{
-                toast("error")
-                viewModel.removeEditText()
+            } else{
+                Log.d("signin", "회원가입 안됨")
+                toast("비밀번호/이메일을 다시 확인해주세요.")
+//                viewModel.removeEditText()
             }
         }
 

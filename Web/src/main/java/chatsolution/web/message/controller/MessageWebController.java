@@ -1,6 +1,6 @@
 package chatsolution.web.message.controller;
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.fcm.service.FirebaseCloudMessageService;
@@ -68,8 +68,8 @@ public class MessageWebController {
 
         Corporation corporation = room.getCounselor().getCorporation();
         String title = corporation.getCorpName(); // 기업 이름
-
-        fcmService.sendMessageTo(token, title, newMessageDto.getMsg());
+        log.info(roomNo.toString());
+        fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString());
         return "success";
     }
 

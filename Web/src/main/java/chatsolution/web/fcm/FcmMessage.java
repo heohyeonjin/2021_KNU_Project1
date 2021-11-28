@@ -18,27 +18,26 @@ public class FcmMessage {
     @AllArgsConstructor
     @Getter
     public static class Message { // Message에 포함될 데이터
-        private Notification notification; // 모든 mobile 공통 notify
+//        private Notification notification; // 모든 mobile 공통 notify
         private Data data;
         private String token; // 특정 device에 알림
     }
 
+//    @Builder
+//    @AllArgsConstructor
+//    @Getter
+//    public static class Notification {
+//        private String title;
+//        private String body;
+//        private String image;
+//    }
     @Builder
     @AllArgsConstructor
     @Getter
     public static class Data {
-//        private String title;
-//        private String body;
-//        private String image;
-        private String RoomName;
-    }
-
-    @Builder
-    @AllArgsConstructor
-    @Getter
-    public static class Notification {
         private String title;
         private String body;
-        private String image;
+        private String roomId;
     }
+
 }

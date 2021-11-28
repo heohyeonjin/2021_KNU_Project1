@@ -2,16 +2,18 @@ package chatsolution.web.client.controller;
 
 
 import chatsolution.web.client.dto.*;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.client.service.ClientService;
+import chatsolution.web.counselor.service.CounselorService;
+import chatsolution.web.corporation.dto.CorpListDto;
+import chatsolution.web.corporation.dto.CorpPages;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Slf4j
@@ -21,13 +23,29 @@ import java.util.List;
 public class ClientController {
 
     private final ClientService clientService;
-
-    // 고객 리스트
+    private final CounselorService counselorService;
+    // 고객 리스트 페이징
     @GetMapping
-    public String clients(Model model) {
-        List<ClientListDto> clients = clientService.clientList();
-        log.info(clients.size()+"");
+    public String clientPaging(@RequestParam(value = "page", defaultValue = "0") int clientPage, Model model, HttpServletRequest request) {
+        Long corpNo = counselorService.getCorpNo(request.getSession()); // 기업 정보
+        if(corpNo==null) //기업 관리자 권한이 아닌 경우
+            corpNo=0L;
+        List<ClientListDto> clients = clientService.getClientListPage(clientPage,corpNo);
+        ClientPages pages = clientService.getClientPages(clientPage);
         model.addAttribute("clients", clients);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "client");
+        return "client/client_list";
+    }
+
+    // 고객 검색
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, @RequestParam(value = "page", defaultValue = "0") int clientPage, Model model) {
+        List<ClientListDto> clients = clientService.search(keyword, clientPage);
+        ClientPages pages = clientService.getSearchPages(clientPage, keyword);
+        model.addAttribute("clients", clients);
+        model.addAttribute("pages", pages);
+        model.addAttribute("nav", "client");
         return "client/client_list";
     }
 
@@ -38,6 +56,7 @@ public class ClientController {
         model.addAttribute("client", client);
         List<ClientCounListDto> counselingList = clientService.counselingList(clientNo);
         model.addAttribute("counList",counselingList);
+        model.addAttribute("nav", "client");
         return "client/client_info";
     }
 
@@ -48,6 +67,7 @@ public class ClientController {
         String corpName = clientService.getCorpName(roomNo);
         model.addAttribute("corpName",corpName);
         model.addAttribute("counseling_content",counContents);
+        model.addAttribute("nav", "client");
         return "client/counseling_content";
     }
 
@@ -56,6 +76,7 @@ public class ClientController {
     public String clientEditForm(@PathVariable long clientNo, Model model){
         ClientInfoDto client = clientService.clientInfo(clientNo);
         model.addAttribute("client", client);
+        model.addAttribute("nav", "client");
         return "client/client_edit";
     }
 

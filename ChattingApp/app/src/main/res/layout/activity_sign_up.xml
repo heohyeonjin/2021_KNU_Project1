@@ -183,7 +183,7 @@
                         android:layout_weight="1"
                         android:buttonTint="@color/purple_light"
                         android:text="여"
-                       android:textColor="@color/purple_light" />
+                        android:textColor="@color/purple_light" />
 
 
                 </RadioGroup>
