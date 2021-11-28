@@ -1,6 +1,6 @@
 package chatsolution.web.message.controller;
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.fcm.service.FirebaseCloudMessageService;
@@ -32,6 +32,7 @@ public class MessageWebController {
     public String roomList(Model model, HttpServletRequest request) {
 
         Long enter = (Long)request.getSession().getAttribute("counNo");
+        log.info("상담원 페이지 진입");
 
         Optional<Counselor> counselor = messageWebService.getCounName(enter);
         List<RoomListDto> rooms = messageWebService.roomList(enter);
@@ -59,12 +60,16 @@ public class MessageWebController {
     public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) throws IOException {
         log.info("전달받은 메세지: " + newMessageDto.getMsg());
         messageWebService.saveMsg(newMessageDto, roomNo);
+
         // token, title, content
         Room room = messageWebService.getRoom(roomNo);
         Client client = room.getClient();
         String token = client.getFcmToken(); // 클라이언트 토큰 값
-        Corporation corporation = room.getCounselor().getCorporation(); String title = corporation.getCorpName(); // 기업 이름
-        fcmService.sendMessageTo(token,title,newMessageDto.getMsg());
+
+        Corporation corporation = room.getCounselor().getCorporation();
+        String title = corporation.getCorpName(); // 기업 이름
+        log.info(roomNo.toString());
+        fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString());
         return "success";
     }
 

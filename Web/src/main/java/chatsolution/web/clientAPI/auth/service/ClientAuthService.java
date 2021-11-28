@@ -3,8 +3,8 @@ package chatsolution.web.clientAPI.auth.service;
 import chatsolution.web.clientAPI.auth.dto.IdDoubleCheckDto;
 import chatsolution.web.clientAPI.auth.dto.SignInRequestDto;
 import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
-import chatsolution.web.clientAPI.auth.model.Client;
-import chatsolution.web.clientAPI.auth.repository.ClientRepository;
+import chatsolution.web.client.model.Client;
+import chatsolution.web.client.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,7 +15,7 @@ import javax.transaction.Transactional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ClientAPIService {
+public class ClientAuthService {
 
     private final ClientRepository clientRepository;
     private final PasswordEncoder passwordEncoder;
@@ -40,22 +40,24 @@ public class ClientAPIService {
 
         Client newClient = new Client(requestDto);
         clientRepository.save(newClient);
+        newClient.setClientStatus(1); // 회원가입 시 상태 1
 
         return newClient.getClientEmail();
     }
 
     //로그인
-    public Client loginClient(SignInRequestDto signInRequestDto){
-        Client client = null;
+    public Client loginCheck(SignInRequestDto signInRequestDto){
         String ClientEmail = signInRequestDto.getEmail();
         Client findClient = clientRepository.findByClientEmail(ClientEmail);
-
         if(findClient!=null) {
             if (passwordEncoder.matches(signInRequestDto.getPassword(), findClient.getClientPw())) {
-                client = findClient;
+                return findClient;
             }
-            return client;
+            else{
+                log.info("패스워드 오류");
+                return null;
+            }
         }
-        return client;
-    }
+       return null;
+        }
 }

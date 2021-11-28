@@ -17,9 +17,28 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ChattingApp"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true"
         >
+
+
+        <!--        <activity-->
+        <!--            android:name=".ui.auth.SignInActivity"-->
+        <!--            android:exported="true">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+        <service android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
 
         <activity
             android:name=".ui.auth.SignInActivity"
@@ -58,6 +77,7 @@
         <activity android:name=".ui.ChatActivity" />
         <activity android:name=".ProfileActivity"/>
 
+
         <service android:name=".MyFirebaseMessagingService"
             android:enabled="true"
             android:exported="true">
@@ -74,4 +94,3 @@
     </application>
 
 </manifest>
-

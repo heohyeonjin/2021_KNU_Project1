@@ -1,0 +1,97 @@
+.inner{
+    height:740px;
+    background-color: rgb(226, 223, 223);
+    overflow: auto;
+}
+.answer_btn{
+    background-color: #EEB500;
+    margin: auto;
+    height: 1cm;
+}
+.answer_btn:hover{
+    background-color: goldenrod;
+}
+
+
+/* 말풍선 */
+.item {
+    margin-top:0px
+}
+.item .box{
+    display:inline-block;
+    max-width:180px;
+    position:relative
+}
+.item .box::before{
+    content:"";
+    position:absolute;
+    left:10px;
+    top:25px;
+    border-top:0px solid transparent;
+    border-bottom:18px solid transparent;
+    border-right:18px solid gold;
+}
+.item .box .msg {
+    font-size: 14px;
+    background-color: gold;
+    border: solid gold;
+    border-radius:15px;
+    padding:9px;
+    text-align:left;
+    box-shadow: 5px 5px 5px #B5BCC3;
+    margin-left: 20px;
+}
+.item .box .time {
+    font-size:10px;
+    color:#999;
+    position:absolute;
+    right: -80px;
+    bottom:15px;
+    width:70px
+}
+.item.mymsg{
+    text-align:right;
+
+}
+.item.mymsg .box::before{
+    content:"";
+    position:absolute;
+    left:68px;
+    top:25px;
+    border-top:0px solid transparent;
+    border-bottom:0px solid transparent;
+    border-left:0px solid #212529;
+    border-right:0px solid;
+}
+.item.mymsg .box .msg{
+    background-color: #32383E;
+    color: #F2F2F2;
+    border:solid #32383E;
+    margin-right: 15px;
+    box-shadow: -5px 5px 5px #B5BCC3;
+}
+.item.mymsg .box .time{
+    right:auto;
+    left:-60px;
+    bottom: 15px;
+}
+
+/* 날짜 */
+.hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.35);
+    font-size: 12px;
+    margin: 8px 0px;
+}
+.hr-sect::before,
+.hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+}

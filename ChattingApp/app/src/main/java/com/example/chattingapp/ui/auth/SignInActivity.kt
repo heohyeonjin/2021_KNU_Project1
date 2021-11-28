@@ -1,14 +1,17 @@
 package com.example.chattingapp.ui.auth
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.chattingapp.R
 import com.example.chattingapp.data.model.SignUpForm
+import com.example.chattingapp.data.service.ChatApiService
 import com.example.chattingapp.databinding.ActivityLoginBinding
 import com.example.chattingapp.ui.ChatActivity
 import com.example.chattingapp.ui.MainActivity
@@ -61,11 +64,10 @@ class SignInActivity : AppCompatActivity(), AuthListener {
         binding.lifecycleOwner = this
 
 
-        viewModel.signInResponse.observe(this){ it ->
-            flag = 0
-            if(it != null){
-                MyApplication.prefs.setUserEmail(it.email)
-                MyApplication.prefs.setUserName(it.name)
+        viewModel.signInResponse.observe(this){
+            if(it.equals("true")){
+//                MyApplication.prefs.setUserEmail(it.email)
+//                MyApplication.prefs.setUserName(it.name)
 
                 Log.d("tag", "로그인!!!!!!!!!!!!!!!!!")
 
@@ -78,16 +80,13 @@ class SignInActivity : AppCompatActivity(), AuthListener {
                     }
                 }
 
-                val intent = Intent(this, ChatActivity::class.java)
-//                val intentData = SignUpForm(binding.loginEmail.text.toString(), binding.loginPassword.text.toString(), it.name, it.gender, it.tel)
-//                intent.putExtra("user", intentData)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
-
-            }
-            else{
-                toast("error")
-                viewModel.removeEditText()
+            } else{
+                Log.d("signin", "회원가입 안됨")
+                toast("비밀번호/이메일을 다시 확인해주세요.")
+//                viewModel.removeEditText()
             }
         }
 

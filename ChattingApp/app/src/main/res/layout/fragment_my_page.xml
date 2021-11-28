@@ -1,47 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/main_blue"
-        android:orientation="vertical"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="12dp">
+        android:background="@color/white"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="12dp"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginBottom="5dp"
-                android:text="마이페이지"
-                android:textColor="@color/white"
-                android:textSize="23dp" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="8dp"
+            android:text="마이페이지"
+            android:textColor="@color/navy"
+            android:textSize="25dp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="@color/white"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginTop="12dp"
+            android:background="@color/navy" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/fragment_my_page_recyclerview"
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_marginHorizontal="40dp"
+            android:orientation="vertical">
 
-        </androidx.recyclerview.widget.RecyclerView>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileNameIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_person" />
+
+                <TextView
+                    android:id="@+id/mypage_name_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profileNameIcon"
+                    android:text="이름"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/mypage_input_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mypage_name_desc"
+                    android:layout_toRightOf="@+id/profileNameIcon"
+                    android:text="@string/profileName"
+                    android:textColor="@color/navy"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileEmailIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_email" />
+
+                <TextView
+                    android:id="@+id/mypage_email_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profileEmailIcon"
+                    android:text="@string/profileEmailText"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/mypage_input_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mypage_email_desc"
+                    android:layout_toRightOf="@+id/profileEmailIcon"
+                    android:text="@string/profileEmail"
+                    android:textColor="@color/navy"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profilePhoneIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/mypage_tel_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profilePhoneIcon"
+                    android:text="@string/profilePhoneText"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/mypage_input_tel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mypage_tel_desc"
+                    android:layout_toRightOf="@+id/profilePhoneIcon"
+                    android:text="010-1234-5678"
+                    android:textColor="@color/navy"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/profileGenderIcon"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/ic_phone" />
+
+                <TextView
+                    android:id="@+id/mypage_getder_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@+id/profileGenderIcon"
+                    android:text="성별"
+                    android:textColor="@color/purple"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/mypage_input_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/mypage_getder_desc"
+                    android:layout_toRightOf="@+id/profileGenderIcon"
+                    android:text="여자"
+                    android:textColor="@color/navy"
+                    android:textSize="18dp" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="15dp"
+                android:background="@color/purple_light" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>

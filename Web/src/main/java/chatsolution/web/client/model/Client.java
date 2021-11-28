@@ -1,4 +1,4 @@
-package chatsolution.web.clientAPI.auth.model;
+package chatsolution.web.client.model;
 
 import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
 import chatsolution.web.corporation.model.TimeStamped;
@@ -37,6 +37,8 @@ public class Client extends TimeStamped {
 
     @OneToMany(mappedBy="client")
     private List<Room> rooms;
+
+    private int clientStatus;
 
     private String fcmToken;
 

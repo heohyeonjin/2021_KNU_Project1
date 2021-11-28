@@ -114,6 +114,5 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         notificationManager.notify(uniId /* ID of notification */, notificationBuilder.build())
         notificationManager.notify(id, summarynotificationBuilder.build())
-
     }
 }

@@ -9,11 +9,11 @@ import lombok.Setter;
 
 @Getter @Setter
 @NoArgsConstructor
-public class EmbededCorpListDto {
+public class EmbeddedCorpListDto {
     private Long corpNo;
     private String corpName;
 
-    public EmbededCorpListDto(Corporation corporation){
+    public EmbeddedCorpListDto(Corporation corporation){
         this.corpNo = corporation.getCorpNo();
         this.corpName=corporation.getCorpName();
     }

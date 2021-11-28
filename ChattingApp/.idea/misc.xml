@@ -4,27 +4,36 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/btn_purple.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/chat_box.xml" value="0.15572916666666667" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/chat_text.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/menu_selector_chat.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/menu_selector_people.xml" value="0.12037037037037036" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/selected_chat.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/unselected_chat.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/desc_back.xml" value="0.15572916666666667" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/item_border.xml" value="0.11388888888888889" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/menu_selector_color.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/oval.xml" value="0.12037037037037036" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/solid_button.xml" value="0.18333333333333332" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.1" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password.xml" value="0.6" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.31399317406143346" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password.xml" value="0.18547140649149924" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password_success.xml" value="0.13697916666666668" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_main.xml" value="0.15925925925925927" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_multimedia_popup.xml" value="0.25" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_profile.xml" value="0.4" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_sign_up.xml" value="0.12663755458515283" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_date.xml" value="0.536" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_receive_msg.xml" value="0.2" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.22404371584699453" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.13125" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.1" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_date.xml" value="0.4826989619377163" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_receive_msg.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.6" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.2" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.2" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_email_success.xml" value="0.264" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_password.xml" value="0.536" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_password_success.xml" value="0.13580246913580246" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.12092391304347826" />
-        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.2" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.264" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_chattroomlist.xml" value="0.2" />
+        <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.46116504854368934" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/network_security_config.xml" value="0.10182370820668693" />
         <entry key="..\:/Users/USER/Desktop/KNU_Project1/Web-App-Chat-Solution/ChattingApp/app/src/main/res/menu/bottom_navigation_main.xml" value="0.1" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/drawable-v24/bg_border_white.xml" value="0.1" />
@@ -67,10 +76,47 @@
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/layout/fragment_chatting_list.xml" value="0.264" />
         <entry key="..\:/Users/USER/Desktop/android_workspace/ChattingApp/app/src/main/res/menu/bottom_navigation_main.xml" value="0.264" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/bg_border_white.xml" value="0.378125" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/button_background_purple.xml" value="0.378125" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/ic_person.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/ic_phone.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable-v24/menu_selector_people.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/ic_desc.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/menu_selector_color.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/solid_button.xml" value="0.378125" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find_password_success.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_multimedia_popup.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_date.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_receive_msg.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_send_msg.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_find_email_success.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/intro_layout.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/doyun/Documents/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/oval.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/drawable/solid_button.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_chat.xml" value="0.16271442986881937" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_find.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_login.xml" value="0.15312815338042382" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/activity_profile.xml" value="0.1" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/detail_date.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_chat_list.xml" value="0.33" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_company_list.xml" value="0.30833333333333335" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/fragment_my_page.xml" value="0.2972972972972973" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_chattroomlist.xml" value="0.33" />
+        <entry key="..\:/Users/hhj48/Documents/ChatSolution/Web-App-Chat-Solution/ChattingApp/app/src/main/res/layout/item_company.xml" value="0.33" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,22 +1,21 @@
 package chatsolution.web.clientAPI.message.controller;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
+import chatsolution.web.clientAPI.corporation.service.ClientCorpService;
+import chatsolution.web.clientAPI.message.dto.EnterDto;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
 import chatsolution.web.corporation.model.Corporation;
-import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Room;
-import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
@@ -24,44 +23,54 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ClientMessageController {
 
-    private final ClientMessageService messageClientService;
+    private final ClientMessageService clientMessageService;
     private final RoomService roomClientService;
-    private final CorpRepository corpRepository;
-    private final RoomRepository roomRepository;
     private final RoomService roomService;
+    private final ClientCorpService clientCorpService;
 
-    @GetMapping("/message/{roomNo}") // 채팅 방 안 메시지 내역
+    @GetMapping("/messages/{roomNo}") // 채팅 방 안 메시지 내역
     public List<MessageListDto> messageList(@PathVariable Long roomNo){
-        List<MessageListDto> messages = messageClientService.messageList(roomNo);
-        Optional<Room> findRoom = roomRepository.findById(roomNo);
-        Room room = findRoom.get();
-        roomService.msgReadProcess(room);
+        List<MessageListDto> messages = clientMessageService.messageList(roomNo);
+        Room room = roomService.findRoom(roomNo);
+        clientMessageService.msgReadProcess(room); // 읽음 처리
         return messages;
+    }
+
+   @GetMapping("/corporation/enter/{corpNo}") // 방 생성 유무 확인 (채팅 리스트 띄울 용도)
+   public EnterDto enterCorp(@PathVariable Long corpNo, HttpServletRequest request){
+        Client client = clientMessageService.getClient(request.getSession());
+        Long roomNo = clientMessageService.checkRoom(client,corpNo);
+        String corpName = clientMessageService.getCorpName(corpNo);
+        //roomNo랑 corpName 반환
+        if(roomNo!=0L){
+            return new EnterDto(roomNo,corpName,corpNo);
+        }
+        else{
+            return new EnterDto(0L,corpName,corpNo);
+        }
     }
 
     // 기업 선택 -> 메시지 하나 보내면 방 생성
     @PostMapping("/message/{corpNo}") // 메시지 전송 및 방 생성
-    public String sendMsg(@RequestBody MessageSendDto clientMessageSendDto , @PathVariable Long corpNo, HttpServletRequest request){
-        Client client = messageClientService.getClient(request.getSession()); //고객 정보
-        Long checkRoom = messageClientService.checkRoom(client,corpNo); //방 존재 유무 확인
+    public Long sendMsg(@RequestBody MessageSendDto clientMessageSendDto , @PathVariable Long corpNo, HttpServletRequest request){
+        Client client = clientMessageService.getClient(request.getSession()); //고객 정보
+        Long checkRoom = clientMessageService.checkRoom(client,corpNo); //방 존재 유무 확인
 
         if(checkRoom!=0L){ // 존재 하면 // 해당 방 안에 메시지 리스트 추가
-            messageClientService.addMessage(checkRoom,clientMessageSendDto);
-            log.info(clientMessageSendDto.getContent()+" 메시지 추가");
-            return "true";
+            clientMessageService.addMessage(checkRoom,clientMessageSendDto);
+            log.info(clientMessageSendDto.getContent());
+            return checkRoom;
         }
         else{
-            Optional<Corporation> corporation = corpRepository.findById(corpNo);
-            Corporation corp = corporation.get();
-
+            Corporation corp = clientCorpService.corpFind(corpNo); // 기업에 상담원이 존재하지 않는 경우
             if(corp.getCounselors().size()==0){
-                return "false";
+                return 0L;
             }
             Counselor counselor = corp.getCounselors().get(0);
             Long roomNo = roomClientService.createRoom(client, counselor); // 방 생성
-            messageClientService.addMessage(roomNo,clientMessageSendDto); // 메시지 추가
+            clientMessageService.addMessage(roomNo,clientMessageSendDto); // 메시지 추가
             log.info(clientMessageSendDto.getContent()+"방 생성");
-            return"true";
+            return roomNo;
         }
 
     }

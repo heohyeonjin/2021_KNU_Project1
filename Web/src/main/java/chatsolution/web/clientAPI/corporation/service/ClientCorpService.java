@@ -32,4 +32,10 @@ public class ClientCorpService {
         CorpDetailDto detail = new CorpDetailDto(corp);
         return detail;
     }
+
+    public Corporation corpFind(Long corpNo){
+        Optional<Corporation> findcorp = corpRepository.findById(corpNo);
+        Corporation corp = findcorp.get();
+        return corp;
+    }
 }

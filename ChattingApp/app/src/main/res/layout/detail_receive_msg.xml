@@ -3,9 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
-
-    </data>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,20 +12,36 @@
         android:layout_marginTop="10dp">
 
         <TextView
+            android:id="@+id/text_gchat_date_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp"
+            android:visibility="visible"
+            android:text="2021년 10월 15일"
+            android:textSize="10sp"
+            android:textColor="#C0C0C0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/text_gchat_user_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:text="회사 A"
-            android:textSize="10sp"
             android:textColor="@color/purple_light"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@+id/text_gchat_date_left"
             tools:ignore="MissingConstraints" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_gchat_message_other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="#eef1f6"
+            app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
             app:cardPreventCornerOverlap="false"
@@ -70,7 +83,5 @@
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="@+id/card_gchat_message_other"
             app:layout_constraintStart_toEndOf="@+id/card_gchat_message_other" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

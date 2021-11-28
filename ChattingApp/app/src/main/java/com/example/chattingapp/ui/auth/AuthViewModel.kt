@@ -19,6 +19,7 @@ import kotlinx.coroutines.launch
 
 class AuthViewModel() : ViewModel() {
 
+    var TAG = ""
 
     //토큰
     var myToken = ""
@@ -31,7 +32,6 @@ class AuthViewModel() : ViewModel() {
     var signupPhone = ObservableField<String>()
     var signupGender = ObservableField<Int>()
     var signUpResponseCode = ""
-    var TAG = ""
 
     // signIn field
     var signInEmail = ObservableField<String>()
@@ -88,8 +88,8 @@ class AuthViewModel() : ViewModel() {
     }
 
     // 로그인
-    private val _signInResponse : MutableLiveData<SignUpForm> = MutableLiveData()
-    val signInResponse : LiveData<SignUpForm> = _signInResponse
+    private val _signInResponse : MutableLiveData<String> = MutableLiveData()
+    val signInResponse : LiveData<String> = _signInResponse
 
     private val _signInLoading = MutableLiveData<Boolean>()
     val signInLoading: LiveData<Boolean> get() = _signInLoading
