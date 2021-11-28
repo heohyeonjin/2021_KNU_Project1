@@ -79,18 +79,18 @@ public class CorpService {
     }
 
     // 기업 로고 등록
-    public void imageUpload(MultipartFile logo) {
-        String uploadFolder = "/home/ubuntu/image";
-        String uploadFileName = logo.getOriginalFilename();
-        uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
-
-        File saveFile = new File(uploadFolder, uploadFileName);
-        try {
-            logo.transferTo(saveFile);
-        } catch (Exception e) {
-            log.error(e.getMessage());
-        }
-    }
+//    public void imageUpload(MultipartFile logo) {
+//        String uploadFolder = "/home/ubuntu/image";
+//        String uploadFileName = logo.getOriginalFilename();
+//        uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\") + 1);
+//
+//        File saveFile = new File(uploadFolder, uploadFileName);
+//        try {
+//            logo.transferTo(saveFile);
+//        } catch (Exception e) {
+//            log.error(e.getMessage());
+//        }
+//    }
 
     //기업 등록
     public CorpInfoDto saveCorp(CorpRegDto corpRegDto) {
