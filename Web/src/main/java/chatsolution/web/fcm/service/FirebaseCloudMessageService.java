@@ -20,8 +20,8 @@ public class FirebaseCloudMessageService {
     private final ObjectMapper objectMapper;
 
     // 매개변수로 전달받은 targetToken에 해당하는 device로 FCM 푸시알림 전송 요청
-    public void sendMessageTo(String targetToken, String title, String body) throws IOException {
-        String message = makeMessage(targetToken, title, body);
+    public void sendMessageTo(String targetToken, String title, String body, String roomId) throws IOException {
+        String message = makeMessage(targetToken, title, body, roomId);
 
         OkHttpClient client = new OkHttpClient();
         RequestBody requestBody = RequestBody.create(message, MediaType.get("application/json; charset=utf-8"));
@@ -37,15 +37,20 @@ public class FirebaseCloudMessageService {
         System.out.println(response.body().string());
     }
 
-    private String makeMessage(String targetToken, String title, String body) throws JacksonException {
+    private String makeMessage(String targetToken, String title, String body, String roomId) throws JacksonException {
         FcmMessage fcmMessage = FcmMessage.builder()
                 .message(FcmMessage.Message.builder()
                 .token(targetToken)
-                        .notification(FcmMessage.Notification.builder()
+//                        .notification(FcmMessage.Notification.builder()
+//                                .image(null)
+//                                .build()
+//                        )
+                        .data(FcmMessage.Data.builder()
                                 .title(title)
                                 .body(body)
-                                .image(null)
+                                .roomId(roomId)
                                 .build()
+
                         )
                         .build()
                 )

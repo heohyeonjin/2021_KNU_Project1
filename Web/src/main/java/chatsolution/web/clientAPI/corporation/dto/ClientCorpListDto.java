@@ -8,11 +8,13 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 public class ClientCorpListDto {
+    private Long corpNo;
     private String corpName;
-    private String corpAdmin;
+    private String corpDesc;
 
     public ClientCorpListDto(Corporation corporation){
+        this.corpNo=corporation.getCorpNo();
         this.corpName = corporation.getCorpName();
-        this.corpAdmin = corporation.getCorpAdmin();
+        this.corpDesc = corporation.getCorpDesc();
     }
 }

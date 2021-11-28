@@ -3,7 +3,7 @@ package chatsolution.web.clientAPI.auth.controller;
 import chatsolution.web.clientAPI.auth.dto.IdDoubleCheckDto;
 import chatsolution.web.clientAPI.auth.dto.SignInRequestDto;
 import chatsolution.web.clientAPI.auth.dto.SignUpRequestDto;
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.auth.service.ClientAuthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

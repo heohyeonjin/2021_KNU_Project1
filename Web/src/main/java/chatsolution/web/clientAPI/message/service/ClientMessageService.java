@@ -1,10 +1,11 @@
 package chatsolution.web.clientAPI.message.service;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
-import chatsolution.web.clientAPI.auth.repository.ClientRepository;
+import chatsolution.web.client.model.Client;
+import chatsolution.web.client.repository.ClientRepository;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
-import chatsolution.web.fcm.dto.TokenDto;
+import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
@@ -27,6 +28,7 @@ public class ClientMessageService {
     private final RoomRepository roomRepository;
     private final ClientRepository clientRepository;
     private final MessageRepository messageRepository;
+    private final CorpRepository corpRepository;
 
     // 클라이언트 No 값
     public Client getClient(HttpSession session){
@@ -44,18 +46,6 @@ public class ClientMessageService {
                 .collect(Collectors.toList());
     }
 
-    // 방 존재 유무 체크
-    public Long checkRoom(Client client, Long corpNo){
-        List<Room> room = client.getRooms();
-
-        for(int i =0 ; i<room.size();i++){
-           if(room.get(i).getCounselor().getCorporation().getCorpNo()==corpNo){
-               room.get(i).getRoomNo();
-               return room.get(i).getRoomNo();
-           }
-        }
-        return 0L;
-    }
 
     // 메시지 추가
     @Transactional
@@ -84,5 +74,26 @@ public class ClientMessageService {
     @Transactional
     public void saveToken(Client client, String token){
         client.setFcmToken(token);
+
+    }
+
+
+    // 방 존재 유무 체크
+    public Long checkRoom(Client client, Long corpNo){
+        List<Room> room = client.getRooms();
+        for(int i =0 ; i<room.size();i++){
+            if(corpNo==room.get(i).getCounselor().getCorporation().getCorpNo()){
+                room.get(i).getRoomNo();
+                return room.get(i).getRoomNo();
+            }
+        }
+        return 0L;
+    }
+
+    // 회사 이름 가져오기
+    public String getCorpName(Long corpNo){
+        Optional<Corporation> findCorp = corpRepository.findById(corpNo);
+        Corporation corp = findCorp.get();
+        return corp.getCorpName();
     }
 }

@@ -1,7 +1,6 @@
 package chatsolution.web.client.dto;
 
-import chatsolution.web.clientAPI.auth.model.Client;
-import com.google.cloud.GcpLaunchStage;
+import chatsolution.web.client.model.Client;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,10 +19,10 @@ public class ClientInfoDto {
         this.client_no=client.getClientNo();
         int status = client.getClientStatus();
         if(status==1){
-            this.client_status="사용 가능";
+            this.client_status="사용 중";
         }
         else{
-            this.client_status="사용 불가";
+            this.client_status="사용 정지";
         }
         this.client_name = client.getClientName();
         int gender = client.getClientGender();

@@ -18,10 +18,12 @@ public class MessageListDto {
     private String time;
     private int sender;
 
+
     public MessageListDto(Message message) {
         this.content = message.getMsgContent();
         this.date = message.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
         this.time = message.getCreatedAt().getHour() + ":" + message.getCreatedAt().getMinute();
         this.sender = message.getMsgSender();
+
     }
 }

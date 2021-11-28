@@ -1,17 +1,14 @@
 package chatsolution.web.clientAPI.message.service;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.counselor.model.Counselor;
-import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j

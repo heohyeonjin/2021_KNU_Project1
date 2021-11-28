@@ -1,7 +1,7 @@
 package chatsolution.web.message.model;
 
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import chatsolution.web.corporation.model.TimeStamped;
 import chatsolution.web.counselor.model.Counselor;
 import lombok.Getter;

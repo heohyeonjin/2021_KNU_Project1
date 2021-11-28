@@ -1,6 +1,6 @@
 package chatsolution.web.client.dto;
 
-import chatsolution.web.clientAPI.auth.model.Client;
+import chatsolution.web.client.model.Client;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -31,7 +31,7 @@ public class ClientListDto {
         this.date = client.getCreatedAt().toLocalDate().format(DateTimeFormatter.ISO_LOCAL_DATE);
         int status = client.getClientStatus();
         if(status==1){
-            this.client_status="사용 가능";
+            this.client_status="사용 중";
         }
         else{
             this.client_status="사용 정지";
