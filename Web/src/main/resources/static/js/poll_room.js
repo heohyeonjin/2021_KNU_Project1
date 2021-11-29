@@ -51,7 +51,7 @@ function addRoom(){
                                     </div>
                                 </a>`
                     } else {
-                        room = `<a onclick="window.open('/counseling/${roomNo}', '', 'width=450, height=800')" class="list-group-item" aria-current="true">
+                        room = `<a onclick="window.open('/counseling/${roomNo}', '', 'width=450, height=800')" style="cursor:hand" class="list-group-item" aria-current="true">
                                     <div class="d-flex w-100 justify-content-between">
                                         <img src='/images/person.svg' style="width:50px" href="#" alt=""/>
                                         <h5 class="text mb-1 mx-3 flex-fill">
@@ -70,7 +70,7 @@ function addRoom(){
 
                 lastRoom = response[response.length-1]['roomNo'];
             }
-            setTimeout(addRoom(),5);
+            setTimeout(addRoom(),15);
         },
         error: function(){
             alert("서버 에러입니다");
