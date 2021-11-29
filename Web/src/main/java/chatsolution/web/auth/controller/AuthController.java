@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 @Slf4j
 @Controller
+@RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
 
@@ -58,6 +59,6 @@ public class AuthController {
     @GetMapping("/logout")
     public String logout(HttpSession session){
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/auth";
     }
 }

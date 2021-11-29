@@ -30,14 +30,14 @@
                 <span class="slider round"></span>
             </label><br>
             <div class="mt-2">
-                <a class="logout" th:href="@{/auth/logout}" style="color:#EEB500; font-size:15px;">로그아웃</a>
+                <a class="logout" th:href="@{/}" style="color:#EEB500; font-size:15px;">로그아웃</a>
             </div>
         </div>
     </div>
 </header>
 
 
-<div class=counseling-list th:each="room: ${rooms}">
+<div class=counseling-list th:each="room: ${rooms}" style="cursor:hand">
     <div class="list-group" id="rooms"></div>
 </div>
 </body>
