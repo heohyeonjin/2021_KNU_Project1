@@ -29,7 +29,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="80dp"
             android:layout_marginHorizontal="40dp"
             android:orientation="vertical">
 
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mypage_name_desc"
                     android:layout_toRightOf="@+id/profileNameIcon"
-                    android:text="@string/profileName"
+                    android:text=""
                     android:textColor="@color/navy"
                     android:textSize="18dp" />
 
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mypage_email_desc"
                     android:layout_toRightOf="@+id/profileEmailIcon"
-                    android:text="@string/profileEmail"
+                    android:text=""
                     android:textColor="@color/navy"
                     android:textSize="18dp" />
 
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mypage_tel_desc"
                     android:layout_toRightOf="@+id/profilePhoneIcon"
-                    android:text="010-1234-5678"
+                    android:text=""
                     android:textColor="@color/navy"
                     android:textSize="18dp" />
 
@@ -174,7 +174,7 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="15dp"
-                    android:src="@drawable/ic_phone" />
+                    android:src="@drawable/ic_gender" />
 
                 <TextView
                     android:id="@+id/mypage_getder_desc"
@@ -192,7 +192,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/mypage_getder_desc"
                     android:layout_toRightOf="@+id/profileGenderIcon"
-                    android:text="여자"
+                    android:text=""
                     android:textColor="@color/navy"
                     android:textSize="18dp" />
 
@@ -204,6 +204,32 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="15dp"
                 android:background="@color/purple_light" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/solid_button"
+                android:text="수정하기"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="19dp" />
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/navy_button"
+                android:text="로그아웃"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="19dp" />
 
         </LinearLayout>
 
