@@ -25,14 +25,22 @@
             android:background="@color/navy" />
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="40dp"
             android:layout_marginHorizontal="40dp"
             android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="170dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="50dp"
+                android:layout_gravity="center"
+                android:text="Intro"
+                android:textSize="21dp"
+                android:textColor="#000000"
+                android:src="@drawable/logo"/>
 
 
             <RelativeLayout
@@ -208,20 +216,20 @@
             <Button
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="40dp"
                 android:layout_gravity="right"
-                android:layout_marginTop="40dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/solid_button"
                 android:text="수정하기"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                android:textSize="19dp" />
+                android:textSize="15dp" />
 
             <Button
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="40dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
@@ -229,7 +237,7 @@
                 android:text="로그아웃"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="19dp" />
+                android:textSize="15dp" />
 
         </LinearLayout>
 
