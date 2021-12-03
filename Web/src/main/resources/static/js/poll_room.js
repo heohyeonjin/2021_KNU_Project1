@@ -70,7 +70,7 @@ function addRoom(){
 
                 lastRoom = response[response.length-1]['roomNo'];
             }
-            setTimeout(addRoom(),15);
+            setTimeout(addRoom,1000);
         },
         error: function(){
             alert("서버 에러입니다");

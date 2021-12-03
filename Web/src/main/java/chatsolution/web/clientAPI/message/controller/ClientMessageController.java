@@ -66,7 +66,9 @@ public class ClientMessageController {
             if(corp.getCounselors().size()==0){
                 return 0L;
             }
-            Counselor counselor = corp.getCounselors().get(0);
+//            Counselor counselor = cou
+            Counselor counselor = corp.getCounselors().get(0); // 매칭 시스템
+
             Long roomNo = roomClientService.createRoom(client, counselor); // 방 생성
             clientMessageService.addMessage(roomNo,clientMessageSendDto); // 메시지 추가
             log.info(clientMessageSendDto.getContent()+"방 생성");
