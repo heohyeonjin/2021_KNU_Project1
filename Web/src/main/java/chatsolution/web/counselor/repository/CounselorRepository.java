@@ -19,4 +19,6 @@ public interface CounselorRepository extends JpaRepository<Counselor, Long> {
     List<Counselor> findAllByCorporationCorpNo(Long corpNo);
     Page<Counselor> findAllByCounNameContaining(String counName, Pageable pageable);
     List<Counselor> findByCounNameContaining(String counName);
+
+    List<Counselor> findAllByCorporationCorpNoOrderByRoomSizeAsc(Long corpNo);
 }

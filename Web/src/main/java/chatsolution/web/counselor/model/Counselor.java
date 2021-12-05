@@ -40,6 +40,8 @@ public class Counselor extends TimeStamped {
 
     private int counGender;    // 상담원 성별
 
+    private int roomSize;
+
     @OneToMany(mappedBy = "counselor")
     private List<Room> rooms;
 
@@ -65,6 +67,7 @@ public class Counselor extends TimeStamped {
         this.counPhone = counRegDto.getCoun_phone();
         this.counEmail = counRegDto.getCoun_email();
         this.counStatus=1;
+        this.roomSize=0;
     }
 
 }

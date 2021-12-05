@@ -5,16 +5,16 @@ import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.message.dto.ClientRoomListDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
+import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -24,7 +24,6 @@ import java.util.stream.Collectors;
 public class ClientRoomController {
     private final ClientMessageService messageClientService;
     private final RoomRepository roomRepository;
-    private final RoomService roomService;
 
     //채팅방 리스트
     @GetMapping("/rooms")

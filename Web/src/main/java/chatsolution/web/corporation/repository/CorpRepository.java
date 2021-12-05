@@ -1,6 +1,7 @@
 package chatsolution.web.corporation.repository;
 
 import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.counselor.model.Counselor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,4 +17,5 @@ public interface CorpRepository extends JpaRepository<Corporation, Long> {
     Page<Corporation> findAll(Pageable pageable);
     Page<Corporation> findAllByCorpNameContaining(String corpName, Pageable pageable);
     List<Corporation> findByCorpNameContaining(String corpName);
+
 }

@@ -8,7 +8,9 @@ import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
 import chatsolution.web.clientAPI.message.service.RoomService;
 import chatsolution.web.corporation.model.Corporation;
+import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Room;
 import lombok.RequiredArgsConstructor;
@@ -66,10 +68,8 @@ public class ClientMessageController {
             if(corp.getCounselors().size()==0){
                 return 0L;
             }
-//            Counselor counselor = cou
-            Counselor counselor = corp.getCounselors().get(0); // 매칭 시스템
-
-            Long roomNo = roomClientService.createRoom(client, counselor); // 방 생성
+            Counselor matchCoun = clientMessageService.CounselorMatching(corpNo);  // 상담원 매칭 시스템
+            Long roomNo = roomClientService.createRoom(client, matchCoun); // 방 생성
             clientMessageService.addMessage(roomNo,clientMessageSendDto); // 메시지 추가
             log.info(clientMessageSendDto.getContent()+"방 생성");
             return roomNo;
