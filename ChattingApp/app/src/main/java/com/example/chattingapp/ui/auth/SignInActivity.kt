@@ -93,7 +93,7 @@ class SignInActivity : AppCompatActivity(), AuthListener {
 
         viewModel.tokenResponse.observe(this) {
             if(it.equals("true")) {
-                toast("토큰 보냄")
+//                toast("토큰 보냄")
             } else {
                 toast("토큰 못보냄")
             }

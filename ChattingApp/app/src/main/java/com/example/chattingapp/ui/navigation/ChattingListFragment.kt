@@ -1,7 +1,10 @@
 package com.example.chattingapp.ui.navigation
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Message
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +33,26 @@ class ChattingListFragment : Fragment() {
         fun newInstance() : ChattingListFragment {
             return ChattingListFragment()
         }
+//        var mChattinglist : ChattingListFragment? = null
+//        val CHAT_IN_MSG = 100
+//        var mHandler_Chat = @SuppressLint("HandlerLeak")
+//
+//        object: Handler(){
+//            override fun handleMessage(msg: Message) {
+//                var _sel  = msg.what
+//
+//                when(_sel){
+//                    CHAT_IN_MSG -> {
+//                        ChatApiService.instance.getChatRoomList {
+//                            mChattinglist!!.chatRoomListAdapter.chatroomList.clear()
+//                            for(room in it) {
+//                                mChattinglist!!.chatRoomListAdapter.setChatList(room)
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 
     var chatRoomList = ArrayList<RoomDTO>()
