@@ -42,7 +42,6 @@ class CompanyAdapter (val companyList: ArrayList<Company>) :
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         holder?.bind(companyList[position],position)
-
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it, position)
         }
