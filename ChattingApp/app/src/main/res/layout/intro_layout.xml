@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="100dp"
         android:text="Intro"
         android:textSize="21dp"
-        android:textColor="#000000"/>
+        android:textColor="#000000"
+        android:src="@drawable/logo"/>
 
 </LinearLayout>

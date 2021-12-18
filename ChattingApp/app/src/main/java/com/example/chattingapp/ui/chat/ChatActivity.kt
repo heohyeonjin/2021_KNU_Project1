@@ -1,6 +1,9 @@
 package com.example.chattingapp.ui
 
+import android.app.NotificationManager
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
@@ -28,7 +31,7 @@ import com.example.chattingapp.ui.navigation.CompanyListFragment
 import com.example.chattingapp.utils.NetworkConnection
 import com.example.chattingapp.utils.NetworkStatus
 import com.example.chattingapp.utils.toast
-import org.w3c.dom.Text
+import retrofit2.http.Tag
 
 class ChatActivity : AppCompatActivity() {
 
@@ -38,11 +41,20 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var binding: ActivityChatBinding
     lateinit var viewModel : ChatViewModel
     lateinit var chatViewModelFactory: ChatViewModelFactory
+    val TAG = "msg"
     lateinit var enterDTO : EnterDTO
-    lateinit var chatListFragment: ChattingListFragment
+
+    override fun onNewIntent(intent: Intent?) {
+            super.onNewIntent(intent)
+        val newdata : EnterDTO = intent!!.getParcelableExtra("EnterDTO")!!
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancel(newdata.roomNo.toInt())
+        Log.d(TAG, "msgdata : $newdata")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_chat)
         var chatCompanyName = findViewById<TextView>(R.id.chat_name)
         var endButton = findViewById<Button>(R.id.chat_back)
@@ -52,6 +64,7 @@ class ChatActivity : AppCompatActivity() {
             if (isConnected) NetworkStatus.status = true
             else NetworkStatus.status = false
         }
+     
 
         //초기화
         enterDTO = EnterDTO(0L, "", 0L)
@@ -68,7 +81,11 @@ class ChatActivity : AppCompatActivity() {
                 }
             }
         }
-
+        
+         // notification 전부 지움
+        val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.cancel(enterDTO.roomNo.toInt())
+      
         viewAdapter = ChatRoomAdapter(datas, chatCompanyName.text.toString())
         ChatActivityRecycleview = findViewById(R.id.chat_content)
         ChatActivityRecycleview.adapter = viewAdapter

@@ -33,7 +33,7 @@
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="-10dp"
+                    android:layout_marginLeft="10dp"
                     android:background="#00ff0000"
                     android:drawableLeft="@drawable/ic_back_purple"
                     android:paddingVertical="10dp"
@@ -109,6 +109,7 @@
                 android:textSize="15sp"
                 android:background="@drawable/chat_text"
                 android:text="@={viewmodel.sendContent}"
+                android:textColor="@color/black"
                 android:hint="입력하세요." />
 
             <ImageButton

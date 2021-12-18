@@ -15,7 +15,7 @@ public class CorpRegDto {
     private String corp_pw;
     private String corp_phone;
     private String corp_email;
-    private MultipartFile corp_logo;
+    private String corp_logo;
     private String corp_descrip;
 
 }
