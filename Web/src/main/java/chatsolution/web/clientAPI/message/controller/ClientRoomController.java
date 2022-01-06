@@ -4,7 +4,6 @@ package chatsolution.web.clientAPI.message.controller;
 import chatsolution.web.client.model.Client;
 import chatsolution.web.clientAPI.message.dto.ClientRoomListDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
-import chatsolution.web.clientAPI.message.service.RoomService;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +23,6 @@ import java.util.stream.Collectors;
 public class ClientRoomController {
     private final ClientMessageService messageClientService;
     private final RoomRepository roomRepository;
-    private final RoomService roomService;
 
     //채팅방 리스트
     @GetMapping("/rooms")

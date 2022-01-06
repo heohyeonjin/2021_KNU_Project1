@@ -94,4 +94,11 @@ public class MessageWebService {
       return room;
     }
 
+    // 상담원과 매칭된 고객 수 줄이기
+    @Transactional
+    public void decreaingMatching(Long counNo){
+        Optional<Counselor> counselor = counselorRepository.findById(counNo);
+        counselor.get().setMatching(counselor.get().getMatching() - 1);
+    }
+
 }

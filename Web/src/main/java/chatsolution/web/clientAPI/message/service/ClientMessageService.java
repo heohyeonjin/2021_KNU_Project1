@@ -6,6 +6,8 @@ import chatsolution.web.client.repository.ClientRepository;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
+import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
@@ -29,6 +31,7 @@ public class ClientMessageService {
     private final ClientRepository clientRepository;
     private final MessageRepository messageRepository;
     private final CorpRepository corpRepository;
+    private final CounselorRepository counselorRepository;
 
     // 클라이언트 No 값
     public Client getClient(HttpSession session){
@@ -95,5 +98,21 @@ public class ClientMessageService {
         Optional<Corporation> findCorp = corpRepository.findById(corpNo);
         Corporation corp = findCorp.get();
         return corp.getCorpName();
+    }
+
+    // 상담원 매칭 시스템
+    @Transactional
+    public Counselor CounselorMatching(Long corpNo){
+        List<Counselor> counselors = counselorRepository.findAllByCorporationCorpNoOrderByMatchingAsc(corpNo);
+
+        for(int i = 0 ;i<counselors.size();i++){
+            log.info(counselors.get(i).getCounName() + "의 상담 고객 수: " + counselors.get(i).getRooms().size());
+            log.info(counselors.get(i).getCounName() + "의 방 사이즈: " + counselors.get(i).getMatching());
+        }
+
+        Counselor matchCoun = counselors.get(0);
+        matchCoun.setMatching(matchCoun.getMatching() + 1);
+        log.info("매칭된 상담원 :" + matchCoun.getCounName());
+        return matchCoun;
     }
 }

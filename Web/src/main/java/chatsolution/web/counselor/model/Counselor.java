@@ -40,6 +40,8 @@ public class Counselor extends TimeStamped {
 
     private int counGender;    // 상담원 성별
 
+    private int matching;      // 상담원과 현재 매칭된 고객 수
+
     @OneToMany(mappedBy = "counselor")
     private List<Room> rooms;
 
