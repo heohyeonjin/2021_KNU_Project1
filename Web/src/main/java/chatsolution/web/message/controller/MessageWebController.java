@@ -5,6 +5,7 @@ import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.fcm.service.FirebaseCloudMessageService;
 import chatsolution.web.message.dto.*;
+import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.service.MessageWebService;
 import com.google.api.Http;
@@ -59,18 +60,21 @@ public class MessageWebController {
     // web에서 메세지 전송
     @PostMapping("/{roomNo}/send")
     public @ResponseBody String msgSend(@PathVariable Long roomNo, NewMessageDto newMessageDto) throws IOException {
-        log.info("전달받은 메세지: " + newMessageDto.getMsg());
+        // token, title, content , roomNo, msgNo
+
+        log.info("전달받은 메세지: " + newMessageDto.getMsg()); // 메세지 내용
         messageWebService.saveMsg(newMessageDto, roomNo);
 
-        // token, title, content
-        Room room = messageWebService.getRoom(roomNo);
+        Room room = messageWebService.getRoom(roomNo); // 방 번호
         Client client = room.getClient();
         String token = client.getFcmToken(); // 클라이언트 토큰 값
 
         Corporation corporation = room.getCounselor().getCorporation();
         String title = corporation.getCorpName(); // 기업 이름
-        log.info(roomNo.toString());
-        fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString());
+
+        Long msgNo = messageWebService.getLastMsgNo();
+        log.info("최근 메세지 번호 : "+msgNo);
+        fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString(), msgNo.toString());
         return "success";
     }
 
@@ -81,5 +85,4 @@ public class MessageWebController {
 
         return "success";
     }
-
 }

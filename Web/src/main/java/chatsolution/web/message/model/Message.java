@@ -24,7 +24,7 @@ public class Message extends TimeStamped {
 
     private int msgType;        // 메세지 타입
 
-    private int msgStatus;      // 메세지 전송상태
+    private int msgStatus;      // 메세지 전송 상태 (클라이언트 푸쉬알람 수신 상태)
 
     private int msgSender;      // 보낸 사람 (상담원 : 0 고객 : 1)
 
@@ -38,8 +38,7 @@ public class Message extends TimeStamped {
 
     public Message(NewMessageDto newMessageDto, Room room) {
         this.msgContent = newMessageDto.getMsg();
-        this.msgType = newMessageDto.getMsgType();
-        this.msgStatus = 1;
+        this.msgStatus = 0;
         this.msgSender = 0;
         this.counRead = 1;
         this.clientRead = 0;
