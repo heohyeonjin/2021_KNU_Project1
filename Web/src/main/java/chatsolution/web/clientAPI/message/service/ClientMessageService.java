@@ -7,6 +7,8 @@ import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.corporation.repository.CorpRepository;
 import chatsolution.web.fcm.service.FirebaseCloudMessageService;
+import chatsolution.web.counselor.model.Counselor;
+import chatsolution.web.counselor.repository.CounselorRepository;
 import chatsolution.web.message.dto.MessageListDto;
 import chatsolution.web.message.model.Message;
 import chatsolution.web.message.model.Room;
@@ -16,7 +18,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class ClientMessageService {
     private final MessageRepository messageRepository;
     private final CorpRepository corpRepository;
     private final FirebaseCloudMessageService fcmService;
+    private final CounselorRepository counselorRepository;
 
     // 클라이언트 No 값
     public Client getClient(HttpSession session) {
@@ -117,7 +119,7 @@ public class ClientMessageService {
             Room room = rooms.get(i);
             int msgSize = room.getMsgSize();
             Message lastMsg = room.getMessages().get(msgSize - 1);
-            log.info("메세지 수신 상태"+lastMsg.getMsgStatus());
+            log.info("메세지 수신 상태" + lastMsg.getMsgStatus());
             if (lastMsg.getMsgStatus() == 0) { // 미 수신 메세지라면
                 String token = client.getFcmToken();
                 Corporation corporation = room.getCounselor().getCorporation();
@@ -125,6 +127,21 @@ public class ClientMessageService {
                 fcmService.sendMessageTo(token, title, lastMsg.getMsgContent(), room.getRoomNo().toString(), lastMsg.getMsgNo().toString());
             }
         }
+    }
 
+    // 상담원 매칭 시스템
+    @Transactional
+    public Counselor CounselorMatching(Long corpNo){
+        List<Counselor> counselors = counselorRepository.findAllByCorporationCorpNoOrderByMatchingAsc(corpNo);
+
+        for(int i = 0 ;i<counselors.size();i++){
+            log.info(counselors.get(i).getCounName() + "의 상담 고객 수: " + counselors.get(i).getRooms().size());
+            log.info(counselors.get(i).getCounName() + "의 방 사이즈: " + counselors.get(i).getMatching());
+        }
+
+        Counselor matchCoun = counselors.get(0);
+        matchCoun.setMatching(matchCoun.getMatching() + 1);
+        log.info("매칭된 상담원 :" + matchCoun.getCounName());
+        return matchCoun;
     }
 }

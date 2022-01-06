@@ -95,10 +95,17 @@ public class MessageWebService {
     }
 
     // 방금 보낸 메세지 번호
-    public Long getLastMsgNo(){
+    public Long getLastMsgNo() {
         Message message = messageRepository.findTopByOrderByMsgNoDesc();
         Long msgNo = message.getMsgNo();
         return msgNo;
+    }
+
+    // 상담원과 매칭된 고객 수 줄이기
+    @Transactional
+    public void decreaingMatching(Long counNo){
+        Optional<Counselor> counselor = counselorRepository.findById(counNo);
+        counselor.get().setMatching(counselor.get().getMatching() - 1);
     }
 
 }

@@ -69,3 +69,16 @@ function msgSend(roomNo){
         }
     });
 }
+
+function decreasingMatching(){
+    $.ajax({
+        url:'/counseling/matching',
+        type: 'post',
+        success: function(returnValue){
+            window.close();
+        },
+        error: function(){
+            alert("상담 종료에 실패하였습니다.");
+        }
+    })
+}

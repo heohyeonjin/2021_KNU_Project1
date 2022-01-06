@@ -6,7 +6,7 @@ import chatsolution.web.clientAPI.corporation.service.ClientCorpService;
 import chatsolution.web.clientAPI.message.dto.EnterDto;
 import chatsolution.web.clientAPI.message.dto.MessageSendDto;
 import chatsolution.web.clientAPI.message.service.ClientMessageService;
-import chatsolution.web.clientAPI.message.service.RoomService;
+import chatsolution.web.clientAPI.message.service.ClientRoomService;
 import chatsolution.web.corporation.model.Corporation;
 import chatsolution.web.counselor.model.Counselor;
 import chatsolution.web.message.dto.MessageListDto;
@@ -24,14 +24,13 @@ import java.util.List;
 public class ClientMessageController {
 
     private final ClientMessageService clientMessageService;
-    private final RoomService roomClientService;
-    private final RoomService roomService;
+    private final ClientRoomService clientRoomService;
     private final ClientCorpService clientCorpService;
 
     @GetMapping("/messages/{roomNo}") // 채팅 방 안 메시지 내역
     public List<MessageListDto> messageList(@PathVariable Long roomNo){
         List<MessageListDto> messages = clientMessageService.messageList(roomNo);
-        Room room = roomService.findRoom(roomNo);
+        Room room = clientRoomService.findRoom(roomNo);
         clientMessageService.msgReadProcess(room); // 읽음 처리
         return messages;
     }
@@ -48,7 +47,7 @@ public class ClientMessageController {
         else{
             return new EnterDto(0L,corpName,corpNo);
         }
-    }
+   }
 
     // 기업 선택 -> 메시지 하나 보내면 방 생성
     @PostMapping("/message/{corpNo}") // 메시지 전송 및 방 생성
@@ -56,7 +55,7 @@ public class ClientMessageController {
         Client client = clientMessageService.getClient(request.getSession()); //고객 정보
         Long checkRoom = clientMessageService.checkRoom(client,corpNo); //방 존재 유무 확인
 
-        if(checkRoom!=0L){ // 존재 하면 // 해당 방 안에 메시지 리스트 추가
+        if(checkRoom!=0L){ // 존재 하면 해당 방 안에 메시지 리스트 추가
             clientMessageService.addMessage(checkRoom,clientMessageSendDto);
             log.info(clientMessageSendDto.getContent());
             return checkRoom;
@@ -66,12 +65,13 @@ public class ClientMessageController {
             if(corp.getCounselors().size()==0){
                 return 0L;
             }
-            Counselor counselor = corp.getCounselors().get(0);
-            Long roomNo = roomClientService.createRoom(client, counselor); // 방 생성
+            Counselor counselor = clientMessageService.CounselorMatching(corpNo);
+
+            Long roomNo = clientRoomService.createRoom(client, counselor); // 방 생성
             clientMessageService.addMessage(roomNo,clientMessageSendDto); // 메시지 추가
+
             log.info(clientMessageSendDto.getContent()+"방 생성");
             return roomNo;
         }
-
     }
 }
