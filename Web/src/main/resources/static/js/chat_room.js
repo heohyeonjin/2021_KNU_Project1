@@ -55,8 +55,7 @@ function msgSend(roomNo){
         url:'/counseling/' + roomNo + '/send',
         type:'post', //POST 방식으로 전달
         data:{
-            msg:msg,
-            msgType:msgType,
+            msg:msg
         },
         success: function(returnValue){
             if (returnValue) {

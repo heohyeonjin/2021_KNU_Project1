@@ -94,4 +94,11 @@ public class MessageWebService {
       return room;
     }
 
+    // 방금 보낸 메세지 번호
+    public Long getLastMsgNo(){
+        Message message = messageRepository.findTopByOrderByMsgNoDesc();
+        Long msgNo = message.getMsgNo();
+        return msgNo;
+    }
+
 }
