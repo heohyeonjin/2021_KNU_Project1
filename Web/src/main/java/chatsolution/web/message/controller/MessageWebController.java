@@ -7,6 +7,7 @@ import chatsolution.web.fcm.service.FirebaseCloudMessageService;
 import chatsolution.web.message.dto.*;
 import chatsolution.web.message.model.Room;
 import chatsolution.web.message.service.MessageWebService;
+import com.google.api.Http;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -70,6 +71,14 @@ public class MessageWebController {
         String title = corporation.getCorpName(); // 기업 이름
         log.info(roomNo.toString());
         fcmService.sendMessageTo(token, title, newMessageDto.getMsg(), roomNo.toString());
+        return "success";
+    }
+
+    @PostMapping("/matching")
+    public @ResponseBody String decMatching(HttpServletRequest request) {
+        Long counselor = (Long)request.getSession().getAttribute("counNo");
+        messageWebService.decreaingMatching(counselor);
+
         return "success";
     }
 

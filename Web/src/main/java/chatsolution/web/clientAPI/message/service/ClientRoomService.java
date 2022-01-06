@@ -14,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class RoomService {
+public class ClientRoomService {
 
     final private RoomRepository roomRepository;
 
